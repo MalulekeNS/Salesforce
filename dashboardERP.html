@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Dashboard - TekSA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            box-sizing: border-box;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        /* Button Styling */
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ERP Dashboard - TekSA</h1>
+        <p>Overview of key metrics, recent activities, and operational summaries.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardERP.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Sales Overview</h3>
+            <p>Track overall sales performance and financial metrics.</p>
+            <a href="finance.html" class="button">View Sales Report</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Inventory Levels</h3>
+            <p>View current stock levels and trends in your warehouse.</p>
+            <a href="inventory.html" class="button">Manage Inventory</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Employee Performance</h3>
+            <p>Track employee productivity and monitor HR tasks.</p>
+            <a href="hr.html" class="button">View HR Reports</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Procurement Insights</h3>
+            <p>Review supplier performance and procurement activities.</p>
+            <a href="procurement.html" class="button">View Procurement</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Production Efficiency</h3>
+            <p>Monitor production schedules and resource allocation.</p>
+            <a href="production.html" class="button">View Production Status</a>
+        </div>
+    </div>
+
+</body>
+</html>

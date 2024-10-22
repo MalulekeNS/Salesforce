@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .header .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .header .top-right a, .header .top-right button {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #3498DB;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .header .top-right a:hover, .header .top-right button:hover {
+            background-color: #1B4F72;
+        }
+        .header .top-right .notification {
+            display: inline-flex;
+            align-items: center;
+        }
+        .header .top-right .notification .icon::before {
+            content: '🔔'; /* Notification icon */
+        }
+        .header .top-right .notification .badge {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 45%;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=text], input[type=email], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+        /* Chatbot button styles */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2980B9;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .chat-button:hover {
+            background-color: #1B4F72;
+        }
+        /* Chat window */
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .chat-window header {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chat-window p {
+            padding: 10px;
+        }
+        .chat-window input[type=text] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        /* Search bar styles */
+        .search-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .search-container input[type=text] {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+        .search-container button {
+            padding: 10px;
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>TekSA</h1>
+        <p>All in one Management Business platform.</p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchTerm" placeholder="Search TekSA..." onkeypress="search(event)">
+            <button onclick="search()">Search</button>
+        </div>
+
+        <!-- Top right section with Login, Invite, and Notifications -->
+        <div class="top-right">
+            <!-- Notification button -->
+            <button class="notification">
+                <span class="icon"></span>
+                <span class="badge">3</span> <!-- Notification count -->
+            </button>
+            <a href="#">Login</a>
+            <a href="#">Invite</a>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="erp.html">ERP</a>
+        <a href="Inventory.html">Inventory</a>
+        <a href="#">Ecommerce</a>
+    </div>
+
+    <div class="container">
+        <!-- Customer Management Card -->
+        <div class="card">
+            <h2>Customer Management</h2>
+            <form action="/submit-customer" method="POST">
+                <label for="name">Customer Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter customer name" required>
+
+                <label for="email">Customer Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter customer email" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="new">New</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+
+                <input type="submit" value="Send Email">
+            </form>
+        </div>
+
+        <!-- Lead Tracking Card -->
+        <div class="card">
+            <h2>Lead Tracking</h2>
+            <table>
+                <tr>
+                    <th>Lead Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>John Mahlangu</td>
+                    <td>Mahlanguj@gmail.com</td>
+                    <td>New</td>
+                </tr>
+                <tr>
+                    <td>Jane Simelane</td>
+                    <td>janeS@outlook.com</td>
+                    <td>Contacted</td>
+                </tr>
+                <tr>
+                    <td>Mark Davis</td>
+                    <td>mark@eteksa.co.za</td>
+                    <td>Closed</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Chatbot button -->
+    <button class="chat-button" onclick="openChat()">Hi, how can I help you?</button>
+
+    <!-- Chat window -->
+    <div class="chat-window" id="chatWindow">
+        <header>Chat Support</header>
+        <p>Hello! How can I assist you today?</p>
+        <input type="text" placeholder="Type your message...">
+    </div>
+
+    <script>
+        function openChat() {
+            var chatWindow = document.getElementById("chatWindow");
+            if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+                chatWindow.style.display = "block";
+            } else {
+                chatWindow.style.display = "none";
+            }
+        }
+
+        function search(event) {
+            if (event.type === 'keypress' && event.key !== 'Enter') {
+                return;
+            }
+            const searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+            // Redirect to a dynamic search page or implement server-side search logic
+            window.location.href = `/search.html?q=${encodeURIComponent(searchTerm)}`;
+        }
+    </script>
+
+</body>
+</html>

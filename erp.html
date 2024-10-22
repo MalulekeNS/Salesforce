@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Features - TekSA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1; /* Blue color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9; /* Blue color */
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB; /* Blue color */
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72; /* Darker blue hover */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            box-sizing: border-box;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+
+        .button {
+            background-color: #3498DB; /* Blue button */
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ERP TekSA</h1>
+        <p>Manage inventory, finances, HR, and more with TekSA ERP.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardERP.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="#">Finance</a>
+        <a href="#">HR</a>
+        <a href="#">Procurement</a>
+        <a href="#">Production</a>
+        <a href="#">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Inventory Management</h3>
+            <p>Monitor stock levels, track orders, and manage warehouses efficiently.</p>
+            <a href="inventoryManagement.html" class="button">Manage Inventory</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Finance</h3>
+            <p>Manage your financial operations, including accounts and payroll.</p>
+            <a href="financeManagement.html" class="button">Manage Finances</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Human Resources</h3>
+            <p>Oversee employee data, payroll, and performance evaluations.</p>
+            <a href="hrManagement.html" class="button">Manage HR</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Procurement</h3>
+            <p>Handle purchasing and supplier relationships effectively.</p>
+            <a href="procurementManagement.html" class="button">Manage Procurement</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Production Planning</h3>
+            <p>Plan and manage production schedules and resources efficiently.</p>
+            <a href="productionPlanning.html" class="button">Plan Production</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Reports & Analytics</h3>
+            <p>Generate reports on inventory, finances, and employee performance.</p>
+            <a href="erpReports.html" class="button">View Reports</a>
+        </div>
+    </div>
+
+</body>
+</html>

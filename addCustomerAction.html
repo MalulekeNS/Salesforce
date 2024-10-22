@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management - TekSA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Supplier Management</h1>
+        <p>Add and manage your suppliers efficiently.</p>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <form id="supplier-form">
+                <div class="form-group">
+                    <label for="supplierName">Supplier Name:</label>
+                    <input type="text" id="supplierName" name="supplierName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactPerson">Contact Person:</label>
+                    <input type="text" id="contactPerson" name="contactPerson" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="barcode">Barcode/RFID:</label>
+                    <input type="text" id="barcode" name="barcode" required placeholder="Scan barcode or enter RFID">
+                </div>
+                
+                <button type="submit" class="button">Add Supplier</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('supplier-form').onsubmit = function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            var formData = new FormData(this);
+
+            // Send the form data to the server using fetch
+            fetch('addSupplier.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success/error message
+                document.getElementById('supplier-form').reset(); // Clear the form
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>
