@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA - General Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .header .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .header .top-right a, .header .top-right button {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #3498DB;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .header .top-right a:hover, .header .top-right button:hover {
+            background-color: #1B4F72;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .view-link {
+            background-color: #2980B9;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .view-link:hover {
+            background-color: #1B4F72;
+        }
+        /* Chart Container */
+        .chart-container {
+            width: 40%;
+            padding: 20px;
+        }
+        canvas {
+            background-color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>TekSA General Dashboard</h1>
+        <p>Overview of CRM, ERP, and Inventory</p>
+
+        <!-- Top right section with Login, Invite, and Notifications -->
+        <div class="top-right">
+            <button class="notification">
+                <span class="icon">🔔</span>
+                <span class="badge">5</span>
+            </button>
+            <a href="#">Login</a>
+            <a href="#">Invite</a>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="erp.html">ERP</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="https://trade-alliance.africa/">Ecommerce</a>
+    </div>
+
+    <div class="container">
+        <!-- CRM Overview -->
+        <div class="card">
+            <h3>CRM Overview</h3>
+            <table>
+                <tr>
+                    <th>Total Leads</th>
+                    <td>135</td>
+                </tr>
+                <tr>
+                    <th>Active Leads</th>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <th>Deals Closed</th>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <th>Follow-Ups Due</th>
+                    <td>8</td>
+                </tr>
+            </table>
+            <a href="dashboardCRM.html" class="view-link">View CRM Dashboard</a>
+        </div>
+
+        <!-- ERP Overview -->
+        <div class="card">
+            <h3>ERP Overview</h3>
+            <table>
+                <tr>
+                    <th>Total Orders</th>
+                    <td>342</td>
+                </tr>
+                <tr>
+                    <th>Pending Orders</th>
+                    <td>58</td>
+                </tr>
+                <tr>
+                    <th>Shipped Orders</th>
+                    <td>270</td>
+                </tr>
+                <tr>
+                    <th>Total Revenue (ZAR)</th>
+                    <td>R560,000</td>
+                </tr>
+            </table>
+            <a href="dashboardERP.html" class="view-link">View ERP Dashboard</a>
+        </div>
+
+        <!-- Inventory Overview -->
+        <div class="card">
+            <h3>Inventory Overview</h3>
+            <table>
+                <tr>
+                    <th>Total Items</th>
+                    <td>7,800 units</td>
+                </tr>
+                <tr>
+                    <th>Low Stock Items</th>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <th>Items Out of Stock</th>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <th>Reorders Due</th>
+                    <td>10</td>
+                </tr>
+            </table>
+            <a href="dashboardINT.html" class="view-link">View Inventory Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-container">
+        <h2>Performance Metrics</h2>
+        <canvas id="crmChart"></canvas>
+        <canvas id="erpChart"></canvas>
+        <canvas id="inventoryChart"></canvas>
+    </div>
+
+    <script>
+        // CRM Leads Chart
+        var ctxCRM = document.getElementById('crmChart').getContext('2d');
+        var crmChart = new Chart(ctxCRM, {
+            type: 'doughnut',
+            data: {
+                labels: ['Active Leads', 'Closed Deals', 'Follow-Ups Due'],
+                datasets: [{
+                    label: 'CRM Data',
+                    data: [45, 30, 8],
+                    backgroundColor: ['#3498DB', '#2ECC71', '#E74C3C'],
+                    borderColor: ['#3498DB', '#2ECC71', '#E74C3C'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'CRM Performance'
+                    }
+                }
+            }
+        });
+
+        // ERP Orders Chart
+        var ctxERP = document.getElementById('erpChart').getContext('2d');
+        var erpChart = new Chart(ctxERP, {
+            type: 'bar',
+            data: {
+                labels: ['Total Orders', 'Pending Orders', 'Shipped Orders'],
+                datasets: [{
+                    label: 'ERP Orders',
+                    data: [342, 58, 270],
+                    backgroundColor: ['#3498DB', '#E67E22', '#2ECC71'],
+                    borderColor: ['#3498DB', '#E67E22', '#2ECC71'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'ERP Orders Overview'
+                    }
+                }
+            }
+        });
+
+        // Inventory Stock Chart
+        var ctxInventory = document.getElementById('inventoryChart').getContext('2d');
+        var inventoryChart = new Chart(ctxInventory, {
+            type: 'pie',
+            data: {
+                labels: ['Low Stock Items', 'Items Out of Stock', 'Total Items'],
+                datasets: [{
+                    label: 'Inventory Stock',
+                    data: [22, 12, 7800],
+                    backgroundColor: ['#E74C3C', '#E67E22', '#3498DB'],
+                    borderColor: ['#E74C3C', '#E67E22', '#3498DB'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Inventory Overview'
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
