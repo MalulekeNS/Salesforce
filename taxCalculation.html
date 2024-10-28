@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .result-box p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Tax Calculation - TekSA Finance</h1>
+        <p>Accurately calculate taxes based on your organization's income and expenses.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardFIN.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="taxCalculation.html">Tax Calculation</a>
+        <a href="financialReports.html">Financial Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Tax Calculation Form</h2>
+        <p>Fill in the necessary details to calculate your taxes.</p>
+
+        <div class="form-group">
+            <label for="income">Total Income (ZAR):</label>
+            <input type="number" id="income" placeholder="Enter total income">
+        </div>
+
+        <div class="form-group">
+            <label for="expenses">Total Expenses (ZAR):</label>
+            <input type="number" id="expenses" placeholder="Enter total expenses">
+        </div>
+
+        <div class="form-group">
+            <label for="tax-rate">Tax Rate (%):</label>
+            <input type="number" id="tax-rate" placeholder="Enter tax rate percentage">
+        </div>
+
+        <a href="#" class="button" onclick="calculateTax()">Calculate Tax</a>
+
+        <div id="result" class="result-box" style="display:none;">
+            <h3>Tax Calculation Result</h3>
+            <p><strong>Net Income:</strong> <span id="net-income"></span> ZAR</p>
+            <p><strong>Tax Amount:</strong> <span id="tax-amount"></span> ZAR</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateTax() {
+            var income = parseFloat(document.getElementById('income').value);
+            var expenses = parseFloat(document.getElementById('expenses').value);
+            var taxRate = parseFloat(document.getElementById('tax-rate').value);
+
+            if (isNaN(income) || isNaN(expenses) || isNaN(taxRate)) {
+                alert("Please fill in all fields with valid numbers.");
+                return;
+            }
+
+            var netIncome = income - expenses;
+            var taxAmount = (netIncome * taxRate) / 100;
+
+            document.getElementById('net-income').innerText = netIncome.toFixed(2);
+            document.getElementById('tax-amount').innerText = taxAmount.toFixed(2);
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

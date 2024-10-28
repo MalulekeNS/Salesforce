@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job Offer - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button.cancel {
+            background-color: #e74c3c; /* Red for cancel */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Edit Job Offer</h1>
+        <p>Update the details of the job offer for the candidate.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <form action="updateOffer.html" method="POST">
+            <label for="candidateName">Candidate Name</label>
+            <input type="text" id="candidateName" name="candidateName" value="John Doe" required>
+
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" value="Software Engineer" required>
+
+            <label for="salary">Salary</label>
+            <input type="text" id="salary" name="salary" value="60000" required>
+
+            <label for="offerStatus">Offer Status</label>
+            <select id="offerStatus" name="offerStatus">
+                <option value="Pending" selected>Pending</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <label for="dateSent">Date Sent</label>
+            <input type="date" id="dateSent" name="dateSent" value="2024-10-01" required>
+
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Additional comments...">Looking forward to the candidate's response.</textarea>
+
+            <button type="submit" class="button">Update Offer</button>
+            <a href="offerManagement.html" class="button cancel">Cancel</a>
+        </form>
+    </div>
+
+</body>
+</html>

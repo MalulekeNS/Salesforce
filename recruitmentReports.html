@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Offer Management</h1>
+        <p>Manage job offers and track their status.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Current Job Offers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Candidate Name</th>
+                    <th>Position</th>
+                    <th>Offer Status</th>
+                    <th>Date Sent</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Accepted</td>
+                    <td>2024-10-01</td>
+                    <td><a href="editOffer.html" class="button">Edit Offer</a></td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Project Manager</td>
+                    <td>Pending</td>
+                    <td>2024-10-05</td>
+                    <td><a href="editOffer.html" class="button">Edit Offer</a></td>
+                </tr>
+                <tr>
+                    <td>Robert Brown</td>
+                    <td>UX Designer</td>
+                    <td>Rejected</td>
+                    <td>2024-10-10</td>
+                    <td><a href="editOffer.html" class="button">Edit Offer</a></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        
+        <a href="createOffer.html" class="button">Create New Offer</a>
+    </div>
+
+</body>
+</html>

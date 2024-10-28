@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect Training Feedback - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Training Feedback</h1>
+        <p>Provide feedback for training sessions.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <label for="trainingSession">Training Session:</label>
+            <select id="trainingSession" name="trainingSession" required>
+                <option value="">Select a training session</option>
+                <option value="Compliance">Compliance Training</option>
+                <option value="Skill Development">Skill Development</option>
+                <option value="Safety">Safety Training</option>
+                <option value="Leadership">Leadership Training</option>
+            </select>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback here..." required></textarea>
+
+            <label for="rating">Rating (1 to 5):</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select a rating</option>
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+
+            <button type="button" class="button" onclick="submitFeedback()">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            const trainingSession = document.getElementById("trainingSession").value;
+            const feedback = document.getElementById("feedback").value;
+            const rating = document.getElementById("rating").value;
+    
+            if (trainingSession && feedback && rating) {
+                alert(`Feedback submitted:\n\nSession: ${trainingSession}\nFeedback: ${feedback}\nRating: ${rating}`);
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+    

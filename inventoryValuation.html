@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Valuation - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .valuation-methods {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .valuation-methods h3 {
+            margin-top: 0;
+        }
+        .valuation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .valuation-table th, .valuation-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .valuation-table th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Valuation</h1>
+        <p>Overview of inventory valuation methods and stock values.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="inventory.html">Inventory</a>
+        <a href="lowStockAlerts.html">Low Stock Alerts</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="stockMovements.html">Stock Movements</a>
+        <a href="exportStockMovements.html">Export Stock Movements</a>
+        <a href="createPurchaseOrder.html">Create Purchase Order</a>
+        <a href="inventoryValuation.html">Inventory Valuation</a>
+    </div>
+
+    <div class="container">
+        <div class="valuation-methods">
+            <h3>Valuation Methods</h3>
+            <p>The following inventory valuation methods are available:</p>
+            <ul>
+                <li><strong>FIFO (First In, First Out)</strong>: Assumes that the oldest inventory items are sold first.</li>
+                <li><strong>LIFO (Last In, First Out)</strong>: Assumes that the newest inventory items are sold first.</li>
+                <li><strong>Weighted Average Cost</strong>: Calculates the average cost of inventory items and uses that for valuation.</li>
+            </ul>
+        </div>
+
+        <div class="valuation-table">
+            <h3>Current Inventory Valuation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Unit Price (ZAR)</th>
+                        <th>Total Value (ZAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iPhone 14</td>
+                        <td>10</td>
+                        <td>R 5 .00</td>
+                        <td>R 50.00</td>
+                    </tr>
+                    <tr>
+                        <td>Linux OS</td>
+                        <td>15</td>
+                        <td>R 3.00</td>
+                        <td>R 45.00</td>
+                    </tr>
+                    <tr>
+                        <td>Microsoft 360</td>
+                        <td>3</td>
+                        <td>R 10.00</td>
+                        <td>R 80.00</td>
+                    </tr>
+                    <tr>
+                        <td>Product D</td>
+                        <td>5</td>
+                        <td>R 7.00</td>
+                        <td>R 35.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="button">Export Valuation Report</button>
+    </div>
+
+</body>
+</html>

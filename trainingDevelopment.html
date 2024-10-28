@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training and Development - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px 0;
+            width: 100%; /* Full width */
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Training and Development - TekSA</h1>
+        <p>Manage employee training programs and development initiatives.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Schedule Training Session</h2>
+        <form action="/submit-training-session" method="POST">
+            <label for="trainingTitle">Training Title</label>
+            <input type="text" id="trainingTitle" name="trainingTitle" placeholder="Enter the training title" required>
+
+            <label for="trainingDate">Training Date</label>
+            <input type="date" id="trainingDate" name="trainingDate" required>
+
+            <label for="duration">Duration (hours)</label>
+            <input type="text" id="duration" name="duration" placeholder="Enter duration in hours" required>
+
+            <label for="description">Training Description</label>
+            <textarea id="description" name="description" placeholder="Enter a brief description of the training" required></textarea>
+
+            <input type="submit" value="Schedule Training">
+        </form>
+    </div>
+
+</body>
+</html>

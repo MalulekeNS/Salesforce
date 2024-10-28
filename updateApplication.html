@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Application - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar a {
+                width: 80%; /* Make links full-width on mobile */
+                text-align: center;
+                margin: 5px 0;
+            }
+            .container {
+                padding: 10px;
+                width: 90%;
+            }
+            .header {
+                padding: 10px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Application Update Confirmation</h1>
+        <p>Your application details have been successfully updated.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Update Successful!</h2>
+        <p>The details of the job application have been updated successfully.</p>
+        <p>You can return to the <a href="viewApplications.html" class="button">View Applications</a> page or go back to the <a href="hr.html" class="button">HR Dashboard</a>.</p>
+    </div>
+
+</body>
+</html>

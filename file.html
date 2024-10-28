@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Storage - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #2E86C1;
+            color: white;
+            width: 220px;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            display: block;
+            border-radius: 5px;
+            background-color: #3498DB;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: #1B4F72;
+        }
+        .content {
+            flex: 5;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2980B9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .department {
+            margin-bottom: 30px;
+        }
+        .department h2 {
+            margin-bottom: 10px;
+        }
+        .file-item {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-actions {
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        input[type=file] {
+            margin-top: 10px;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>TekSA</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="erp.html">ERP</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="file.html">File Storage</a>
+        <a href="trade-alliance.africa">Ecommerce</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h1>File Storage</h1>
+            <p>Manage your company files by department.</p>
+        </div>
+
+        <div class="container">
+            <div class="department">
+                <h2>HR Department</h2>
+                <div class="file-item">
+                    <span>Employee Handbook.pdf</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <span>Recruitment Policy.docx</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <input type="file" id="hrUpload" accept=".pdf,.docx,.xlsx" />
+                <button class="button">Upload File</button>
+            </div>
+
+            <div class="department">
+                <h2>Finance Department</h2>
+                <div class="file-item">
+                    <span>Annual Budget.xlsx</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <span>Expense Report.pdf</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <input type="file" id="financeUpload" accept=".pdf,.docx,.xlsx" />
+                <button class="button">Upload File</button>
+            </div>
+
+            <div class="department">
+                <h2>IT Department</h2>
+                <div class="file-item">
+                    <span>Network Security Guidelines.docx</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <div class="file-item">
+                    <span>Software Installation Procedures.pdf</span>
+                    <div class="file-actions">
+                        <button class="button">Edit</button>
+                        <button class="button">Delete</button>
+                    </div>
+                </div>
+                <input type="file" id="itUpload" accept=".pdf,.docx,.xlsx" />
+                <button class="button">Upload File</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

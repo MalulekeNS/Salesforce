@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reorder Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .reorder-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .reorder-table th, .reorder-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .reorder-table th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Reorder Management</h1>
+        <p>Track stock levels and create new purchase orders for products that need reordering.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="inventory.html">Inventory</a>
+        <a href="lowStockAlerts.html">Low Stock Alerts</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="stockMovements.html">Stock Movements</a>
+        <a href="inventoryValuation.html">Inventory Valuation</a>
+        <a href="warehouseManagement.html">Warehouse Management</a>
+        <a href="reorderManagement.html">Reorder Management</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h3>Reorder Thresholds</h3>
+            <table class="reorder-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Current Stock</th>
+                        <th>Reorder Threshold</th>
+                        <th>Unit Price (ZAR)</th>
+                        <th>Total Value (ZAR)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product A</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>R50.00</td>
+                        <td>R250.00</td>
+                        <td><button class="button" onclick="createPurchaseOrder('Product A')">Reorder</button></td>
+                    </tr>
+                    <tr>
+                        <td>Product B</td>
+                        <td>8</td>
+                        <td>15</td>
+                        <td>R30.00</td>
+                        <td>R240.00</td>
+                        <td><button class="button" onclick="createPurchaseOrder('Product B')">Reorder</button></td>
+                    </tr>
+                    <tr>
+                        <td>Product C</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>R20.00</td>
+                        <td>R60.00</td>
+                        <td><button class="button" onclick="createPurchaseOrder('Product C')">Reorder</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h3>Create Manual Purchase Order</h3>
+            <form id="manual-order-form">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="supplier">Supplier:</label>
+                <input type="text" id="supplier" name="supplier" required>
+
+                <button type="submit" class="button">Create Purchase Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function createPurchaseOrder(product) {
+            const quantity = prompt(`Enter quantity to reorder for ${product}:`);
+            if (quantity) {
+                // Call the backend API to create a purchase order
+                alert(`Purchase order created for ${quantity} units of ${product}`);
+            }
+        }
+
+        document.getElementById('manual-order-form').onsubmit = function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            var formData = new FormData(this);
+
+            // Send the form data to the server using fetch
+            fetch('createPurchaseOrder.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success/error message
+                document.getElementById('manual-order-form').reset(); // Clear the form
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>

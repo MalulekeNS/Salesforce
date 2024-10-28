@@ -1,0 +1,78 @@
+CREATE TABLE leads (
+    lead_id INT AUTO_INCREMENT PRIMARY KEY,
+    lead_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    date_created DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50),
+    address TEXT,
+    date_joined DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE sales (
+    sale_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    product VARCHAR(255) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    sale_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE tasks (
+    task_id INT AUTO_INCREMENT PRIMARY KEY,
+    assigned_to VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    due_date DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE documents (
+    document_id INT AUTO_INCREMENT PRIMARY KEY,
+    document_name VARCHAR(255) NOT NULL,
+    uploaded_by VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    upload_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE reports (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    report_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    date_generated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE DATABASE inventory;
+
+USE inventory;
+
+CREATE TABLE suppliers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    supplierName VARCHAR(255) NOT NULL,
+    contactPerson VARCHAR(255) NOT NULL,
+    phoneNumber VARCHAR(15) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    barcode VARCHAR(255)
+);
+
+
+CREATE TABLE stock (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255),
+    warehouse_id VARCHAR(255),
+    quantity INT,
+    unit_price DECIMAL(10, 2)
+);
+
