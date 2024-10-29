@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Application - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        h2, h3, p {
+            margin: 0 0 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Edit Application - TekSA</h1>
+        <p>Update the details of the job application.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Application Details</h2>
+
+        <form action="updateApplication.html" method="POST">
+            <h3>Applicant Information</h3>
+            <label for="applicantName">Name:</label>
+            <input type="text" id="applicantName" name="applicantName" value="John Doe" required>
+
+            <label for="applicantEmail">Email:</label>
+            <input type="email" id="applicantEmail" name="applicantEmail" value="johndoe@example.com" required>
+
+            <label for="applicantPhone">Phone:</label>
+            <input type="text" id="applicantPhone" name="applicantPhone" value="+1234567890" required>
+
+            <h3>Job Details</h3>
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" value="Software Engineer" required>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" value="IT" required>
+
+            <label for="applicationStatus">Status:</label>
+            <select id="applicationStatus" name="applicationStatus" required>
+                <option value="Under Review" selected>Under Review</option>
+                <option value="Shortlisted">Shortlisted</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Hired">Hired</option>
+            </select>
+
+            <h3>Notes</h3>
+            <textarea rows="4" id="notes" name="notes" placeholder="Add your notes here..."></textarea>
+
+            <button type="submit" class="button">Update Application</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .supplier-table, .supplier-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .supplier-table th, .supplier-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .supplier-table th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .form-container form label, .form-container form input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .form-container form input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+           
+            .container {
+                padding: 10px;
+            }
+            .form-container, .supplier-table {
+                padding: 15px;
+            }
+            .supplier-table th, .supplier-table td, .form-container form label, .form-container form input {
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            
+            .container {
+                padding: 10px;
+            }
+            .form-container, .supplier-table {
+                padding: 10px;
+            }
+            .form-container form label, .form-container form input, .supplier-table th, .supplier-table td {
+                font-size: 12px;
+            }
+            .button {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Supplier Management</h1>
+        <p>Manage and monitor your suppliers.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="inventory.html">Inventory</a>
+        <a href="lowStockAlerts.html">Low Stock Alerts</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="stockMovements.html">Stock Movements</a>
+        <a href="exportStockMovements.html">Export Stock Movements</a>
+        <a href="createPurchaseOrder.html">Create Purchase Order</a>
+        <a href="inventoryValuation.html">Inventory Valuation</a>
+        <a href="supplierManagement.html">Supplier Management</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h3>Add New Supplier</h3>
+            <form id="supplier-form">
+                <label for="supplierName">Supplier Name:</label>
+                <input type="text" id="supplierName" name="supplierName" required>
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" id="contactPerson" name="contactPerson" required>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="barcode">Barcode/RFID:</label>
+                <input type="text" id="barcode" name="barcode" required>
+                <input type="submit" value="Add Supplier" class="button">
+            </form>
+        </div>
+
+        <div class="supplier-table">
+            <h3>Current Suppliers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplier Name</th>
+                        <th>Contact Person</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Supplier A</td>
+                        <td>Simba inc</td>
+                        <td>012-345-6789</td>
+                        <td>simba@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Supplier B</td>
+                        <td>Simean Zulu</td>
+                        <td>987-654-3210</td>
+                        <td>szulu@tr.ac.za</td>
+                    </tr>
+                    <tr>
+                        <td>Supplier C</td>
+                        <td>Samuel Johnson</td>
+                        <td>555-123-4567</td>
+                        <td>sam@Khulekile.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('supplier-form').onsubmit = function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            var formData = new FormData(this);
+
+            // Send the form data to the server using fetch
+            fetch('addSupplier.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success/error message
+                document.getElementById('supplier-form').reset(); // Clear the form
+                // Optionally, you can refresh the supplier list here
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+
+</body>
+</html>

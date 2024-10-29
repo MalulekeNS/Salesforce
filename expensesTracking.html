@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Tracking - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=text], input[type=number], input[type=date] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Expenses Tracking - TekSA Finance</h1>
+        <p>Record, monitor, and analyze business expenses in real time.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardFIN.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="expensesTracking.html">Expenses Tracking</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Add Expense</h3>
+            <form action="/submit-expense" method="POST">
+                <label for="expenseName">Expense Name</label>
+                <input type="text" id="expenseName" name="expenseName" placeholder="Enter expense description" required>
+
+                <label for="expenseDate">Expense Date</label>
+                <input type="date" id="expenseDate" name="expenseDate" required>
+
+                <label for="expenseCategory">Category</label>
+                <select id="expenseCategory" name="expenseCategory">
+                    <option value="office">Office Supplies</option>
+                    <option value="travel">Travel</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="salary">Salaries</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="amount">Amount (ZAR)</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+                <input type="submit" value="Add Expense">
+            </form>
+        </div>
+
+        <div class="feature-card">
+            <h3>Expense History</h3>
+            <table>
+                <tr>
+                    <th>Expense ID</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>EXP-001</td>
+                    <td>Office Rent</td>
+                    <td>2024-10-01</td>
+                    <td>Utilities</td>
+                    <td>15,000.00 ZAR</td>
+                </tr>
+                <tr>
+                    <td>EXP-002</td>
+                    <td>Client Travel Expenses</td>
+                    <td>2024-09-28</td>
+                    <td>Travel</td>
+                    <td>8,500.00 ZAR</td>
+                </tr>
+                <tr>
+                    <td>EXP-003</td>
+                    <td>Team Building Event</td>
+                    <td>2024-09-25</td>
+                    <td>Other</td>
+                    <td>4,200.00 ZAR</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="feature-card">
+            <h3>Analyze Expenses</h3>
+            <p>Generate detailed reports to analyze expenses by category, date, or amount.</p>
+            <a href="ReportButton.html" class="button">Generate Report</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

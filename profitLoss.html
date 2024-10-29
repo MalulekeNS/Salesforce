@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and Loss - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #3498db;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .summary {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Profit and Loss - TekSA Finance</h1>
+        <p>View and manage your company's Profit and Loss (P&L) statement.</p>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Profit and Loss Statement</h3>
+            <p>Below is the summary of income and expenses:</p>
+
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>Total Revenue</td>
+                    <td>5,000,000</td>
+                </tr>
+                <tr>
+                    <td>Cost of Goods Sold (COGS)</td>
+                    <td>2,000,000</td>
+                </tr>
+                <tr>
+                    <td>Gross Profit</td>
+                    <td>3,000,000</td>
+                </tr>
+                <tr>
+                    <td>Operating Expenses</td>
+                    <td>1,200,000</td>
+                </tr>
+                <tr>
+                    <td>Net Profit Before Tax</td>
+                    <td>1,800,000</td>
+                </tr>
+                <tr>
+                    <td>Taxes</td>
+                    <td>540,000</td>
+                </tr>
+                <tr>
+                    <td>Net Profit After Tax</td>
+                    <td>1,260,000</td>
+                </tr>
+            </table>
+
+            <div class="summary">
+                <strong>Total Net Profit: ZAR 1,260,000</strong>
+            </div>
+
+            <button class="button" onclick="generatePLReport()">Generate Profit & Loss Report</button>
+            <button class="button" onclick="downloadPLReport()">Download Report</button>
+        </div>
+    </div>
+
+    <script>
+        function generatePLReport() {
+            alert("Generating Profit & Loss report...");
+            // Logic for generating the P&L report can be added here
+        }
+
+        function downloadPLReport() {
+            alert("Downloading Profit & Loss report...");
+            // Logic for downloading the P&L report as PDF or CSV can be added here
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .warehouse-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .warehouse-section h3 {
+            margin-top: 0;
+        }
+        .warehouse-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .warehouse-table th, .warehouse-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .warehouse-table th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Warehouse Management</h1>
+        <p>Manage warehouses, stock levels, and transfers between locations.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="inventory.html">Inventory</a>
+        <a href="lowStockAlerts.html">Low Stock Alerts</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="stockMovements.html">Stock Movements</a>
+        <a href="inventoryValuation.html">Inventory Valuation</a>
+        <a href="supplierManagement.html">Supplier Management</a>
+        <a href="inventoryReports.html">Inventory Reports</a>
+        <a href="warehouseManagement.html">Warehouse Management</a>
+    </div>
+
+    <div class="container">
+        <div class="warehouse-section">
+            <h3>Warehouse Overview</h3>
+            <table class="warehouse-table">
+                <thead>
+                    <tr>
+                        <th>Warehouse ID</th>
+                        <th>Warehouse Name</th>
+                        <th>Location</th>
+                        <th>Total Stock Value (ZAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WH001</td>
+                        <td>Main Warehouse</td>
+                        <td>Johannesburg</td>
+                        <td>R500,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>WH002</td>
+                        <td>Secondary Warehouse</td>
+                        <td>Cape Town</td>
+                        <td>R300,000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warehouse-section">
+            <h3>Stock by Location</h3>
+            <table class="warehouse-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Warehouse</th>
+                        <th>Quantity</th>
+                        <th>Unit Price (ZAR)</th>
+                        <th>Total Value (ZAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product A</td>
+                        <td>Main Warehouse</td>
+                        <td>100</td>
+                        <td>R50.00</td>
+                        <td>R5,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Product B</td>
+                        <td>Secondary Warehouse</td>
+                        <td>200</td>
+                        <td>R30.00</td>
+                        <td>R6,000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warehouse-section">
+            <h3>Transfer Stock Between Warehouses</h3>
+            <form id="transfer-form">
+                <label for="fromWarehouse">From Warehouse:</label>
+                <select id="fromWarehouse" name="fromWarehouse">
+                    <option value="WH001">Main Warehouse</option>
+                    <option value="WH002">Secondary Warehouse</option>
+                </select>
+
+                <label for="toWarehouse">To Warehouse:</label>
+                <select id="toWarehouse" name="toWarehouse">
+                    <option value="WH001">Main Warehouse</option>
+                    <option value="WH002">Secondary Warehouse</option>
+                </select>
+
+                <label for="product">Product:</label>
+                <input type="text" id="product" name="product" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <button type="submit" class="button">Transfer Stock</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('transfer-form').onsubmit = function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            var formData = new FormData(this);
+
+            // Send the form data to the server using fetch
+            fetch('transferStock.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success/error message
+                document.getElementById('transfer-form').reset(); // Clear the form
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        h2, h3, p {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Application Details - TekSA</h1>
+        <p>View detailed information about the job application.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Application Overview</h2>
+
+        <h3>Applicant Information</h3>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> johndoe@example.com</p>
+        <p><strong>Phone:</strong> +1234567890</p>
+
+        <h3>Job Details</h3>
+        <p><strong>Job Title:</strong> Software Engineer</p>
+        <p><strong>Department:</strong> IT</p>
+        <p><strong>Application Date:</strong> 2024-10-24</p>
+        <p><strong>Status:</strong> Under Review</p>
+
+        <h3>Resume</h3>
+        <p><strong>File:</strong> <a href="resume_johndoe.pdf" download>Download Resume</a></p>
+
+        <h3>Cover Letter</h3>
+        <p><strong>File:</strong> <a href="coverletter_johndoe.pdf" download>Download Cover Letter</a></p>
+
+        <h3>Notes</h3>
+        <textarea rows="4" cols="50" placeholder="Add your notes here..."></textarea>
+
+        <a href="editApplication.html?id=1" class="button">Edit Application</a>
+    </div>
+
+</body>
+</html>

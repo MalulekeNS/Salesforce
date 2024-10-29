@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import CSV - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type=file] {
+            display: none;
+        }
+        label[for="file-upload"] {
+            background-color: #3498DB;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+        label[for="file-upload"]:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Import CSV</h2>
+
+        <!-- Import CSV Form -->
+        <form id="import-form" action="/import-csv" method="POST" enctype="multipart/form-data">
+            <label for="file-upload">Import Customer Data from CSV</label>
+            <input type="file" id="file-upload" name="csv-file" accept=".csv" onchange="importCSV()">
+        </form>
+    </div>
+
+    <script>
+        // Placeholder function for importing CSV
+        function importCSV() {
+            alert("Import CSV clicked. Please select a file to upload.");
+            // Add file processing logic here
+        }
+    </script>
+
+</body>
+</html>

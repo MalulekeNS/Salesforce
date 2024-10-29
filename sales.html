@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - TekSA CRM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=text], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Sales - TekSA CRM</h1>
+        <p>Manage all sales activities, pipelines, and deals efficiently.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="sales.html">Sales</a>
+        <a href="Reports_Analytics.html">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="container">
+
+        <!-- Sales Pipeline Card -->
+        <div class="card">
+            <h2>Sales Pipeline</h2>
+            <table>
+                <tr>
+                    <th>Deal Name</th>
+                    <th>Client</th>
+                    <th>Status</th>
+                    <th>Value</th>
+                    <th>Next Step</th>
+                </tr>
+                <tr>
+                    <td>Project X</td>
+                    <td>Acme Inc.</td>
+                    <td>Negotiation</td>
+                    <td>R50,000</td>
+                    <td>Review contract</td>
+                </tr>
+                <tr>
+                    <td>Redesign Initiative</td>
+                    <td>TechCorp</td>
+                    <td>Proposal Sent</td>
+                    <td>R20,000</td>
+                    <td>Client feedback</td>
+                </tr>
+                <tr>
+                    <td>Website Overhaul</td>
+                    <td>WebGlobal</td>
+                    <td>Closed-Won</td>
+                    <td>R35,000</td>
+                    <td>Project kickoff</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Add New Deal -->
+        <div class="card">
+            <h2>Add New Deal</h2>
+            <form action="/add-deal" method="POST">
+                <label for="dealName">Deal Name</label>
+                <input type="text" id="dealName" name="dealName" placeholder="Enter deal name" required>
+
+                <label for="client">Client</label>
+                <input type="text" id="client" name="client" placeholder="Enter client name" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="negotiation">Negotiation</option>
+                    <option value="proposal">Proposal Sent</option>
+                    <option value="closed-won">Closed-Won</option>
+                    <option value="closed-lost">Closed-Lost</option>
+                </select>
+
+                <label for="value">Deal Value</label>
+                <input type="text" id="value" name="value" placeholder="Enter deal value" required>
+
+                <label for="nextStep">Next Step</label>
+                <input type="text" id="nextStep" name="nextStep" placeholder="Enter next step for this deal" required>
+
+                <input type="submit" value="Add Deal">
+            </form>
+        </div>
+
+        <!-- Sales Reports -->
+        <div class="card">
+            <h2>Sales Reports</h2>
+            <a href="sales-report.html" class="btn">View Sales Reports</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

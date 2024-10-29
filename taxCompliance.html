@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Compliance - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #3498db;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Tax Compliance - TekSA Finance</h1>
+        <p>Ensure your organization meets all tax obligations and stays compliant with tax regulations.</p>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Tax Compliance Status</h3>
+            <p>Below is a summary of your current tax compliance status:</p>
+
+            <table>
+                <tr>
+                    <th>Tax Type</th>
+                    <th>Compliance Status</th>
+                    <th>Due Date</th>
+                    <th>Action Required</th>
+                </tr>
+                <tr>
+                    <td>Income Tax</td>
+                    <td>Compliant</td>
+                    <td>2024-12-31</td>
+                    <td>No Action Needed</td>
+                </tr>
+                <tr>
+                    <td>VAT</td>
+                    <td>Non-Compliant</td>
+                    <td>2024-11-15</td>
+                    <td>Submit VAT Return</td>
+                </tr>
+                <tr>
+                    <td>Payroll Tax</td>
+                    <td>Compliant</td>
+                    <td>2024-10-25</td>
+                    <td>No Action Needed</td>
+                </tr>
+            </table>
+
+            <button class="button" onclick="submitTaxReturn()">Submit Tax Return</button>
+        </div>
+    </div>
+
+    <script>
+        function submitTaxReturn() {
+            alert("Functionality to submit a tax return can be added here.");
+            // Logic for submitting a tax return can be implemented here
+        }
+    </script>
+
+</body>
+</html>

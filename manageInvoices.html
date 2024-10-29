@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Invoices - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=text], input[type=number], input[type=date] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Manage Invoices - TekSA Finance</h1>
+        <p>Create, track, and send invoices to clients seamlessly.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardFIN.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="manageInvoices.html">Manage Invoices</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Create Invoice</h3>
+            <form action="/submit-invoice" method="POST">
+                <label for="clientName">Client Name</label>
+                <input type="text" id="clientName" name="clientName" placeholder="Enter client name" required>
+
+                <label for="invoiceDate">Invoice Date</label>
+                <input type="date" id="invoiceDate" name="invoiceDate" required>
+
+                <label for="dueDate">Due Date</label>
+                <input type="date" id="dueDate" name="dueDate" required>
+
+                <label for="amount">Amount (ZAR)</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="unpaid">Unpaid</option>
+                    <option value="paid">Paid</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+
+                <input type="submit" value="Create Invoice">
+            </form>
+        </div>
+
+        <div class="feature-card">
+            <h3>Invoice History</h3>
+            <table>
+                <tr>
+                    <th>Invoice ID</th>
+                    <th>Client Name</th>
+                    <th>Date</th>
+                    <th>Due Date</th>
+                    <th>Amount (ZAR)</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>INV-001</td>
+                    <td>John Mahlangu</td>
+                    <td>2024-10-01</td>
+                    <td>2024-10-15</td>
+                    <td>5,000.00 ZAR</td>
+                    <td>Unpaid</td>
+                </tr>
+                <tr>
+                    <td>INV-002</td>
+                    <td>Jane Simelane</td>
+                    <td>2024-09-20</td>
+                    <td>2024-10-05</td>
+                    <td>3,800.00 ZAR</td>
+                    <td>Paid</td>
+                </tr>
+                <tr>
+                    <td>INV-003</td>
+                    <td>Mark Davis</td>
+                    <td>2024-08-30</td>
+                    <td>2024-09-15</td>
+                    <td>7,200.00 ZAR</td>
+                    <td>Overdue</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="feature-card">
+            <h3>Send Invoice</h3>
+            <p>Select an invoice to send directly to a client's email.</p>
+            <form action="/send-invoice" method="POST">
+                <label for="invoiceID">Select Invoice</label>
+                <select id="invoiceID" name="invoiceID">
+                    <option value="INV-001">INV-001 - John Mahlangu</option>
+                    <option value="INV-002">INV-002 - Jane Simelane</option>
+                    <option value="INV-003">INV-003 - Mark Davis</option>
+                </select>
+
+                <label for="clientEmail">Client Email</label>
+                <input type="text" id="clientEmail" name="clientEmail" placeholder="Enter client email" required>
+
+                <input type="submit" value="Send Invoice">
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

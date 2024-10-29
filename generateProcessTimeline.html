@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA - Generate Process Timeline</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #2E86C1;
+            color: white;
+            width: 220px;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            display: block;
+            border-radius: 5px;
+            background-color: #3498DB;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: #1B4F72;
+        }
+        .header {
+            background-color: #2980B9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+        .content {
+            flex: 5;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #2980B9;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type=submit], .btn {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block; /* Change to block for alignment */
+            width: auto; /* Set width to auto */
+            margin-top: 15px; /* Add margin for spacing */
+        }
+        input[type=submit]:hover, .btn:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="container">
+            <h1>Generate Process Timeline</h1>
+            <form action="/submit-timeline" method="POST">
+                <label for="processName">Process Name</label>
+                <input type="text" id="processName" name="processName" placeholder="Enter the name of the process" required>
+
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" name="startDate" required>
+
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate" name="endDate" required>
+
+                <label for="milestones">Milestones</label>
+                <textarea id="milestones" name="milestones" placeholder="List the milestones for this process" required></textarea>
+
+                <input type="submit" class="btn" value="Generate Timeline">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
