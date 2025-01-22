@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Production Summary - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            display: block;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .download-button {
+            background-color: #27ae60;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .download-button:hover {
+            background-color: #1e8449;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            th, td {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .download-button {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Monthly Production Summary</h1>
+        <p>Detailed overview of monthly production metrics and performance.</p>
+    </div>
+
+    <div class="container">
+        <h2>Production Summary for October 2024</h2>
+
+        <table>
+            <tr>
+                <th>Production Line</th>
+                <th>Units Produced</th>
+                <th>Defective Units</th>
+                <th>Efficiency (%)</th>
+                <th>Downtime (hrs)</th>
+            </tr>
+            <tr>
+                <td>Line A</td>
+                <td>10,000</td>
+                <td>100</td>
+                <td>95%</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Line B</td>
+                <td>8,500</td>
+                <td>80</td>
+                <td>93%</td>
+                <td>3.5</td>
+            </tr>
+            <tr>
+                <td>Line C</td>
+                <td>12,000</td>
+                <td>60</td>
+                <td>97%</td>
+                <td>1.5</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <a href="downloads/monthlyProductionSummary.pdf" class="download-button">Download Report</a>
+    </div>
+
+</body>
+</html>

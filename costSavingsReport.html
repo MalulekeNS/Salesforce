@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Savings Report - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2980B9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #3498DB;
+            color: white;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .report-details {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            width: 100%; /* Adjust button width on mobile */
+        }
+
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            align-items: center;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+        
+
+            .container {
+                padding: 15px;
+                width: 90%;
+                margin: auto;
+            }
+
+            .actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            table, th, td {
+                font-size: 0.9em;
+                padding: 6px;
+            }
+
+            .button {
+                width: 100%; /* Make buttons fill container width on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Cost Savings Report - TekSA</h1>
+        <p>Analysis of cost-saving strategies and their impact on procurement expenses.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="report-details">
+            <h2>Cost Savings Overview</h2>
+            <p><strong>Report Period:</strong> Q3 2024</p>
+            <p><strong>Total Savings (ZAR):</strong> 75,000</p>
+            <p><strong>Strategies Implemented:</strong> Bulk Purchasing, Supplier Negotiations, Alternative Sourcing</p>
+        </div>
+
+        <h2>Savings Breakdown</h2>
+        <table>
+            <tr>
+                <th>Strategy</th>
+                <th>Description</th>
+                <th>Original Cost (ZAR)</th>
+                <th>Reduced Cost (ZAR)</th>
+                <th>Savings (ZAR)</th>
+            </tr>
+            <tr>
+                <td>Bulk Purchasing</td>
+                <td>Discounts received on large orders for office supplies.</td>
+                <td>150,000</td>
+                <td>130,000</td>
+                <td>20,000</td>
+            </tr>
+            <tr>
+                <td>Supplier Negotiations</td>
+                <td>Price adjustments after renegotiating contracts.</td>
+                <td>200,000</td>
+                <td>175,000</td>
+                <td>25,000</td>
+            </tr>
+            <tr>
+                <td>Alternative Sourcing</td>
+                <td>Found cost-effective suppliers for electronic components.</td>
+                <td>100,000</td>
+                <td>70,000</td>
+                <td>30,000</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <div class="actions">
+            <button class="button">Download Report</button>
+            <button class="button">Generate New Report</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Scheduling - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .form-section {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            .container {
+                width: 90%;
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            tr {
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            td {
+                text-align: left;
+                padding-left: 50%;
+                position: relative;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #2980B9;
+                white-space: nowrap;
+            }
+            th {
+                display: none;
+            }
+            .button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Maintenance Scheduling</h1>
+        <p>Plan and manage equipment maintenance activities effectively.</p>
+    </div>
+
+    <div class="container">
+        <h2>Upcoming Maintenance Schedule</h2>
+
+        <table>
+            <tr>
+                <th>Equipment</th>
+                <th>Maintenance Date</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Assigned Technician</th>
+            </tr>
+            <tr>
+                <td data-label="Equipment">Conveyor Belt 1</td>
+                <td data-label="Maintenance Date">2024-11-10</td>
+                <td data-label="Type">Preventive</td>
+                <td data-label="Status">Scheduled</td>
+                <td data-label="Assigned Technician">John Doe</td>
+            </tr>
+            <tr>
+                <td data-label="Equipment">Hydraulic Press</td>
+                <td data-label="Maintenance Date">2024-11-15</td>
+                <td data-label="Type">Corrective</td>
+                <td data-label="Status">In Progress</td>
+                <td data-label="Assigned Technician">Jane Smith</td>
+            </tr>
+            <tr>
+                <td data-label="Equipment">Cooling System</td>
+                <td data-label="Maintenance Date">2024-11-20</td>
+                <td data-label="Type">Preventive</td>
+                <td data-label="Status">Scheduled</td>
+                <td data-label="Assigned Technician">Michael Brown</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <div class="form-section">
+            <h2>Schedule New Maintenance</h2>
+            <form action="/schedule-maintenance" method="POST">
+                <label for="equipment">Equipment</label>
+                <input type="text" id="equipment" name="equipment" placeholder="Enter equipment name" required>
+
+                <label for="maintenanceDate">Maintenance Date</label>
+                <input type="date" id="maintenanceDate" name="maintenanceDate" required>
+
+                <label for="maintenanceType">Maintenance Type</label>
+                <select id="maintenanceType" name="maintenanceType" required>
+                    <option value="preventive">Preventive</option>
+                    <option value="corrective">Corrective</option>
+                    <option value="predictive">Predictive</option>
+                </select>
+
+                <label for="technician">Assigned Technician</label>
+                <input type="text" id="technician" name="technician" placeholder="Enter technician's name" required>
+
+                <input type="submit" class="button" value="Schedule Maintenance">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

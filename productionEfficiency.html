@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Efficiency - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            display: block;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .download-button {
+            background-color: #27ae60;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 200px;
+        }
+        .download-button:hover {
+            background-color: #1e8449;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            .download-button {
+                padding: 8px 14px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Production Efficiency Report</h1>
+        <p>Detailed metrics on production efficiency and key performance indicators.</p>
+    </div>
+
+    <div class="container">
+        <h2>Efficiency Metrics - October 2024</h2>
+
+        <table>
+            <tr>
+                <th>Production Line</th>
+                <th>Total Units Produced</th>
+                <th>Operational Hours</th>
+                <th>Units per Hour</th>
+                <th>Efficiency (%)</th>
+            </tr>
+            <tr>
+                <td>Line 1</td>
+                <td>5000</td>
+                <td>150</td>
+                <td>33.3</td>
+                <td>90%</td>
+            </tr>
+            <tr>
+                <td>Line 2</td>
+                <td>4800</td>
+                <td>160</td>
+                <td>30</td>
+                <td>85%</td>
+            </tr>
+            <tr>
+                <td>Line 3</td>
+                <td>5200</td>
+                <td>140</td>
+                <td>37.1</td>
+                <td>92%</td>
+            </tr>
+            <tr>
+                <td>Line 4</td>
+                <td>4500</td>
+                <td>150</td>
+                <td>30</td>
+                <td>80%</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <a href="downloads/productionEfficiencyReport.pdf" class="download-button">Download Report</a>
+    </div>
+
+</body>
+</html>

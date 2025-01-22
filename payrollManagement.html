@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Management - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Payroll Management - TekSA Finance</h1>
+        <p>Efficiently manage your employees' payrolls and salary disbursements.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardFIN.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="payrollManagement.html">Payroll Management</a>
+        <a href="financialReports.html">Financial Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Create Payroll</h3>
+            <form action="/create-payroll" method="POST">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" name="employeeName" required>
+
+                <label for="salaryAmount">Salary Amount (ZAR):</label>
+                <input type="number" id="salaryAmount" name="salaryAmount" required>
+
+                <label for="payPeriod">Pay Period:</label>
+                <select id="payPeriod" name="payPeriod" required>
+                    <option value="monthly">Monthly</option>
+                    <option value="biweekly">Bi-weekly</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+
+                <label for="paymentDate">Payment Date:</label>
+                <input type="date" id="paymentDate" name="paymentDate" required>
+
+                <input type="submit" value="Create Payroll">
+            </form>
+        </div>
+
+        <div class="feature-card">
+            <h3>Payroll Overview</h3>
+            <table>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Salary Amount (ZAR)</th>
+                    <th>Pay Period</th>
+                    <th>Payment Date</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>ZAR 35,000</td>
+                    <td>Monthly</td>
+                    <td>2024-10-30</td>
+                    <td>Paid</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>ZAR 25,000</td>
+                    <td>Monthly</td>
+                    <td>2024-10-30</td>
+                    <td>Pending</td>
+                </tr>
+                <!-- More payroll data can be added here -->
+            </table>
+        </div>
+
+        <div class="feature-card">
+            <h3>Generate Payroll Report</h3>
+            <a href="generatePayrollReport.html" class="button">Generate Report</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Download Payroll Report</h3>
+            <a href="downloadPayrollReport.html" class="button">Download Report</a>
+        </div>
+    </div>
+
+</body>
+</html>

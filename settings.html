@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA - Theme Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color, #f4f4f4);
+            color: var(--text-color, #333);
+        }
+        .header {
+            background-color: var(--header-bg, #2E86C1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: var(--navbar-bg, #3498DB);
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: var(--navbar-hover, #1B4F72);
+        }
+        .container {
+            padding: 20px;
+        }
+        .settings {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--button-bg, #2980B9);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .settings:hover {
+            background-color: var(--button-hover, #1B4F72);
+        }
+        .theme-options {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .theme-options button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Theme colors */
+        .theme-blue { background-color: #3498DB; color: white; }
+        .theme-red { background-color: #E74C3C; color: white; }
+        .theme-green { background-color: #28B463; color: white; }
+        .theme-purple { background-color: #8E44AD; color: white; }
+        .theme-black-white { background-color: black; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>TekSA</h1>
+        <p>All-in-one Management Business Platform</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="erp.html">ERP</a>
+        <a href="#">Inventory</a>
+        <a href="#">Ecommerce</a>
+    </div>
+
+    <div class="container">
+        <h2>Welcome to TekSA</h2>
+        <p>Choose your preferred theme from the Settings menu.</p>
+    </div>
+
+    <!-- Settings button -->
+    <button class="settings" onclick="toggleThemeOptions()">Settings</button>
+
+    <!-- Theme Options -->
+    <div class="theme-options" id="themeOptions">
+        <button class="theme-blue" onclick="changeTheme('blue')">Blue Theme</button>
+        <button class="theme-red" onclick="changeTheme('red')">Red Theme</button>
+        <button class="theme-green" onclick="changeTheme('green')">Green Theme</button>
+        <button class="theme-purple" onclick="changeTheme('purple')">Purple Theme</button>
+        <button class="theme-black-white" onclick="changeTheme('black-white')">Black and White</button>
+    </div>
+
+    <script>
+        // Toggle theme options visibility
+        function toggleThemeOptions() {
+            var themeOptions = document.getElementById('themeOptions');
+            themeOptions.style.display = themeOptions.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Function to change the theme
+        function changeTheme(theme) {
+            var root = document.documentElement;
+            if (theme === 'blue') {
+                root.style.setProperty('--header-bg', '#2E86C1');
+                root.style.setProperty('--navbar-bg', '#3498DB');
+                root.style.setProperty('--navbar-hover', '#1B4F72');
+                root.style.setProperty('--button-bg', '#2980B9');
+                root.style.setProperty('--button-hover', '#1B4F72');
+                root.style.setProperty('--bg-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#333');
+            } else if (theme === 'red') {
+                root.style.setProperty('--header-bg', '#E74C3C');
+                root.style.setProperty('--navbar-bg', '#E74C3C');
+                root.style.setProperty('--navbar-hover', '#C0392B');
+                root.style.setProperty('--button-bg', '#C0392B');
+                root.style.setProperty('--button-hover', '#A93226');
+                root.style.setProperty('--bg-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#333');
+            } else if (theme === 'green') {
+                root.style.setProperty('--header-bg', '#28B463');
+                root.style.setProperty('--navbar-bg', '#28B463');
+                root.style.setProperty('--navbar-hover', '#239B56');
+                root.style.setProperty('--button-bg', '#239B56');
+                root.style.setProperty('--button-hover', '#1D8348');
+                root.style.setProperty('--bg-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#333');
+            } else if (theme === 'purple') {
+                root.style.setProperty('--header-bg', '#8E44AD');
+                root.style.setProperty('--navbar-bg', '#8E44AD');
+                root.style.setProperty('--navbar-hover', '#7D3C98');
+                root.style.setProperty('--button-bg', '#7D3C98');
+                root.style.setProperty('--button-hover', '#6C3483');
+                root.style.setProperty('--bg-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#333');
+            } else if (theme === 'black-white') {
+                root.style.setProperty('--header-bg', 'white');
+                root.style.setProperty('--navbar-bg', 'white');
+                root.style.setProperty('--navbar-hover', '#333');
+                root.style.setProperty('--button-bg', 'white');
+                root.style.setProperty('--button-hover', '#333');
+                root.style.setProperty('--bg-color', 'white');
+                root.style.setProperty('--text-color', 'black');
+            }
+        }
+    </script>
+</body>
+</html>

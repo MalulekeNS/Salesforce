@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+                font-size: 1.2em;
+            }
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 10px;
+            }
+            .feature-card {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+            .button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Management - TekSA</h1>
+        <p>Comprehensive tools to manage, track, and optimize inventory across warehouses.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Create Inventory Item</h3>
+            <p>Quickly add new inventory items to your system.</p>
+            <a href="createInventoryItem.html" class="button">Create Item</a>
+        </div>
+        <div class="feature-card">
+            <h3>Stock Overview</h3>
+            <p>Get real-time insights into your stock levels and status across warehouses.</p>
+            <a href="stockOverview.html" class="button">View Stock</a>
+        </div>
+        <div class="feature-card">
+            <h3>Purchase Orders</h3>
+            <p>Manage supplier relationships and track incoming inventory from purchase orders.</p>
+            <a href="purchaseOrders.html" class="button">Manage Orders</a>
+        </div>
+        <div class="feature-card">
+            <h3>Stock Movements</h3>
+            <p>Monitor stock movements between warehouses and track historical transfers.</p>
+            <a href="stockMovements.html" class="button">Track Movements</a>
+        </div>
+        <div class="feature-card">
+            <h3>Low Stock Alerts</h3>
+            <p>Get alerts when stock levels drop below preset thresholds.</p>
+            <a href="lowStockAlerts.html" class="button">Set Alerts</a>
+        </div>
+        <div class="feature-card">
+            <h3>Inventory Valuation</h3>
+            <p>Calculate the financial value of your current inventory based on cost or market price.</p>
+            <a href="inventoryValuation.html" class="button">View Valuation</a>
+        </div>
+        <div class="feature-card">
+            <h3>Supplier Management</h3>
+            <p>Manage suppliers and link inventory items to specific vendors.</p>
+            <a href="supplierManagement.html" class="button">Manage Suppliers</a>
+        </div>
+        <div class="feature-card">
+            <h3>Barcode & RFID Scanning</h3>
+            <p>Enable barcode and RFID scanning to streamline stock management processes.</p>
+            <a href="addCustomerAction.html" class="button">Set Up Scanning</a>
+        </div>
+        <div class="feature-card">
+            <h3>Inventory Reports</h3>
+            <p>Generate reports on stock levels, movements, and reorder requirements.</p>
+            <a href="inventoryReports.html" class="button">View Reports</a>
+        </div>
+        <div class="feature-card">
+            <h3>Warehouse Management</h3>
+            <p>Handle stock across multiple warehouses and locations efficiently.</p>
+            <a href="warehouseManagement.html" class="button">Manage Warehouses</a>
+        </div>
+        <div class="feature-card">
+            <h3>Reorder Management</h3>
+            <p>Automate reorder points for critical items to ensure stock availability.</p>
+            <a href="reorderManagement.html" class="button">Set Reorders</a>
+        </div>
+    </div>
+
+</body>
+</html>

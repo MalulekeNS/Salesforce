@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Usage - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .usage-table th, .usage-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .usage-table th {
+            background-color: #2980B9;
+            color: white;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            .container {
+                width: 100%;
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            input[type="text"], input[type="number"], textarea, select {
+                padding: 8px;
+            }
+            .button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            /* Mobile-friendly table styling */
+            .usage-table, .usage-table thead, .usage-table tbody, .usage-table th, .usage-table td, .usage-table tr {
+                display: block;
+                width: 100%;
+            }
+            .usage-table tr {
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+            }
+            .usage-table td {
+                text-align: left;
+                padding-left: 50%;
+                position: relative;
+            }
+            .usage-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #2980B9;
+                width: 45%;
+                white-space: nowrap;
+            }
+            .usage-table th {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Usage - TekSA</h1>
+        <p>Track and manage inventory usage across departments.</p>
+    </div>
+
+    <div class="container">
+        <h2>Record Inventory Usage</h2>
+        <form action="/submit-usage" method="POST">
+            <label for="itemName">Item Name</label>
+            <input type="text" id="itemName" name="itemName" placeholder="Enter item name" required>
+
+            <label for="quantityUsed">Quantity Used</label>
+            <input type="number" id="quantityUsed" name="quantityUsed" placeholder="Enter quantity used" required>
+
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" placeholder="Enter department name" required>
+
+            <label for="dateUsed">Date of Usage</label>
+            <input type="text" id="dateUsed" name="dateUsed" placeholder="YYYY-MM-DD" required>
+
+            <label for="usageNotes">Usage Notes</label>
+            <textarea id="usageNotes" name="usageNotes" placeholder="Add any relevant notes"></textarea>
+
+            <div class="button" onclick="submitForm()">Record Usage</div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Usage History</h2>
+        <table class="usage-table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity Used</th>
+                    <th>Department</th>
+                    <th>Date of Usage</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Item Name">Item A</td>
+                    <td data-label="Quantity Used">20</td>
+                    <td data-label="Department">Manufacturing</td>
+                    <td data-label="Date of Usage">2024-10-15</td>
+                    <td data-label="Notes">For assembly line</td>
+                </tr>
+                <tr>
+                    <td data-label="Item Name">Item B</td>
+                    <td data-label="Quantity Used">15</td>
+                    <td data-label="Department">Quality Control</td>
+                    <td data-label="Date of Usage">2024-10-16</td>
+                    <td data-label="Notes">Inspection batch</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function submitForm() {
+            alert("Usage recorded successfully!");
+        }
+    </script>
+
+</body>
+</html>

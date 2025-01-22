@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Control - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .qc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .qc-table th, .qc-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .qc-table th {
+            background-color: #2980B9;
+            color: white;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .button {
+                width: 100%;
+                padding: 12px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .qc-table, .qc-table th, .qc-table td {
+                font-size: 0.9em;
+                padding: 6px;
+            }
+            .qc-table thead {
+                display: none; /* Hide headers on mobile */
+            }
+            .qc-table tr {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .qc-table td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .qc-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+                color: #2980B9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Quality Control - TekSA</h1>
+        <p>Ensuring product standards and quality checks in the production process.</p>
+    </div>
+
+    <div class="container">
+        <h2>Quality Control Inspection</h2>
+        <form action="/submit-quality-check" method="POST">
+            <label for="batchNumber">Batch Number</label>
+            <input type="text" id="batchNumber" name="batchNumber" placeholder="Enter batch number" required>
+
+            <label for="inspectorName">Inspector Name</label>
+            <input type="text" id="inspectorName" name="inspectorName" placeholder="Enter inspector's name" required>
+
+            <label for="inspectionDate">Inspection Date</label>
+            <input type="text" id="inspectionDate" name="inspectionDate" placeholder="YYYY-MM-DD" required>
+
+            <label for="result">Inspection Result</label>
+            <select id="result" name="result" required>
+                <option value="Pass">Pass</option>
+                <option value="Fail">Fail</option>
+            </select>
+
+            <label for="notes">Notes/Comments</label>
+            <textarea id="notes" name="notes" placeholder="Enter any observations or comments"></textarea>
+
+            <div class="button" onclick="submitForm()">Submit Inspection</div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Inspection History</h2>
+        <table class="qc-table">
+            <thead>
+                <tr>
+                    <th>Batch Number</th>
+                    <th>Inspector Name</th>
+                    <th>Inspection Date</th>
+                    <th>Result</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Batch Number">1001</td>
+                    <td data-label="Inspector Name">John Doe</td>
+                    <td data-label="Inspection Date">2024-10-01</td>
+                    <td data-label="Result">Pass</td>
+                    <td data-label="Notes">Meets quality standards</td>
+                </tr>
+                <tr>
+                    <td data-label="Batch Number">1002</td>
+                    <td data-label="Inspector Name">Jane Smith</td>
+                    <td data-label="Inspection Date">2024-10-02</td>
+                    <td data-label="Result">Fail</td>
+                    <td data-label="Notes">Defect found in packaging</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function submitForm() {
+            alert("Inspection submitted successfully!");
+        }
+    </script>
+
+</body>
+</html>

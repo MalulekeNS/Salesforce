@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Scheduling - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .schedule-table th {
+            background-color: #2980B9;
+            color: white;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .button {
+                width: 100%;
+                padding: 12px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .schedule-table, .schedule-table th, .schedule-table td {
+                font-size: 0.9em;
+                padding: 6px;
+            }
+            .schedule-table thead {
+                display: none; /* Hide table headers on mobile */
+            }
+            .schedule-table tr {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .schedule-table td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .schedule-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+                color: #2980B9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Production Scheduling - TekSA</h1>
+        <p>Efficiently manage production timelines and batch scheduling.</p>
+    </div>
+
+    <div class="container">
+        <h2>Create New Production Schedule</h2>
+        <form action="/submit-schedule" method="POST">
+            <label for="batchNumber">Batch Number</label>
+            <input type="text" id="batchNumber" name="batchNumber" placeholder="Enter batch number" required>
+
+            <label for="product">Product</label>
+            <input type="text" id="product" name="product" placeholder="Enter product name" required>
+
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" name="endDate" required>
+
+            <label for="status">Status</label>
+            <select id="status" name="status" required>
+                <option value="Planned">Planned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <div class="button" onclick="submitForm()">Create Schedule</div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Production Schedule Overview</h2>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Batch Number</th>
+                    <th>Product</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Batch Number">1001</td>
+                    <td data-label="Product">Product A</td>
+                    <td data-label="Start Date">2024-11-01</td>
+                    <td data-label="End Date">2024-11-05</td>
+                    <td data-label="Status">In Progress</td>
+                </tr>
+                <tr>
+                    <td data-label="Batch Number">1002</td>
+                    <td data-label="Product">Product B</td>
+                    <td data-label="Start Date">2024-11-03</td>
+                    <td data-label="End Date">2024-11-07</td>
+                    <td data-label="Status">Planned</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Placeholder function to simulate form submission
+            alert("Production schedule created successfully!");
+        }
+    </script>
+
+</body>
+</html>

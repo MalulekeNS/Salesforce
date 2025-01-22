@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request for Quotation (RFQ) - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h2 {
+            color: #2980B9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+            border: none;
+        }
+        input[type="submit"]:hover, .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 90%;
+            }
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            label {
+                font-size: 14px;
+            }
+            input[type="text"], input[type="number"], textarea, select {
+                font-size: 14px;
+            }
+            input[type="submit"], .button {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            .navbar a {
+                padding: 8px;
+                font-size: 12px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            label {
+                font-size: 12px;
+            }
+            input[type="text"], input[type="number"], textarea, select {
+                font-size: 12px;
+                padding: 8px;
+            }
+            .form-container {
+                padding: 10px;
+            }
+            input[type="submit"], .button {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Request for Quotation (RFQ) - TekSA</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Submit a New RFQ</h2>
+            <form action="/submitRFQ" method="POST">
+                <label for="supplierName">Supplier Name</label>
+                <select id="supplierName" name="supplierName" required>
+                    <option value="">Select Supplier</option>
+                    <option value="Supplier1">Supplier 1</option>
+                    <option value="Supplier2">Supplier 2</option>
+                    <option value="Supplier3">Supplier 3</option>
+                </select>
+
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Enter quantity required" required>
+
+                <label for="unitPrice">Expected Unit Price</label>
+                <input type="text" id="unitPrice" name="unitPrice" placeholder="Enter expected unit price">
+
+                <label for="deliveryDate">Expected Delivery Date</label>
+                <input type="text" id="deliveryDate" name="deliveryDate" placeholder="Enter delivery date">
+
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" placeholder="Include any additional information"></textarea>
+
+                <input type="submit" value="Submit RFQ">
+                <a href="supplierDirectory.html" class="button">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

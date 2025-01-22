@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Forecast - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .forecast-details {
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 90%;
+            }
+
+            .forecast-details, table, .actions {
+                width: 100%;
+            }
+
+            table, th, td {
+                font-size: 12px;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                margin: 10px 0;
+                width: 90%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            table, th, td {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            .button {
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Procurement Forecast - TekSA</h1>
+        <p>Forecast upcoming procurement requirements based on projected demand.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="forecast-details">
+            <h2>Forecast Summary</h2>
+            <p><strong>Time Period:</strong> Q4 2024</p>
+            <p><strong>Total Projected Spend (ZAR):</strong> 250,000</p>
+            <p><strong>Top Priority Items:</strong> Office Chairs, Office Desks, Computers</p>
+        </div>
+
+        <h2>Forecasted Items</h2>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Projected Quantity</th>
+                <th>Unit Price (ZAR)</th>
+                <th>Total Cost (ZAR)</th>
+                <th>Lead Time (Days)</th>
+            </tr>
+            <tr>
+                <td>Office Chairs</td>
+                <td>80</td>
+                <td>500</td>
+                <td>40,000</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Office Desks</td>
+                <td>50</td>
+                <td>1000</td>
+                <td>50,000</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Computers</td>
+                <td>30</td>
+                <td>4000</td>
+                <td>120,000</td>
+                <td>30</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <div class="actions">
+            <button class="button">Edit Forecast</button>
+            <button class="button">Generate Report</button>
+        </div>
+    </div>
+
+</body>
+</html>

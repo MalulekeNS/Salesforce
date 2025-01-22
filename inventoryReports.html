@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Reports - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .report-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .report-section h3 {
+            margin-top: 0;
+        }
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .report-table th, .report-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .report-table th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar a {
+                width: 45%;
+                font-size: 13px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .report-section {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+            .navbar a {
+                padding: 8px;
+                width: 100%;
+                font-size: 12px;
+            }
+            .report-section {
+                padding: 10px;
+            }
+            .report-table th, .report-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .button {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Reports</h1>
+        <p>View and analyze your inventory reports.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="inventory.html">Inventory</a>
+        <a href="lowStockAlerts.html">Low Stock Alerts</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="stockMovements.html">Stock Movements</a>
+        <a href="exportStockMovements.html">Export Stock Movements</a>
+        <a href="createPurchaseOrder.html">Create Purchase Order</a>
+        <a href="inventoryValuation.html">Inventory Valuation</a>
+        <a href="supplierManagement.html">Supplier Management</a>
+        <a href="inventoryReports.html">Inventory Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="report-section">
+            <h3>Stock Overview Report</h3>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Unit Price (ZAR)</th>
+                        <th>Total Value (ZAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product A</td>
+                        <td>100</td>
+                        <td>R50.00</td>
+                        <td>R5000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Product B</td>
+                        <td>200</td>
+                        <td>R30.00</td>
+                        <td>R6000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Product C</td>
+                        <td>150</td>
+                        <td>R20.00</td>
+                        <td>R3000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="report-section">
+            <h3>Purchase Order History</h3>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Supplier</th>
+                        <th>Order Date</th>
+                        <th>Total Amount (ZAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PO001</td>
+                        <td>Supplier A</td>
+                        <td>2024-10-01</td>
+                        <td>R2000.00</td>
+                    </tr>
+                    <tr>
+                        <td>PO002</td>
+                        <td>Supplier B</td>
+                        <td>2024-10-05</td>
+                        <td>R3000.00</td>
+                    </tr>
+                    <tr>
+                        <td>PO003</td>
+                        <td>Supplier C</td>
+                        <td>2024-10-10</td>
+                        <td>R1500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="button">Export Report</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .employee-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .employee-list th, .employee-list td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .employee-list th {
+            background-color: #3498DB;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Employee Records - TekSA</h1>
+        <p>Manage and maintain employee records, including personal information, employment details, and more.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Add New Employee</h3>
+            <p>Create a new employee record by entering personal and employment details.</p>
+            <a href="addEmployee.html" class="button">Add Employee</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Employee List</h3>
+            <p>View and manage existing employee records. Edit, update, or remove employees as needed.</p>
+        </div>
+
+        <!-- Employee List Table -->
+        <table class="employee-list">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>Date of Joining</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Data -->
+                <tr>
+                    <td>001</td>
+                    <td>John Doe</td>
+                    <td>Sales</td>
+                    <td>Sales Manager</td>
+                    <td>01-Jan-2020</td>
+                    <td>
+                        <a href="editEmployee.html?id=001" class="button">Edit</a>
+                        <a href="#" class="button" onclick="confirmDelete('001')">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Jane Smith</td>
+                    <td>HR</td>
+                    <td>HR Specialist</td>
+                    <td>15-Mar-2021</td>
+                    <td>
+                        <a href="editEmployee.html?id=002" class="button">Edit</a>
+                        <a href="#" class="button" onclick="confirmDelete('002')">Delete</a>
+                    </td>
+                </tr>
+                <!-- Add more employee rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function confirmDelete(employeeId) {
+            const confirmAction = confirm("Are you sure you want to delete employee " + employeeId + "?");
+            if (confirmAction) {
+                // Logic to delete employee record goes here.
+                alert("Employee " + employeeId + " deleted.");
+            }
+        }
+    </script>
+
+</body>
+</html>

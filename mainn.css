@@ -1,0 +1,166 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+
+/* Sidebar container */
+.sidebar-container {
+    position: relative;
+}
+
+/* Hamburger button */
+.toggle-sidebar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none; /* Default hidden on desktop */
+}
+
+/* Show the button on smaller screens */
+@media (max-width: 768px) {
+    .toggle-sidebar {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Initially hidden */
+        width: 250px;
+        height: 100%;
+        transition: left 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .sidebar.open {
+        left: 0; /* Slide in when open */
+    }
+
+    .content {
+        margin-left: 0; /* No fixed sidebar in mobile */
+    }
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #2E86C1;
+    color: white;
+    width: 220px;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    display: block;
+    border-radius: 5px;
+    background-color: #3498DB;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #1B4F72;
+}
+
+/* Main content styling */
+.content {
+    flex: 5;
+    padding: 20px;
+}
+
+.header {
+    background-color: #2980B9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Card styling */
+.card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #2980B9;
+    margin-top: 0;
+}
+
+/* Button styling */
+.btn {
+    background-color: #3498DB;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #1B4F72;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #3498DB;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* For responsive styling */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .content {
+        padding: 10px;
+    }
+}

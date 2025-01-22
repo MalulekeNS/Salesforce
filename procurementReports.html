@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Reports - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .report-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .report-card h3 {
+            color: #2980B9;
+            margin-top: 0;
+        }
+        .report-card p {
+            margin: 10px 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            width: fit-content;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 90%;
+            }
+
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+                padding: 8px 15px;
+            }
+
+            .report-card h3 {
+                font-size: 18px;
+            }
+
+            .report-card p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            .navbar a {
+                padding: 8px 8px;
+                font-size: 12px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+
+            .report-card h3 {
+                font-size: 16px;
+            }
+
+            .report-card p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Procurement Reports - TekSA</h1>
+        <p>Analyze procurement performance and monitor supplier relationships.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="report-card">
+            <h3>Supplier Performance Report</h3>
+            <p>Evaluate supplier performance based on order accuracy, delivery times, and quality metrics.</p>
+            <a href="supplierPerformanceReport.html" class="button">View Report</a>
+        </div>
+
+        <div class="report-card">
+            <h3>Spend Analysis Report</h3>
+            <p>Analyze spending patterns to optimize procurement strategies and identify cost-saving opportunities.</p>
+            <a href="spendAnalysisReport.html" class="button">View Report</a>
+        </div>
+
+        <div class="report-card">
+            <h3>Purchase Order Summary</h3>
+            <p>Track the status and volume of purchase orders issued over a specific period.</p>
+            <a href="purchaseOrderSummary.html" class="button">View Summary</a>
+        </div>
+
+        <div class="report-card">
+            <h3>Procurement Forecast Report</h3>
+            <p>Generate forecasts based on historical data to better manage future procurement needs.</p>
+            <a href="procurementForecast.html" class="button">View Forecast</a>
+        </div>
+
+        <div class="report-card">
+            <h3>Cost Savings Report</h3>
+            <p>Calculate and track savings achieved through negotiation, supplier performance, and procurement optimization.</p>
+            <a href="costSavingsReport.html" class="button">View Report</a>
+        </div>
+    </div>
+
+</body>
+</html>

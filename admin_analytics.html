@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Admin Analytics</title>
+</head>
+<body>
+   <!-- Add a button for the sidebar -->
+<div class="sidebar-container">
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar">
+        <h2>Admin Portal</h2>
+        <a href="admin.html">Overview</a>
+        <a href="user_management.html">User Management</a>
+        <a href="admin_reports.html">Reports</a>
+        <a href="admin_settings.html">Settings</a>
+        <a href="admin_analytics.html">Analytics</a>
+        <a href="admin_support.html">Support Center</a>
+        <a href="logout.html">Logout</a>
+    </div>
+</div>
+
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <!-- Header -->
+        <div class="header">
+            <h1>Analytics Dashboard</h1>
+            <p>Analyze user activity, engagement, and other key metrics.</p>
+        </div>
+
+        <!-- Analytics Cards Section -->
+        <div class="card">
+            <h3>User Engagement</h3>
+            <p>Overview of daily active users, session lengths, and engagement rates.</p>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Daily Active Users</td>
+                    <td>1,254</td>
+                </tr>
+                <tr>
+                    <td>Average Session Length</td>
+                    <td>15 minutes</td>
+                </tr>
+                <tr>
+                    <td>Engagement Rate</td>
+                    <td>72%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Revenue Analytics</h3>
+            <p>Monitor monthly and yearly revenue generated through platform usage.</p>
+            <table>
+                <tr>
+                    <th>Time Period</th>
+                    <th>Revenue (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>Monthly Revenue</td>
+                    <td>R 75,000</td>
+                </tr>
+                <tr>
+                    <td>Year-to-Date Revenue</td>
+                    <td>R 820,000</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Platform Performance</h3>
+            <p>Track system uptime, average response times, and error rates.</p>
+            <table>
+                <tr>
+                    <th>Performance Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>System Uptime</td>
+                    <td>99.8%</td>
+                </tr>
+                <tr>
+                    <td>Average Response Time</td>
+                    <td>350 ms</td>
+                </tr>
+                <tr>
+                    <td>Error Rate</td>
+                    <td>0.2%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+        </script>
+        
+</body>
+</html>

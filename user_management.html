@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <title>User Management</title>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Admin Portal</h2>
+        <a href="admin.html">Overview</a>
+        <a href="user_management.html">User Management</a>
+        <a href="admin_reports.html">Reports</a>
+        <a href="admin_settings.html">Settings</a>
+        <a href="admin_analytics.html">Analytics</a>
+        <a href="admin_support.html">Support Center</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <!-- Header -->
+        <div class="header">
+            <h1>User Management</h1>
+            <p>Manage users, assign roles, and set permissions for platform access.</p>
+        </div>
+
+        <!-- User Management Table -->
+        <div class="card">
+            <h3>Current Users</h3>
+            <table>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+                <!-- Sample user row -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Admin</td>
+                    <td>
+                        <button class="btn">Edit</button>
+                        <button class="btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>janesmith@example.com</td>
+                    <td>User</td>
+                    <td>
+                        <button class="btn">Edit</button>
+                        <button class="btn">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more user rows as needed -->
+            </table>
+        </div>
+
+        <!-- Add New User Section -->
+        <div class="card">
+            <h3>Add New User</h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                
+                <button type="submit" class="btn">Add User</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

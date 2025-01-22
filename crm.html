@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Features - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+      /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border: 1px solid #3498DB;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-container .search-button {
+    background-color: #3498DB;
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container .search-button:hover {
+    background-color: #1B4F72;
+}
+
+/* Container Styling for Feature Cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+}
+
+.button {
+    background-color: #3498DB;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    .navbar a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .feature-card {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+
+    .button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .search-container input[type="text"] {
+        max-width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>CRM TekSA</h1>
+        <p>Manage leads, customers, sales, and more with TekSA CRM.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardCRM.html">Dashboard</a>
+        <a href="lead_tracking.html">Leads</a>
+        <a href="customerManagement.html">Customers</a>
+        <a href="sales.html">Sales Force</a>
+        <a href="Reports_Analytics.html">Reports</a>
+        <a href="taskManagement.html">Tasks</a>
+        <a href="docManagement.html">Documents</a>
+    </div>
+
+    <!-- Search Filter and Button -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search CRM features..." aria-label="Search CRM features">
+        <button type="button" class="search-button" onclick="searchFeatures()">Search</button>
+    </div>
+
+    <!-- Feature Cards Container -->
+    <div class="container">
+        <div class="feature-card">
+            <h3>Customer Management</h3>
+            <p>Centralized platform to manage customer profiles and view contact history.</p>
+            <a href="customerManagement.html" class="button">View Customers</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Lead Tracking</h3>
+            <p>Track, qualify, and assign leads to your sales team.</p>
+            <a href="lead_tracking.html" class="button">Track Leads</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Sales</h3>
+            <p>Visualize your sales stages and track deals from start to close.</p>
+            <a href="sales.html" class="button">Manage Pipeline</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Task Management</h3>
+            <p>Assign and track tasks related to your clients and leads.</p>
+            <a href="taskManagement.html" class="button">Manage Tasks</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Reports & Analytics</h3>
+            <p>Generate reports on sales performance, lead conversions, and more.</p>
+            <a href="Reports_Analytics.html" class="button">View Reports</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Document Management</h3>
+            <p>Upload, store, and manage documents related to your clients and deals.</p>
+            <a href="docManagement.html" class="button">Manage Documents</a>
+        </div>
+    </div>
+
+</body>
+
+
+    <script>
+        function searchFeatures() {
+            var input = document.getElementById('search-bar').value.toLowerCase();
+            var featureCards = document.getElementsByClassName('feature-card');
+            
+            for (var i = 0; i < featureCards.length; i++) {
+                var card = featureCards[i];
+                var cardTitle = card.getElementsByTagName('h3')[0].innerText.toLowerCase();
+                
+                if (cardTitle.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

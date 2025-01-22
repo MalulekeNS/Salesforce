@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Usage Overview - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .download-button {
+            background-color: #27ae60;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .download-button:hover {
+            background-color: #1e8449;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            .container {
+                width: 90%;
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            tr {
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            td {
+                text-align: left;
+                padding-left: 50%;
+                position: relative;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #2980B9;
+                white-space: nowrap;
+            }
+            th {
+                display: none;
+            }
+            .download-button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Usage Overview</h1>
+        <p>Summary of current inventory usage for production and operations.</p>
+    </div>
+
+    <div class="container">
+        <h2>Usage Summary - October 2024</h2>
+
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Total Used</th>
+                <th>Current Stock</th>
+                <th>Usage Rate</th>
+                <th>Reorder Point</th>
+            </tr>
+            <tr>
+                <td data-label="Item">Steel Plates</td>
+                <td data-label="Total Used">500 units</td>
+                <td data-label="Current Stock">150 units</td>
+                <td data-label="Usage Rate">High</td>
+                <td data-label="Reorder Point">200 units</td>
+            </tr>
+            <tr>
+                <td data-label="Item">Paint</td>
+                <td data-label="Total Used">300 liters</td>
+                <td data-label="Current Stock">100 liters</td>
+                <td data-label="Usage Rate">Moderate</td>
+                <td data-label="Reorder Point">50 liters</td>
+            </tr>
+            <tr>
+                <td data-label="Item">Fasteners</td>
+                <td data-label="Total Used">1000 units</td>
+                <td data-label="Current Stock">400 units</td>
+                <td data-label="Usage Rate">High</td>
+                <td data-label="Reorder Point">500 units</td>
+            </tr>
+            <tr>
+                <td data-label="Item">Wire Mesh</td>
+                <td data-label="Total Used">200 rolls</td>
+                <td data-label="Current Stock">80 rolls</td>
+                <td data-label="Usage Rate">Moderate</td>
+                <td data-label="Reorder Point">100 rolls</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <a href="downloads/inventoryUsageReport.pdf" class="download-button">Download Report</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spend Analysis Report - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .report-section {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .report-section h2 {
+            color: #2980B9;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .report-section {
+                padding: 15px;
+            }
+            .report-section h2 {
+                font-size: 18px;
+            }
+            table, th, td {
+                font-size: 14px;
+                padding: 6px;
+            }
+            .button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+                font-size: 18px;
+            }
+            .navbar a {
+                padding: 6px;
+                font-size: 12px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .report-section h2 {
+                font-size: 16px;
+            }
+            table, th, td {
+                font-size: 12px;
+                padding: 5px;
+            }
+            .button {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Spend Analysis Report - TekSA</h1>
+        <p>Insights into procurement expenditures and category-wise spending trends.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="report-section">
+            <h2>Overall Spending Breakdown</h2>
+            <p>A detailed breakdown of spending across various categories and suppliers.</p>
+
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Total Spend (ZAR)</th>
+                    <th>Percentage of Total</th>
+                </tr>
+                <tr>
+                    <td>Raw Materials</td>
+                    <td>1,500,000</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td>Equipment</td>
+                    <td>850,000</td>
+                    <td>22.7%</td>
+                </tr>
+                <tr>
+                    <td>Packaging</td>
+                    <td>600,000</td>
+                    <td>16%</td>
+                </tr>
+                <tr>
+                    <td>Logistics</td>
+                    <td>750,000</td>
+                    <td>20%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="report-section">
+            <h2>Top Suppliers by Spend</h2>
+            <table>
+                <tr>
+                    <th>Supplier</th>
+                    <th>Category</th>
+                    <th>Amount Spent (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>ABC Supplies</td>
+                    <td>Raw Materials</td>
+                    <td>800,000</td>
+                </tr>
+                <tr>
+                    <td>XYZ Equipment</td>
+                    <td>Equipment</td>
+                    <td>500,000</td>
+                </tr>
+                <tr>
+                    <td>Global Logistics</td>
+                    <td>Logistics</td>
+                    <td>750,000</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="report-section">
+            <h2>Spending Trends</h2>
+            <p>Analyze spending trends over the last fiscal year by category.</p>
+            <button class="button">Download Full Report</button>
+        </div>
+    </div>
+
+</body>
+</html>

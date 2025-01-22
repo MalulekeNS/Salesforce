@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA Developer Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            margin: 0;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #2E86C1;
+            color: white;
+            width: 220px;
+            min-height: 100vh;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #3498DB;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Sidebar toggle button */
+        .toggle-sidebar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                left: -220px;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .toggle-sidebar {
+                display: block;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                background-color: #2E86C1;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                font-size: 20px;
+                border-radius: 5px;
+                z-index: 1001;
+                cursor: pointer;
+            }
+        }
+
+        /* Content styles */
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        .header {
+            background-color: #2980B9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        /* Tools container and cards */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .tool-card h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .tool-card button {
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tool-card button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Chat button */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2980B9;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .chat-window header {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chat-window input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- Sidebar Toggle Button -->
+<button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Developer Tools</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="erp.html">ERP</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="hr.html">HR</a>
+    <a href="file.html">File Storage</a>
+    <a href="https://www.trade-alliance.africa">Ecommerce</a>
+    <a href="developer.html">Developer</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+    <div class="content">
+        <div class="header">
+            <h1>Developer Platform</h1>
+            <p>Build, Test, and Deploy Your Apps Efficiently</p>
+        </div>
+
+        <div class="tools-container">
+            <!-- API Management Tool -->
+            <div class="tool-card">
+                <h3>API Management</h3>
+                <p>Manage your APIs and test endpoints directly from this interface.</p>
+                <button>API Console</button>
+                <button>View Documentation</button>
+            </div>
+
+            <!-- App Builder -->
+            <div class="tool-card">
+                <h3>App Builder</h3>
+                <p>Create and design apps with a drag-and-drop interface, and customize features easily.</p>
+                <button>Launch App Builder</button>
+            </div>
+
+            <!-- Code Editor -->
+            <div class="tool-card">
+                <h3>Code Editor</h3>
+                <p>Use our integrated code editor to write, edit, and debug code directly on the platform.</p>
+                <button>Open Code Editor</button>
+            </div>
+
+            <!-- Chatbot Builder -->
+            <div class="tool-card">
+                <h3>Chatbot Builder</h3>
+                <p>Create and manage chatbots to assist users or provide automated support.</p>
+                <button>Open Chatbot Builder</button>
+            </div>
+
+            <!-- Database Management -->
+            <div class="tool-card">
+                <h3>Database Management</h3>
+                <p>Manage and optimize your databases, set up tables, and handle queries.</p>
+                <button>Open Database Manager</button>
+            </div>
+
+            <!-- Analytics and Reporting -->
+            <div class="tool-card">
+                <h3>Analytics & Reporting</h3>
+                <p>View app analytics and generate reports to track and improve performance.</p>
+                <button>View Analytics</button>
+            </div>
+
+            <!-- Version Control -->
+            <div class="tool-card">
+                <h3>Version Control</h3>
+                <p>Track changes, manage branches, and collaborate on projects with version control.</p>
+                <button>Open Git Repository</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot button -->
+    <button class="chat-button" onclick="openChat()">💬</button>
+
+    <!-- Chat window -->
+    <div class="chat-window" id="chatWindow">
+        <header>Chat Support</header>
+        <p>Hello! How can I assist you today?</p>
+        <input type="text" placeholder="Type your message...">
+    </div>
+
+    <script>
+        function openChat() {
+            const chatWindow = document.getElementById("chatWindow");
+            chatWindow.style.display = chatWindow.style.display === "none" || chatWindow.style.display === "" ? "block" : "none";
+        }
+        
+        function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('open');
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Management - TekSA CRM</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .doc-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .doc-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .upload-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #3498DB;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .export-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498DB;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Document Management - TekSA CRM</h1>
+        <p>Upload, organize, and track your documents</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="lead_tracking.html">Leads</a>
+        <a href="customerManagement.html">Customers</a>
+        <a href="sales.html">Sales Force</a>
+        <a href="Reports_Analytics.html">Reports</a>
+        <a href="taskManagement.html">Tasks</a>
+        <a href="docManagement.html">Documents</a>
+    </div>
+
+    <div class="container">
+        <!-- Document Upload Section -->
+        <div class="doc-card">
+            <h3>Upload Documents</h3>
+            <p>Use this section to upload important documents related to your deals, customers, and leads.</p>
+            <input type="file" id="upload" multiple>
+            <button class="upload-btn" onclick="uploadDocuments()">Upload Files</button>
+        </div>
+
+        <!-- Document List Section -->
+        <div class="doc-card">
+            <h3>Document Library</h3>
+            <p>Manage and organize your documents with ease.</p>
+            <table>
+                <tr>
+                    <th>Document Name</th>
+                    <th>Uploaded By</th>
+                    <th>Upload Date</th>
+                    <th>Related To</th>
+                </tr>
+                <tr>
+                    <td>Contract_Acme.pdf</td>
+                    <td>John Doe</td>
+                    <td>2024-10-12</td>
+                    <td>Acme Inc. - Deal</td>
+                </tr>
+                <tr>
+                    <td>Proposal_Beta.docx</td>
+                    <td>Jane Smith</td>
+                    <td>2024-09-30</td>
+                    <td>Beta Co. - Lead</td>
+                </tr>
+                <tr>
+                    <td>Invoice_Delta.xlsx</td>
+                    <td>Mark Davis</td>
+                    <td>2024-09-25</td>
+                    <td>Delta Ltd. - Task</td>
+                </tr>
+            </table>
+            <button class="export-btn" onclick="exportDocuments()">Export Documents CSV</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to simulate document upload
+        function uploadDocuments() {
+            var input = document.getElementById("upload");
+            var files = input.files;
+            if (files.length === 0) {
+                alert("Please select a file to upload.");
+            } else {
+                alert(files.length + " file(s) uploaded successfully.");
+            }
+        }
+
+        // Function to export Document List CSV
+        function exportDocuments() {
+            var documentData = [
+                ["Document Name", "Uploaded By", "Upload Date", "Related To"],
+                ["Contract_Acme.pdf", "John Doe", "2024-10-12", "Acme Inc. - Deal"],
+                ["Proposal_Beta.docx", "Jane Smith", "2024-09-30", "Beta Co. - Lead"],
+                ["Invoice_Delta.xlsx", "Mark Davis", "2024-09-25", "Delta Ltd. - Task"]
+            ];
+            exportToCSV(documentData, 'document_library.csv');
+        }
+
+        // General function to export any table data to CSV
+        function exportToCSV(data, filename) {
+            let csvContent = "";
+            data.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement("a");
+            if (link.download !== undefined) { 
+                var url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    </script>
+
+</body>
+</html>

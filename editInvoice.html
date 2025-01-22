@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Invoice - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+            color: #2980B9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #2980B9;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+           
+            .navbar a {
+                margin: 5px 0;
+            }
+            .header {
+                padding: 15px;
+            }
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Edit Invoice - TekSA</h1>
+        <p>Modify the details for the selected invoice.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Edit Invoice #INV001</h2>
+            <form action="/submit-edit-invoice" method="POST">
+                <div class="form-group">
+                    <label for="supplierName">Supplier Name</label>
+                    <input type="text" id="supplierName" name="supplierName" value="Supplier 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="invoiceDate">Invoice Date</label>
+                    <input type="date" id="invoiceDate" name="invoiceDate" value="2024-10-01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" name="dueDate" value="2024-10-31" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount (ZAR)</label>
+                    <input type="number" id="amount" name="amount" value="5000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status">
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Overdue">Overdue</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemizedList">Itemized List</label>
+                    <textarea id="itemizedList" name="itemizedList" placeholder="List each item and cost" rows="5">Product A: 10 units - ZAR 2,000
+Product B: 5 units - ZAR 1,500
+Product C: 8 units - ZAR 1,500</textarea>
+                </div>
+
+                <button type="submit" class="button">Save Changes</button>
+                <a href="invoiceManagement.html" class="button">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

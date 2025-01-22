@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Reports - TekSA CRM</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .filter-section, .report-section {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .filter-section h2, .report-section h2 {
+            margin-top: 0;
+        }
+        .filter-section form {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .filter-section label, .filter-section select {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .filter-section .form-group {
+            width: 32%;
+        }
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        /* Download Button */
+        .download-btn {
+            background-color: #28B463;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .download-btn:hover {
+            background-color: #1D8348;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Sales Reports - TekSA CRM</h1>
+        <p>Track sales performance with detailed insights and metrics.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="crm.html">CRM</a>
+        <a href="sales.html">Sales</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="container">
+
+        <!-- Sales Report Filters -->
+        <div class="filter-section">
+            <h2>Filter Sales Reports</h2>
+            <form action="/filter-reports" method="POST">
+                <div class="form-group">
+                    <label for="salesperson">Salesperson</label>
+                    <select id="salesperson" name="salesperson">
+                        <option value="all">All</option>
+                        <option value="john">John Mahlangu</option>
+                        <option value="jane">Jane Simelane</option>
+                        <option value="mark">Mark Davis</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dateRange">Date Range</label>
+                    <select id="dateRange" name="dateRange">
+                        <option value="all">All Time</option>
+                        <option value="last30">Last 30 Days</option>
+                        <option value="last90">Last 90 Days</option>
+                        <option value="yearToDate">Year to Date</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Deal Status</label>
+                    <select id="status" name="status">
+                        <option value="all">All</option>
+                        <option value="closed-won">Closed-Won</option>
+                        <option value="closed-lost">Closed-Lost</option>
+                        <option value="negotiation">In Negotiation</option>
+                        <option value="proposal">Proposal Sent</option>
+                    </select>
+                </div>
+                <input type="submit" value="Filter Reports">
+            </form>
+        </div>
+
+        <!-- Sales Report Table -->
+        <div class="report-section">
+            <h2>Sales Performance Report</h2>
+            <a href="#" class="download-btn">Download CSV</a> <!-- Download Button -->
+
+            <table>
+                <tr>
+                    <th>Salesperson</th>
+                    <th>Client</th>
+                    <th>Deal Name</th>
+                    <th>Status</th>
+                    <th>Value</th>
+                    <th>Close Date</th>
+                </tr>
+                <tr>
+                    <td>John Mahlangu</td>
+                    <td>Acme Inc.</td>
+                    <td>Project X</td>
+                    <td>Closed-Won</td>
+                    <td>R50,000</td>
+                    <td>2024-09-15</td>
+                </tr>
+                <tr>
+                    <td>Jane Simelane</td>
+                    <td>TechCorp</td>
+                    <td>Redesign Initiative</td>
+                    <td>Negotiation</td>
+                    <td>R20,000</td>
+                    <td>2024-10-01</td>
+                </tr>
+                <tr>
+                    <td>Mark Davis</td>
+                    <td>WebGlobal</td>
+                    <td>Website Overhaul</td>
+                    <td>Proposal Sent</td>
+                    <td>R35,000</td>
+                    <td>2024-09-20</td>
+                </tr>
+                <tr>
+                    <td>John Mahlangu</td>
+                    <td>Retail Solutions</td>
+                    <td>System Integration</td>
+                    <td>Closed-Lost</td>
+                    <td>R45,000</td>
+                    <td>2024-08-30</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

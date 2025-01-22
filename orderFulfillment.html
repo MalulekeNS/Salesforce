@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Fulfillment - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        .fulfillment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            display: block;
+        }
+        .fulfillment-table, .fulfillment-table th, .fulfillment-table td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .form-section {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            th, td {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .button {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Order Fulfillment</h1>
+        <p>Manage and track the fulfillment status of customer orders.</p>
+    </div>
+
+    <div class="container">
+        <h2>Order Fulfillment Status</h2>
+
+        <table class="fulfillment-table">
+            <tr>
+                <th>Order ID</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Fulfillment Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td>Product A</td>
+                <td>50</td>
+                <td>2024-11-02</td>
+                <td>Shipped</td>
+                <td><button class="button">Update Status</button></td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>Product B</td>
+                <td>30</td>
+                <td>2024-11-05</td>
+                <td>In Progress</td>
+                <td><button class="button">Update Status</button></td>
+            </tr>
+            <tr>
+                <td>1003</td>
+                <td>Product C</td>
+                <td>70</td>
+                <td>2024-11-07</td>
+                <td>Pending</td>
+                <td><button class="button">Update Status</button></td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <div class="form-section">
+            <h2>Update Order Fulfillment</h2>
+            <form action="/update-fulfillment" method="POST">
+                <label for="orderId">Order ID</label>
+                <input type="text" id="orderId" name="orderId" placeholder="Enter order ID" required>
+
+                <label for="product">Product Name</label>
+                <input type="text" id="product" name="product" placeholder="Enter product name" required>
+
+                <label for="quantity">Quantity</label>
+                <input type="text" id="quantity" name="quantity" placeholder="Enter quantity fulfilled" required>
+
+                <label for="date">Fulfillment Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+
+                <input type="submit" class="button" value="Update Fulfillment">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

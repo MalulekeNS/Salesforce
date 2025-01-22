@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Control Report - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .download-button {
+            background-color: #27ae60;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .download-button:hover {
+            background-color: #1e8449;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .download-button {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            thead {
+                display: none; /* Hide table header */
+            }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+            }
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px;
+                text-align: left;
+            }
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #2980B9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Quality Control Report</h1>
+        <p>Overview of product quality checks and defect rates.</p>
+    </div>
+
+    <div class="container">
+        <h2>Quality Control Analysis - October 2024</h2>
+
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Batch Number</th>
+                <th>Quantity Produced</th>
+                <th>Defects Found</th>
+                <th>Defect Rate (%)</th>
+                <th>Quality Status</th>
+            </tr>
+            <tr>
+                <td data-label="Product">Product A</td>
+                <td data-label="Batch Number">10234</td>
+                <td data-label="Quantity Produced">1000</td>
+                <td data-label="Defects Found">5</td>
+                <td data-label="Defect Rate (%)">0.5%</td>
+                <td data-label="Quality Status">Pass</td>
+            </tr>
+            <tr>
+                <td data-label="Product">Product B</td>
+                <td data-label="Batch Number">10235</td>
+                <td data-label="Quantity Produced">1200</td>
+                <td data-label="Defects Found">12</td>
+                <td data-label="Defect Rate (%)">1.0%</td>
+                <td data-label="Quality Status">Pass</td>
+            </tr>
+            <tr>
+                <td data-label="Product">Product C</td>
+                <td data-label="Batch Number">10236</td>
+                <td data-label="Quantity Produced">1500</td>
+                <td data-label="Defects Found">20</td>
+                <td data-label="Defect Rate (%)">1.3%</td>
+                <td data-label="Quality Status">Review</td>
+            </tr>
+            <tr>
+                <td data-label="Product">Product D</td>
+                <td data-label="Batch Number">10237</td>
+                <td data-label="Quantity Produced">900</td>
+                <td data-label="Defects Found">25</td>
+                <td data-label="Defect Rate (%)">2.8%</td>
+                <td data-label="Quality Status">Fail</td>
+            </tr>
+            <!-- Additional rows as needed -->
+        </table>
+
+        <a href="downloads/qualityControlReport.pdf" class="download-button">Download Report</a>
+    </div>
+
+</body>
+</html>

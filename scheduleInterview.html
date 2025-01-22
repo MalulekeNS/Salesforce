@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Interview - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Schedule Interview</h1>
+        <p>Fill out the form below to schedule a new interview.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <form id="scheduleInterviewForm">
+            <div class="form-group">
+                <label for="candidateName">Candidate Name:</label>
+                <input type="text" id="candidateName" name="candidateName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewDate">Interview Date:</label>
+                <input type="date" id="interviewDate" name="interviewDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewTime">Interview Time:</label>
+                <input type="time" id="interviewTime" name="interviewTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewer">Interviewer:</label>
+                <select id="interviewer" name="interviewer" required>
+                    <option value="">Select an interviewer</option>
+                    <option value="interviewer1">Interviewer 1</option>
+                    <option value="interviewer2">Interviewer 2</option>
+                    <option value="interviewer3">Interviewer 3</option>
+                </select>
+            </div>
+
+            <button type="submit" class="button">Schedule Interview</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('scheduleInterviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Here you can add code to handle the form submission,
+            // like sending data to your backend API or processing it further.
+
+            alert('Interview scheduled successfully!');
+            // Optionally, reset the form
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

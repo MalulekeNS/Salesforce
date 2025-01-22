@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Overview - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Stock Overview - TekSA</h1>
+        <p>View current inventory levels and stock status.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardERP.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Current Stock Levels</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Laptop</td>
+                    <td>14-inch, 16GB RAM</td>
+                    <td>Electronics</td>
+                    <td>20</td>
+                    <td>R999.99</td>
+                </tr>
+                <tr>
+                    <td>Office Chair</td>
+                    <td>Ergonomic office chair</td>
+                    <td>Furniture</td>
+                    <td>15</td>
+                    <td>R129.99</td>
+                </tr>
+                <tr>
+                    <td>T-shirt</td>
+                    <td>Cotton T-shirt, assorted colors</td>
+                    <td>Clothing</td>
+                    <td>50</td>
+                    <td>R19.99</td>
+                </tr>
+                <tr>
+                    <td>Notebook</td>
+                    <td>Spiral notebook, 200 pages</td>
+                    <td>Stationery</td>
+                    <td>100</td>
+                    <td>R5.99</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="createInventoryItem.html" class="button">Add New Item</a>
+    </div>
+
+</body>
+</html>

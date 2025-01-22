@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Feedback - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .rating {
+            display: flex;
+            gap: 10px;
+        }
+        .rating input[type="radio"] {
+            display: none;
+        }
+        .rating label {
+            cursor: pointer;
+            color: #ccc;
+        }
+        .rating input[type="radio"]:checked ~ label {
+            color: #3498db;
+        }
+        .button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Interview Feedback</h1>
+        <p>Provide feedback and ratings for candidates after interviews.</p>
+    </div>
+
+    <div class="container">
+        <form action="submitFeedback.html" method="post">
+            <div class="form-group">
+                <label for="candidateName">Candidate Name</label>
+                <input type="text" id="candidateName" name="candidateName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewDate">Interview Date</label>
+                <input type="date" id="interviewDate" name="interviewDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" id="position" name="position" required>
+            </div>
+
+            <div class="form-group">
+                <label>Technical Skills</label>
+                <div class="rating">
+                    <input type="radio" id="tech5" name="technicalSkills" value="5">
+                    <label for="tech5">&#9733;</label>
+                    <input type="radio" id="tech4" name="technicalSkills" value="4">
+                    <label for="tech4">&#9733;</label>
+                    <input type="radio" id="tech3" name="technicalSkills" value="3">
+                    <label for="tech3">&#9733;</label>
+                    <input type="radio" id="tech2" name="technicalSkills" value="2">
+                    <label for="tech2">&#9733;</label>
+                    <input type="radio" id="tech1" name="technicalSkills" value="1">
+                    <label for="tech1">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Communication Skills</label>
+                <div class="rating">
+                    <input type="radio" id="comm5" name="communicationSkills" value="5">
+                    <label for="comm5">&#9733;</label>
+                    <input type="radio" id="comm4" name="communicationSkills" value="4">
+                    <label for="comm4">&#9733;</label>
+                    <input type="radio" id="comm3" name="communicationSkills" value="3">
+                    <label for="comm3">&#9733;</label>
+                    <input type="radio" id="comm2" name="communicationSkills" value="2">
+                    <label for="comm2">&#9733;</label>
+                    <input type="radio" id="comm1" name="communicationSkills" value="1">
+                    <label for="comm1">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Cultural Fit</label>
+                <div class="rating">
+                    <input type="radio" id="fit5" name="culturalFit" value="5">
+                    <label for="fit5">&#9733;</label>
+                    <input type="radio" id="fit4" name="culturalFit" value="4">
+                    <label for="fit4">&#9733;</label>
+                    <input type="radio" id="fit3" name="culturalFit" value="3">
+                    <label for="fit3">&#9733;</label>
+                    <input type="radio" id="fit2" name="culturalFit" value="2">
+                    <label for="fit2">&#9733;</label>
+                    <input type="radio" id="fit1" name="culturalFit" value="1">
+                    <label for="fit1">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" placeholder="Add any additional comments about the candidate..."></textarea>
+            </div>
+
+            <button type="submit" class="button">Submit Feedback</button>
+        </form>
+    </div>
+
+</body>
+</html>

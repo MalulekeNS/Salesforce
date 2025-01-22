@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Forecasting - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        .forecast-table, .forecast-table th, .forecast-table td {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+            padding: 12px;
+            text-align: left;
+        }
+        .forecast-table th {
+            background-color: #2980B9;
+            color: white;
+        }
+        .button {
+            background-color: #3498DB;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .form-section {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .header {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .forecast-table, .forecast-table th, .forecast-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .button {
+                width: 100%;
+                padding: 12px;
+            }
+            input[type="text"], input[type="number"], input[type="date"], select {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Production Forecasting</h1>
+        <p>Predict upcoming production demands and ensure readiness for future requirements.</p>
+    </div>
+
+    <div class="container">
+        <h2>Production Forecast Summary</h2>
+
+        <table class="forecast-table">
+            <tr>
+                <th>Product</th>
+                <th>Forecasted Quantity</th>
+                <th>Forecast Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Product A</td>
+                <td>500</td>
+                <td>2024-11-01</td>
+                <td>Planned</td>
+            </tr>
+            <tr>
+                <td>Product B</td>
+                <td>300</td>
+                <td>2024-11-15</td>
+                <td>In Progress</td>
+            </tr>
+            <tr>
+                <td>Product C</td>
+                <td>250</td>
+                <td>2024-12-01</td>
+                <td>Pending</td>
+            </tr>
+        </table>
+
+        <button onclick="downloadForecast()" class="button">Download Forecast</button>
+
+        <div class="form-section">
+            <h2>Add New Production Forecast</h2>
+            <form action="/add-forecast" method="POST">
+                <label for="product">Product Name</label>
+                <input type="text" id="product" name="product" placeholder="Enter product name" required>
+
+                <label for="quantity">Forecasted Quantity</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+
+                <label for="date">Forecast Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="Planned">Planned</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <input type="submit" class="button" value="Add Forecast">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function downloadForecast() {
+            // Code to initiate downloading of the forecast report.
+            alert("Downloading forecast report...");
+        }
+    </script>
+
+</body>
+</html>

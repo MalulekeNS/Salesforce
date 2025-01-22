@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Allocation - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 0px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .allocation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .allocation-table th, .allocation-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .allocation-table th {
+            background-color: #2980B9;
+            color: white;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .allocation-table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            thead {
+                display: none; /* Hide table headers on mobile */
+            }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px;
+            }
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #2980B9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Resource Allocation - TekSA</h1>
+        <p>Allocate and monitor resources across production schedules.</p>
+    </div>
+
+    <div class="container">
+        <h2>Allocate Resources</h2>
+        <form action="/submit-allocation" method="POST">
+            <label for="batchNumber">Batch Number</label>
+            <input type="text" id="batchNumber" name="batchNumber" placeholder="Enter batch number" required>
+
+            <label for="resourceType">Resource Type</label>
+            <select id="resourceType" name="resourceType" required>
+                <option value="Machine">Machine</option>
+                <option value="Labor">Labor</option>
+                <option value="Material">Material</option>
+            </select>
+
+            <label for="resourceName">Resource Name</label>
+            <input type="text" id="resourceName" name="resourceName" placeholder="Enter resource name" required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+
+            <div class="button" onclick="submitForm()">Allocate Resource</div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Resource Allocation Overview</h2>
+        <table class="allocation-table">
+            <thead>
+                <tr>
+                    <th>Batch Number</th>
+                    <th>Resource Type</th>
+                    <th>Resource Name</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Batch Number">1001</td>
+                    <td data-label="Resource Type">Machine</td>
+                    <td data-label="Resource Name">Lathe Machine</td>
+                    <td data-label="Quantity">2</td>
+                    <td data-label="Status">Allocated</td>
+                </tr>
+                <tr>
+                    <td data-label="Batch Number">1002</td>
+                    <td data-label="Resource Type">Labor</td>
+                    <td data-label="Resource Name">Technician</td>
+                    <td data-label="Quantity">3</td>
+                    <td data-label="Status">Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function submitForm() {
+            alert("Resource allocated successfully!");
+        }
+    </script>
+
+</body>
+</html>

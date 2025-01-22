@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Details - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .supplier-info {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h2 {
+            color: #2980B9;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Media query for mobile responsiveness */
+        @media (max-width: 600px) {
+         
+
+            .container {
+                padding: 10px;
+            }
+
+            .supplier-info {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .button {
+                width: 100%;
+                padding: 12px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Supplier Details - TekSA</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="supplier-info">
+            <h2>Supplier Name 1</h2>
+            <p><strong>Location:</strong> City, Country</p>
+            <p><strong>Contact Email:</strong> contact@supplier1.com</p>
+            <p><strong>Phone:</strong> +1234567890</p>
+            <p><strong>Address:</strong> 123 Supplier Street, Business District, City, Country</p>
+            <p><strong>Products Supplied:</strong> List of products or services provided by the supplier.</p>
+            <p><strong>Payment Terms:</strong> Net 30 days</p>
+            <p><strong>Last Order Date:</strong> 2024-09-15</p>
+            <p><strong>Notes:</strong> Additional notes about the supplier, such as performance, reliability, and any other relevant details.</p>
+
+            <a href="supplierDirectory.html" class="button">Back to Directory</a>
+            <a href="editSupplier.html?supplier=1" class="button">Edit Supplier</a>
+        </div>
+    </div>
+
+</body>
+</html>

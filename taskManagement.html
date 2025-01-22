@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .task-form {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .task-form h2 {
+            margin-top: 0;
+        }
+        input[type=text], input[type=date], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input[type=text] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-box input[type=submit] {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Task Management - TekSA CRM</h1>
+        <p>Efficiently manage your organizational tasks and assignments</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="lead_tracking.html">Leads</a>
+        <a href="customerManagement.html">Customers</a>
+        <a href="sales.html">Sales Force</a>
+        <a href="Reports_Analytics.html">Reports</a>
+        <a href="taskManagement.html">Tasks</a>
+        <a href="docManagement.html">Documents</a>
+    </div>
+
+    <div class="container">
+        <!-- Search box -->
+        <div class="search-box">
+            <input type="text" placeholder="Search tasks...">
+            <input type="submit" value="Search">
+        </div>
+
+        <!-- Task Creation Form -->
+        <div class="task-form">
+            <h2>Create New Task</h2>
+            <form action="/submit-task" method="POST">
+                <label for="task-name">Task Name</label>
+                <input type="text" id="task-name" name="task-name" placeholder="Enter task name" required>
+
+                <label for="task-desc">Task Description</label>
+                <textarea id="task-desc" name="task-desc" placeholder="Enter task description" rows="4" required></textarea>
+
+                <label for="due-date">Due Date</label>
+                <input type="date" id="due-date" name="due-date" required>
+
+                <label for="assignee">Assign To</label>
+                <select id="assignee" name="assignee">
+                    <option value="employee1">Martha Mathebula</option>
+                    <option value="employee2">Simphiwe Koki</option>
+                    <option value="employee3">Mark Davis</option>
+                </select>
+
+                <input type="submit" value="Create Task">
+            </form>
+        </div>
+
+        <!-- Task Table -->
+        <table id="task-table">
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Follow up with client</td>
+                <td>Check status of recent proposal</td>
+                <td>2024-10-20</td>
+                <td>Simphiwe Koki</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <td>Update CRM data</td>
+                <td>Enter the latest client information</td>
+                <td>2024-10-21</td>
+                <td>Martha Mathebula</td>
+                <td>Completed</td>
+            </tr>
+        </table>
+
+        <!-- Task Export Button -->
+        <button class="button" onclick="exportTasks()">Export Tasks CSV</button>
+    </div>
+
+    <script>
+        // Function to export tasks to CSV
+        function exportTasks() {
+            // Get table data
+            var table = document.getElementById("task-table");
+            var rows = table.querySelectorAll("tr");
+            
+            // Prepare CSV content
+            var csvContent = "";
+            rows.forEach(function(row) {
+                var cols = row.querySelectorAll("td, th");
+                var rowData = Array.from(cols).map(function(col) {
+                    return col.innerText;
+                }).join(",");
+                csvContent += rowData + "\n";
+            });
+
+            // Create a Blob from the CSV content
+            var blob = new Blob([csvContent], { type: "text/csv" });
+
+            // Create a download link
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "tasks.csv"; // Set the file name
+
+            // Trigger the download
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
