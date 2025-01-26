@@ -6,7 +6,9 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    color: #333; /* Neutral text color for better readability */
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Overlay Effect */
@@ -17,135 +19,159 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Slightly darker overlay for contrast */
-    z-index: -1; /* Ensure it stays behind the content */
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
 }
 
 /* Container Styles */
 .container {
-    max-width: 1200px; /* Optimized width for readability */
+    width: 95%; /* Control container width on mobile */
+    max-width: 1200px;
     margin: auto;
-    padding: 20px; /* Adjusted padding for balanced spacing */
+    padding: clamp(10px, 3vw, 20px);
 }
 
 /* Lead Tracking Container Styles */
 .lead-tracking-container {
     background-color: #fff;
-    padding: 25px;
+    padding: clamp(15px, 3vw, 25px);
     border-radius: 12px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for a cleaner look */
-    margin: 20px 0;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    margin: clamp(10px, 2vw, 20px) 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.lead-tracking-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Contain child elements */
 }
 
 /* Header, Main, and Footer Styles */
 header, main, footer {
-    padding: 20px;
+    padding: clamp(10px, 3vw, 20px);
     background-color: #fff;
-    margin: 15px 0;
+    margin: clamp(8px, 2vw, 15px) 0;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 /* Heading Styles */
 h1 {
     text-align: center;
-    color: #f4f4f4; /* Contrasts better with overlay background */
-    font-size: clamp(28px, 5vw, 36px); /* Adaptive font size */
+    color: #f4f4f4;
+    font-size: clamp(20px, 5vw, 36px);
     line-height: 1.3;
     font-weight: 600;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    margin: clamp(10px, 3vw, 20px) 0;
+    word-wrap: break-word;
+}
+
+/* Table Container for Horizontal Scroll */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    min-width: 600px; /* Minimum width to prevent squishing */
 }
 
 th, td {
-    padding: 12px;
+    padding: clamp(8px, 2vw, 12px);
     text-align: left;
     border: 1px solid #ddd;
-    font-size: 14px;
-}
-
-th {
-    background-color: #2980B9;
-    color: white;
-    font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background-color: #f8f8f8;
-}
-
-tr:hover {
-    background-color: #dff0fc;
-    transition: background-color 0.3s ease;
+    font-size: clamp(12px, 2vw, 14px);
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word;
+    max-width: 200px; /* Maximum width for cells */
 }
 
 /* Responsive Styles */
-/* Tablet screens and smaller */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        width: 100%;
+        padding: 10px;
     }
-
-    header, main, footer, .lead-tracking-container {
-        padding: 15px;
-        border-radius: 10px;
+    
+    .lead-tracking-container {
+        margin: 10px 0;
+        border-radius: 8px;
     }
-
-    h1 {
-        font-size: 24px;
+    
+    /* Adjust table for better mobile viewing */
+    th, td {
+        padding: 10px 8px;
     }
-
-    p {
-        font-size: 16px;
-    }
-
-    table {
-        font-size: 12px;
+    
+    /* Stack table headers for better visibility */
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #2980B9;
     }
 }
 
 /* Small phones and very small devices */
 @media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
     .container {
-        padding: 10px;
+        padding: 5px;
     }
-
-    header, main, footer, .lead-tracking-container {
-        padding: 10px;
-        margin: 8px 0;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    
+    .lead-tracking-container {
+        padding: 12px;
+        margin: 5px 0;
     }
-
+    
     h1 {
-        font-size: 20px;
-        line-height: 1.2;
+        font-size: clamp(18px, 4vw, 20px);
+        margin: 10px 0;
     }
-
-    p {
-        font-size: 14px;
-        line-height: 1.4;
+    
+    /* Further table adjustments */
+    .table-container {
+        margin: 10px 0;
+        border-radius: 6px;
     }
-
-    table {
-        font-size: 10px;
-    }
-
+    
     th, td {
-        padding: 8px;
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+    
+    /* Improve table scroll experience */
+    .table-container::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .table-container::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+    }
+}
+
+/* Print styles for better document printing */
+@media print {
+    body::before {
+        display: none;
+    }
+    
+    .lead-tracking-container,
+    header, main, footer {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    table {
+        page-break-inside: avoid;
     }
 }
