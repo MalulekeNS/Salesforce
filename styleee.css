@@ -21,34 +21,39 @@ body {
 
 /* Form Container */
 .wrapper {
+    width: 95%; /* Add width control for mobile */
     max-width: 900px;
-    background: rgba(10, 16, 66, 0.85); /* Darker backdrop for better contrast */
+    background: rgba(10, 16, 66, 0.85);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 40px;
+    padding: clamp(20px, 4vw, 40px); /* Responsive padding */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header Styling */
 .wrapper h1 {
-    font-size: 36px;
+    font-size: clamp(24px, 5vw, 36px); /* Responsive font size */
     text-align: center;
     font-weight: 700;
     color: #3fbbc0;
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 4vw, 30px);
+    line-height: 1.3;
+    word-wrap: break-word;
 }
 
 /* Form Layout */
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(15px, 3vw, 20px);
 }
 
 .input-box {
     position: relative;
     width: 100%;
+    margin-bottom: 10px; /* Add space between stacked inputs */
 }
 
 .input-box input,
@@ -60,55 +65,21 @@ body {
     padding: 0 15px;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
     outline: none;
     transition: border-color 0.3s;
-}
-
-.input-box input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.input-box input:focus,
-.input-box select:focus {
-    border-color: #3fbbc0;
-}
-
-.input-box i {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
-}
-
-.input-box.confirm-password i {
-    display: none; /* No icon for confirm password */
 }
 
 /* Remember Me and Forgot Password */
 .remember-forgot {
     display: flex;
+    flex-direction: row; /* Keep items in row by default */
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
-    margin: 20px 0;
-}
-
-.remember-forgot label input {
-    accent-color: #3fbbc0;
-    margin-right: 5px;
-}
-
-.remember-forgot a {
-    color: #3fbbc0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.remember-forgot a:hover {
-    color: #65c9cd;
+    font-size: clamp(12px, 3vw, 14px);
+    margin: clamp(15px, 3vw, 20px) 0;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    gap: 10px; /* Space between wrapped items */
 }
 
 /* Submit Button */
@@ -119,43 +90,67 @@ body {
     border-radius: 10px;
     background: #3fbbc0;
     color: #fff;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.wrapper .btn:hover {
-    background: #65c9cd;
+    margin-top: 10px; /* Add space above button */
 }
 
 /* Register Link */
 .wrapper .register-link {
     text-align: center;
-    font-size: 14px;
-    margin-top: 20px;
-}
-
-.wrapper .register-link a {
-    color: #3fbbc0;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.wrapper .register-link a:hover {
-    color: #65c9cd;
+    font-size: clamp(12px, 3vw, 14px);
+    margin-top: clamp(15px, 3vw, 20px);
+    word-wrap: break-word;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .wrapper {
-        padding: 20px;
+    body {
+        padding: 10px; /* Reduce body padding on mobile */
     }
-
+    
+    .wrapper {
+        padding: 15px;
+        margin: 10px;
+    }
+    
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 12px;
+    }
+    
+    .remember-forgot {
+        flex-direction: column; /* Stack items on very small screens */
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .input-box i {
+        font-size: 18px; /* Slightly smaller icons on mobile */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .wrapper {
+        padding: 12px;
+    }
+    
+    .input-box input,
+    .input-box select {
+        height: 45px; /* Slightly smaller input height */
+        font-size: 14px;
+    }
+    
+    .wrapper .btn {
+        height: 45px;
+    }
+    
+    .remember-forgot label,
+    .remember-forgot a {
+        font-size: 12px;
     }
 }
