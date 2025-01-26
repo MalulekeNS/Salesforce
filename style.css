@@ -5,8 +5,12 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('website-background-21.jpg') no-repeat center center/cover;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
 
 /* Sidebar container */
 .sidebar-container {
@@ -36,7 +40,7 @@ body {
         position: fixed;
         top: 0;
         left: -250px; /* Initially hidden */
-        width: 250px;
+        width: 80%; /* Adjusted for smaller screens */
         height: 100%;
         transition: left 0.3s ease-in-out;
         z-index: 999;
@@ -48,6 +52,7 @@ body {
 
     .content {
         margin-left: 0; /* No fixed sidebar in mobile */
+        padding: 15px; /* Increased padding for better spacing */
     }
 }
 
@@ -143,6 +148,7 @@ th, td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 th {
@@ -154,39 +160,10 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* For responsive styling */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-    }
-    .content {
-        padding: 10px;
-    }
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('website-background-21.jpg') no-repeat center center/cover;
-    padding: 20px;
-}
-
 /* Form container wrapper */
 .wrapper {
-    max-width: 900px; /* Increased width to allow for two rows */
-    background: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -195,18 +172,16 @@ body {
     padding: 40px;
 }
 
-/* Header */
 .wrapper h1 {
-    font-size: 36px;
+    font-size: clamp(24px, 5vw, 36px); /* Adaptive font size */
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Input fields layout */
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for two-row layout */
-    gap: 20px; /* Space between the input fields */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .input-box {
@@ -224,91 +199,34 @@ body {
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 15px 20px; /* Adjusted padding for consistent alignment */
-    padding-right: 50px; /* Ensure space for the icon */
+    padding: 15px 20px;
+    padding-right: 50px;
     outline: none;
     appearance: none;
 }
 
 .input-box select {
-    background-color: transparent; /* Black background for select dropdown */
-    color: #161515; /* White font color */
+    background-color: transparent;
+    color: #161515;
 }
 
 .input-box input::placeholder {
-    color: #fff;
+    color: #ccc; /* Improved contrast for accessibility */
 }
 
 /* Icon positioning */
 .input-box i {
     position: absolute;
-    right: 20px; /* Ensure consistent right alignment */
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
     color: #fff;
-    pointer-events: none; /* Ensures the icon doesn't interfere with input focus */
+    pointer-events: none;
 }
 
-/* Remove icon from confirm password field */
-.input-box.confirm-password i {
-    display: none; /* Hide the icon */
-}
-
-/* Remember me and forgot password section */
-.remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: 20px 0 15px;
-}
-
-.remember-forgot label input {
-    accent-color: #fff;
-    margin-right: 5px;
-}
-
-.remember-forgot a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Submit button */
-.wrapper .btn {
-    width: 100%;
-    height: 50px;
-    background: #fff;
-    border: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-.wrapper .btn:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
-
-/* Register link section */
-.wrapper .register-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 20px 0 15px;
-}
-
-.register-link p a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .form-grid {
-        grid-template-columns: 1fr; /* Stack inputs into one column on smaller screens */
+        grid-template-columns: 1fr;
     }
 }
