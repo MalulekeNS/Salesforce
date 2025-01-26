@@ -1,5 +1,7 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+/* Reset and font setup */
 * {
     margin: 0;
     padding: 0;
@@ -14,134 +16,146 @@ body {
     min-height: 100vh;
     background: url('website-background-21.jpg') no-repeat center center/cover;
     padding: 20px;
-}
-
-/* Form container wrapper */
-.wrapper {
-    max-width: 900px; /* Increased width to allow for two rows */
-    background: rgba(0, 0, 0, 0.5); /* Black transparent background */
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     color: #fff;
-    border-radius: 10px;
-    padding: 40px;
 }
 
-/* Header */
+/* Form Container */
+.wrapper {
+    max-width: 900px;
+    background: rgba(10, 16, 66, 0.85); /* Darker backdrop for better contrast */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Header Styling */
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
+    font-weight: 700;
+    color: #3fbbc0;
     margin-bottom: 30px;
 }
 
-/* Input fields layout */
+/* Form Layout */
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for two-row layout */
-    gap: 20px; /* Space between the input fields */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
 }
 
 .input-box {
-    width: 100%;
-    background: transparent;
     position: relative;
+    width: 100%;
 }
 
 .input-box input,
 .input-box select {
     width: 100%;
     height: 50px;
-    background: transparent;
-    border: 2px solid #fff;
-    border-radius: 40px;
-    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    padding: 15px 20px; /* Adjusted padding for consistent alignment */
-    padding-right: 50px; /* Ensure space for the icon */
+    font-size: 16px;
     outline: none;
-    appearance: none;
-}
-
-.input-box select {
-    background: rgba(0, 0, 0, 0.2);
-    
+    transition: border-color 0.3s;
 }
 
 .input-box input::placeholder {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* Icon positioning */
+.input-box input:focus,
+.input-box select:focus {
+    border-color: #3fbbc0;
+}
+
 .input-box i {
     position: absolute;
-    right: 20px; /* Ensure consistent right alignment */
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 20px;
-    color: #fff;
-    pointer-events: none; /* Ensures the icon doesn't interfere with input focus */
 }
 
-/* Remove icon from confirm password field */
 .input-box.confirm-password i {
-    display: none; /* Hide the icon */
+    display: none; /* No icon for confirm password */
 }
 
-/* Remember me and forgot password section */
+/* Remember Me and Forgot Password */
 .remember-forgot {
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: 20px 0 15px;
+    align-items: center;
+    font-size: 14px;
+    margin: 20px 0;
 }
 
 .remember-forgot label input {
-    accent-color: #fff;
+    accent-color: #3fbbc0;
     margin-right: 5px;
 }
 
 .remember-forgot a {
-    color: #fff;
+    color: #3fbbc0;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
-/* Submit button */
+.remember-forgot a:hover {
+    color: #65c9cd;
+}
+
+/* Submit Button */
 .wrapper .btn {
     width: 100%;
     height: 50px;
-    background: #fff;
     border: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    cursor: pointer;
+    border-radius: 10px;
+    background: #3fbbc0;
+    color: #fff;
     font-size: 16px;
-    color: #333;
     font-weight: 600;
-    outline: none;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper .btn:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: #65c9cd;
 }
 
-/* Register link section */
+/* Register Link */
 .wrapper .register-link {
-    font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
-.register-link p a {
-    color: #fff;
+.wrapper .register-link a {
+    color: #3fbbc0;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s;
 }
 
-/* Responsive adjustments */
+.wrapper .register-link a:hover {
+    color: #65c9cd;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .wrapper {
+        padding: 20px;
+    }
+
     .form-grid {
-        grid-template-columns: 1fr; /* Stack inputs into one column on smaller screens */
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
