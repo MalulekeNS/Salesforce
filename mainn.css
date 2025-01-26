@@ -1,12 +1,13 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     display: flex;
+    flex-direction: column; /* Ensures proper layout stacking */
+    color: #333; /* Neutral text color for readability */
 }
-
 
 /* Sidebar container */
 .sidebar-container {
@@ -16,17 +17,24 @@ body {
 /* Hamburger button */
 .toggle-sidebar {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
     background-color: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 28px; /* Slightly larger for better touch targets */
     cursor: pointer;
     z-index: 1000;
     display: none; /* Default hidden on desktop */
+    color: #2E86C1; /* Matches sidebar color scheme */
+    transition: transform 0.3s;
 }
 
-/* Show the button on smaller screens */
+.toggle-sidebar:focus,
+.toggle-sidebar:hover {
+    transform: scale(1.1); /* Subtle hover/active effect */
+}
+
+/* Responsive Sidebar */
 @media (max-width: 768px) {
     .toggle-sidebar {
         display: block;
@@ -35,8 +43,8 @@ body {
     .sidebar {
         position: fixed;
         top: 0;
-        left: -250px; /* Initially hidden */
-        width: 250px;
+        left: -100%;
+        width: 80%; /* Adjusted for mobile screens */
         height: 100%;
         transition: left 0.3s ease-in-out;
         z-index: 999;
@@ -48,6 +56,7 @@ body {
 
     .content {
         margin-left: 0; /* No fixed sidebar in mobile */
+        padding: 15px;
     }
 }
 
@@ -55,39 +64,44 @@ body {
 .sidebar {
     background-color: #2E86C1;
     color: white;
-    width: 220px;
+    width: 250px; /* Slightly wider for a modern look */
     min-height: 100vh;
-    padding: 20px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
     text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 .sidebar a {
     color: white;
     text-decoration: none;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px 15px;
+    margin: 8px 0;
     display: block;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #3498DB;
     text-align: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .sidebar a:hover {
     background-color: #1B4F72;
+    transform: translateX(5px); /* Adds a slight slide-in effect */
 }
 
 /* Main content styling */
 .content {
-    flex: 5;
-    padding: 20px;
+    flex: 1;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
 }
 
 .header {
@@ -95,17 +109,25 @@ body {
     color: white;
     padding: 20px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 20px;
+    font-size: clamp(20px, 4vw, 28px); /* Responsive font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Card styling */
 .card {
     background-color: white;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
@@ -117,30 +139,34 @@ body {
 .btn {
     background-color: #3498DB;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .btn:hover {
     background-color: #1B4F72;
+    transform: scale(1.05); /* Subtle scaling effect */
 }
 
 /* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
     text-align: left;
 }
@@ -148,19 +174,53 @@ th, td {
 th {
     background-color: #3498DB;
     color: white;
+    font-weight: bold;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
-/* For responsive styling */
-@media screen and (max-width: 768px) {
+tr:hover {
+    background-color: #eaf4fc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
     }
+
     .content {
-        padding: 10px;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
     }
 }
