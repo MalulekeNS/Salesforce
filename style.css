@@ -13,164 +13,100 @@ body {
     color: #333;
 }
 
-/* Sidebar container */
-.sidebar-container {
-    position: relative;
-}
-
-/* Mobile Navigation Toggle */
-.mobile-nav-toggle {
-    color: white;
-    background-color: #3498DB;
-    font-size: 28px;
-    cursor: pointer;
-    display: none;
-    line-height: 0;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 1001;
-}
-
-.mobile-nav-toggle:hover {
-    background-color: #1B4F72;
-    transform: scale(1.1);
-}
-
-.mobile-nav-toggle.bi-x {
-    color: #fff;
-}
-
-/* Sidebar for mobile */
-@media (max-width: 991px) {
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 250px;
-        height: 100%;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-        background-color: #2E86C1;
-        color: white;
-        box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    .sidebar h2 {
-        font-size: 22px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .sidebar a {
-        font-size: 16px;
-        padding: 12px;
-        margin: 8px 0;
-        text-align: center;
-        border-radius: 8px;
-        background-color: #3498DB;
-        transition: background-color 0.3s ease;
-    }
-
-    .sidebar a:hover {
-        background-color: #1B4F72;
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 20px;
-    }
-}
-
-/* Sidebar styling for larger screens */
-.sidebar {
-    background-color: #2E86C1;
-    color: white;
-    width: 250px;
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Main content styling */
-.content {
-    flex: 5;
-    padding: 30px;
-}
-
-/* Header styling */
-.header {
-    background-color: #2980B9;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Card styling */
-.card {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Form grid adjustments */
+/* Wrapper responsive adjustments */
 .wrapper {
     max-width: 900px;
+    width: 90%; /* Add this to ensure margin on mobile */
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     color: #fff;
     border-radius: 12px;
-    padding: 40px;
-    margin-top: 20px;
+    padding: 20px; /* Reduced padding for mobile */
+    margin: 20px auto; /* Center the wrapper */
 }
 
-.wrapper h1 {
-    font-size: clamp(24px, 5vw, 36px);
+/* Header responsive fixes */
+.header {
+    background-color: #2980B9;
+    color: white;
+    padding: 15px;
     text-align: center;
-    margin-bottom: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: clamp(18px, 4vw, 24px); /* Responsive font size */
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+/* Mobile specific adjustments */
+@media (max-width: 991px) {
+    .sidebar {
+        padding-top: 60px; /* Add space for mobile toggle */
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent text overflow in cards */
+    .card {
+        padding: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Adjust login and dashboard text */
+    .wrapper h1 {
+        font-size: clamp(20px, 4vw, 28px);
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
 }
 
-@media (max-width: 768px) {
+/* Extra small devices */
+@media (max-width: 576px) {
+    .wrapper {
+        padding: 15px;
+        width: 95%;
+    }
+    
     .form-grid {
-        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Ensure all text elements wrap properly */
+    h1, h2, h3, p, a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Adjust sidebar text for better readability */
+    .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar a {
+        font-size: 14px;
+        padding: 10px;
+        margin: 6px 0;
+    }
+}
+
+/* Prevent content overlap with mobile navigation */
+@media (max-width: 991px) {
+    body {
+        padding-top: 60px; /* Add space for mobile toggle button */
+    }
+    
+    .content {
+        margin-top: 20px;
     }
 }
