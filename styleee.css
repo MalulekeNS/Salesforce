@@ -17,30 +17,30 @@ body {
     background: url('website-background-21.jpg') no-repeat center center/cover;
     padding: 20px;
     color: #fff;
-    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Form Container */
 .wrapper {
-    width: 100%;
+    width: 95%; /* Add width control for mobile */
     max-width: 900px;
     background: rgba(10, 16, 66, 0.85);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: clamp(20px, 4vw, 40px);
+    padding: clamp(20px, 4vw, 40px); /* Responsive padding */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    overflow: hidden; /* Prevent any container overflow */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header Styling */
 .wrapper h1 {
-    font-size: clamp(24px, 5vw, 36px);
+    font-size: clamp(24px, 5vw, 36px); /* Responsive font size */
     text-align: center;
     font-weight: 700;
     color: #3fbbc0;
     margin-bottom: clamp(20px, 4vw, 30px);
     line-height: 1.3;
+    word-wrap: break-word;
 }
 
 /* Form Layout */
@@ -50,11 +50,10 @@ body {
     gap: clamp(15px, 3vw, 20px);
 }
 
-/* Input Styling */
 .input-box {
     position: relative;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Add space between stacked inputs */
 }
 
 .input-box input,
@@ -71,22 +70,16 @@ body {
     transition: border-color 0.3s;
 }
 
-/* Ensure Inputs Fit Inside Container */
-.input-box input:focus,
-.input-box select:focus {
-    border-color: #3fbbc0;
-}
-
-/* Remember Me and Forgot Password Section */
+/* Remember Me and Forgot Password */
 .remember-forgot {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Keep items in row by default */
     justify-content: space-between;
     align-items: center;
     font-size: clamp(12px, 3vw, 14px);
     margin: clamp(15px, 3vw, 20px) 0;
-    flex-wrap: wrap; /* Ensure responsiveness */
-    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    gap: 10px; /* Space between wrapped items */
 }
 
 /* Submit Button */
@@ -102,7 +95,7 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 20px; /* Add space above button */
+    margin-top: 10px; /* Add space above button */
 }
 
 /* Register Link */
@@ -110,42 +103,52 @@ body {
     text-align: center;
     font-size: clamp(12px, 3vw, 14px);
     margin-top: clamp(15px, 3vw, 20px);
+    word-wrap: break-word;
 }
 
-/* Mobile Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce body padding on mobile */
+    }
+    
     .wrapper {
         padding: 15px;
+        margin: 10px;
     }
-
+    
     .form-grid {
         grid-template-columns: 1fr;
         gap: 12px;
     }
-
+    
     .remember-forgot {
-        flex-direction: column; /* Stack items on mobile */
+        flex-direction: column; /* Stack items on very small screens */
         align-items: flex-start;
         gap: 12px;
     }
+    
+    .input-box i {
+        font-size: 18px; /* Slightly smaller icons on mobile */
+    }
 }
 
-/* Extra Small Devices */
+/* Extra small devices */
 @media (max-width: 360px) {
     .wrapper {
         padding: 12px;
     }
-
+    
     .input-box input,
     .input-box select {
-        height: 45px;
+        height: 45px; /* Slightly smaller input height */
         font-size: 14px;
     }
-
+    
     .wrapper .btn {
         height: 45px;
     }
-
+    
     .remember-forgot label,
     .remember-forgot a {
         font-size: 12px;
