@@ -1,41 +1,33 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General body styling */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('website-background-21.jpg') no-repeat center center/cover;
-    color: #333;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: url('website-background-21.jpg') no-repeat center center/cover;
     overflow-x: hidden;
+    color: #333;
 }
 
-/* Wrapper Container */
+/* Wrapper responsive adjustments */
 .wrapper {
     max-width: 900px;
-    width: 90%;
+    width: 90%; /* Add this to ensure margin on mobile */
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
-    border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     color: #fff;
-    padding: 20px 25px;
-    margin: 20px auto;
+    border-radius: 12px;
+    padding: 20px; /* Reduced padding for mobile */
+    margin: 20px auto; /* Center the wrapper */
 }
 
-/* Header */
+/* Header responsive fixes */
 .header {
     background-color: #2980B9;
     color: white;
@@ -43,141 +35,78 @@ body {
     text-align: center;
     border-radius: 12px;
     margin-bottom: 20px;
-    font-size: clamp(18px, 4vw, 24px);
+    font-size: clamp(18px, 4vw, 24px); /* Responsive font size */
     font-weight: bold;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    word-wrap: break-word;
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
-/* Form Section */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.input-box {
-    position: relative;
-    width: 100%;
-}
-
-.input-box input,
-.input-box select,
-.input-box textarea {
-    width: 100%;
-    height: 45px;
-    padding: 10px 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.input-box textarea {
-    resize: none;
-    height: 100px;
-}
-
-.input-box input:focus,
-.input-box select:focus,
-.input-box textarea:focus {
-    border-color: #2980B9;
-}
-
-/* Buttons */
-.btn-primary {
-    display: inline-block;
-    background-color: #2980B9;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: background 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #1a6594;
-}
-
-/* Link Styling */
-a {
-    color: #2980B9;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Sidebar (Responsive Navigation) */
-.sidebar {
-    width: 250px;
-    background: #2C3E50;
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.sidebar a {
-    display: block;
-    padding: 10px 15px;
-    color: white;
-    font-size: 14px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-    margin-bottom: 10px;
-}
-
-.sidebar a:hover {
-    background-color: #34495E;
-}
-
-/* Mobile Adjustments */
+/* Mobile specific adjustments */
 @media (max-width: 991px) {
     .sidebar {
-        width: 100%;
-        margin-bottom: 20px;
+        padding-top: 60px; /* Add space for mobile toggle */
     }
-
-    .form-grid {
-        grid-template-columns: 1fr;
+    
+    .content {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Prevent text overflow in cards */
+    .card {
+        padding: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Adjust login and dashboard text */
+    .wrapper h1 {
+        font-size: clamp(20px, 4vw, 28px);
+        line-height: 1.3;
+        margin-bottom: 20px;
     }
 }
 
+/* Extra small devices */
 @media (max-width: 576px) {
     .wrapper {
         padding: 15px;
+        width: 95%;
     }
-
-    .sidebar {
-        padding: 15px;
+    
+    .form-grid {
+        gap: 15px;
     }
-
-    .input-box input,
-    .input-box select,
-    .input-box textarea {
-        font-size: 13px;
-        padding: 8px 12px;
+    
+    /* Ensure all text elements wrap properly */
+    h1, h2, h3, p, a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
-
-    .btn-primary {
+    
+    /* Adjust sidebar text for better readability */
+    .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar a {
         font-size: 14px;
-        padding: 10px 15px;
+        padding: 10px;
+        margin: 6px 0;
+    }
+}
+
+/* Prevent content overlap with mobile navigation */
+@media (max-width: 991px) {
+    body {
+        padding-top: 60px; /* Add space for mobile toggle button */
+    }
+    
+    .content {
+        margin-top: 20px;
     }
 }
