@@ -1,177 +1,97 @@
-/* Body Styles */
-body {
-    background-image: url('website-background-21.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+/* General Sidebar Styling */
+.sidebar {
+    background-color: #2E86C1;
+    color: white;
+    width: 250px;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* Overlay Effect */
-body::before {
-    content: "";
-    position: fixed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute; /* Adjust positioning */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: -1;
+    transition: transform 0.4s ease-in-out;
+    z-index: 999; /* Ensure it stays above other elements */
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
-/* Container Styles */
+/* Sidebar Links */
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin: 8px 0;
+    display: block;
+    border-radius: 8px;
+    background-color: #3498DB;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #1B4F72;
+    transform: scale(1.05);
+}
+
+/* Sidebar Inside Container */
 .container {
-    width: 95%; /* Control container width on mobile */
-    max-width: 1200px;
-    margin: auto;
-    padding: clamp(10px, 3vw, 20px);
+    position: relative; /* Ensure sidebar is relative to container */
+    display: flex;
 }
 
-/* Lead Tracking Container Styles */
-.lead-tracking-container {
+.container .content {
+    flex: 1; /* Allow main content to take remaining space */
+    margin-left: 250px; /* Reserve space for the sidebar */
+    padding: 20px;
     background-color: #fff;
-    padding: clamp(15px, 3vw, 25px);
     border-radius: 12px;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-    margin: clamp(10px, 2vw, 20px) 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Contain child elements */
+    overflow: hidden; /* Prevent overlap */
+    transition: margin-left 0.4s ease-in-out;
 }
 
-/* Header, Main, and Footer Styles */
-header, main, footer {
-    padding: clamp(10px, 3vw, 20px);
-    background-color: #fff;
-    margin: clamp(8px, 2vw, 15px) 0;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    word-wrap: break-word; /* Prevent text overflow */
+/* Toggle Sidebar Button */
+.toggle-sidebar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #3498DB;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 1000;
+    display: none; /* Hidden on larger screens */
+    transition: background-color 0.3s ease;
 }
 
-/* Heading Styles */
-h1 {
-    text-align: center;
-    color: #f4f4f4;
-    font-size: clamp(20px, 5vw, 36px);
-    line-height: 1.3;
-    font-weight: 600;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-    margin: clamp(10px, 3vw, 20px) 0;
-    word-wrap: break-word;
+.toggle-sidebar:hover {
+    background-color: #1B4F72;
 }
 
-/* Table Container for Horizontal Scroll */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Table Styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px; /* Minimum width to prevent squishing */
-}
-
-th, td {
-    padding: clamp(8px, 2vw, 12px);
-    text-align: left;
-    border: 1px solid #ddd;
-    font-size: clamp(12px, 2vw, 14px);
-    white-space: normal; /* Allow text wrapping */
-    word-wrap: break-word;
-    max-width: 200px; /* Maximum width for cells */
-}
-
-/* Responsive Styles */
+/* Mobile View: Sidebar Adjustments */
 @media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 10px;
+    .sidebar {
+        position: fixed;
+        transform: translateX(-100%); /* Hide by default */
+        height: 100%;
     }
-    
-    .lead-tracking-container {
-        margin: 10px 0;
-        border-radius: 8px;
-    }
-    
-    /* Adjust table for better mobile viewing */
-    th, td {
-        padding: 10px 8px;
-    }
-    
-    /* Stack table headers for better visibility */
-    th {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        background-color: #2980B9;
-    }
-}
 
-/* Small phones and very small devices */
-@media (max-width: 480px) {
-    body {
-        padding: 5px;
+    .sidebar.open {
+        transform: translateX(0); /* Slide into view */
     }
-    
-    .container {
-        padding: 5px;
-    }
-    
-    .lead-tracking-container {
-        padding: 12px;
-        margin: 5px 0;
-    }
-    
-    h1 {
-        font-size: clamp(18px, 4vw, 20px);
-        margin: 10px 0;
-    }
-    
-    /* Further table adjustments */
-    .table-container {
-        margin: 10px 0;
-        border-radius: 6px;
-    }
-    
-    th, td {
-        padding: 8px 6px;
-        font-size: 12px;
-    }
-    
-    /* Improve table scroll experience */
-    .table-container::-webkit-scrollbar {
-        height: 4px;
-    }
-    
-    .table-container::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 2px;
-    }
-}
 
-/* Print styles for better document printing */
-@media print {
-    body::before {
-        display: none;
+    .container .content {
+        margin-left: 0; /* Remove reserved space */
     }
-    
-    .lead-tracking-container,
-    header, main, footer {
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
-    
-    table {
-        page-break-inside: avoid;
+
+    .toggle-sidebar {
+        display: block; /* Show toggle button */
     }
 }
