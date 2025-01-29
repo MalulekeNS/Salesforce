@@ -4,92 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Village Dashboard</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .header {
-            background-color: #2E86C1;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('website-background-21.jpg') no-repeat center center/cover;
+    }
+
+    .header {
+        background-color: #3498db;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #2980B9;
+        padding: 10px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: #3498DB;
+        border-radius: 4px;
+        margin: 5px;
+    }
+
+    .navbar a:hover {
+        background-color: #1B4F72;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .card, .chart-container {
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin: 10px;
+        width: 45%; /* Adjusted for responsiveness */
+    }
+
+    .card h2, .chart-container h2 {
+        margin-top: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #3498DB;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Buttons for Overview Dashboards */
+    .dashboard-buttons {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .dashboard-buttons button {
+        background-color: #2980B9;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .dashboard-buttons button:hover {
+        background-color: #1B4F72;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
         .navbar {
-            display: flex;
-            justify-content: space-around;
-            background-color: #2980B9;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            flex-direction: column;
+            align-items: center;
             padding: 10px;
         }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            background-color: #3498DB;
-            border-radius: 4px;
-        }
-        .navbar a:hover {
-            background-color: #1B4F72;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
+
         .card, .chart-container {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            margin: 10px;
-            width: 45%;
+            width: 100%; /* Full width for small screens */
+            margin: 10px 0;
         }
-        .card h2, .chart-container h2 {
-            margin-top: 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #3498DB;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        canvas {
-            max-width: 100%;
-            height: auto;
-        }
-        /* Buttons for Overview Dashboards */
-        .dashboard-buttons {
-            text-align: center;
-            margin: 20px 0;
-        }
+
         .dashboard-buttons button {
-            background-color: #2980B9;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 16px;
+            width: 100%; /* Full width buttons */
+            font-size: 14px; /* Slightly smaller font for mobile */
         }
-        .dashboard-buttons button:hover {
-            background-color: #1B4F72;
+
+        table {
+            font-size: 14px; /* Adjust table font size */
         }
-    </style>
+
+        .header {
+            padding: 15px;
+            font-size: 20px; /* Adjust header size for mobile */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar a {
+            padding: 8px 10px;
+            font-size: 14px; /* Smaller padding and font for very small screens */
+        }
+
+        .card, .chart-container {
+            padding: 15px; /* Adjust padding for smaller screens */
+        }
+
+        .dashboard-buttons button {
+            padding: 8px 15px;
+        }
+    }
+</style>
+
 </head>
 <body>
 
@@ -111,6 +176,14 @@
         <a href="dashboardINT.html">Inventory Dashboard</a>
         <a href="dashboardFIN.html">Finance Dashboard</a>
     </div>
+    <script>
+
+function toggleMenu() {
+    const menu = document.querySelector('.menu-links');
+    menu.classList.toggle('show');
+}
+
+    </script>
 
     <div class="container">
         <!-- CRM Overview -->
