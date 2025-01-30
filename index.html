@@ -12,15 +12,35 @@
    body {
     font-family: Arial, sans-serif;
     margin: 0;
-    box-sizing: border-box;
     padding: 0;
-  background-image: url('website-background-21.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the image covers the entire area */
-  background-position: center; /* Centers the image */
-
+    box-sizing: border-box;
+    height: 100vh; /* Ensures it covers full height */
+    background: url('website-background-21.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
 }
+
+body {
+    display: flex;
+    flex-direction: row; /* Ensures sidebar and content are aligned properly */
+    align-items: flex-start; /* Moves content to the top */
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 0px; /* Ensure no padding adds space */
+    margin: 0;
+}
+
+.header {
+    padding: 15px;
+    margin: 0;
+    position: relative;
+}
+
 
 *{
     box-sizing: inherit;
@@ -437,6 +457,69 @@ input[type=submit]:hover, .btn:hover {
     position: relative; /* Allows positioning of top-right menu */
 }
 
+   
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+.content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+@media (max-width: 768px) {
+    .toolbar-mobile {
+        display: flex; /* Ensure it is visible */
+        justify-content: flex-start; /* Align to the left */
+        position: absolute;
+        top: 10px; /* Adjust as needed */
+        left: 10px; /* Move to the left */
+        z-index: 1001; /* Ensure it stays on top */
+    }
+
+    .toolbar-mobile button {
+        background-color: #2980B9;
+        color: white;
+        border: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    .header {
+        text-align: center;
+        padding: 10px 10px 10px 50px; /* Ensure content is not blocked by the button */
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+    .header {
+        text-align: center;
+        padding: 60px 10px 20px; /* Increase top padding to push text down */
+        position: relative;
+    }
+
+    .header h1 {
+        margin-top: 30px; /* Move the welcome text further down */
+        font-size: 22px; /* Adjust size for better readability on mobile */
+    }
+
+    .header p {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .top-right {
+        position: absolute;
+        top: 10px; /* Keep login and invite at the top */
+        right: 10px;
+    }
+}
+
+}
 
 
     </style>
@@ -494,7 +577,7 @@ document.addEventListener('click', function (event) {
            
             <h1>Welcome to Local Village Africa</h1>
             <p>All in one Management Business platform.</p>
-
+          
       
             <!-- Search Bar -->
             <div class="search-container">
@@ -775,6 +858,7 @@ document.getElementById('chatWindow').addEventListener('click', function(event) 
             right: 10px;
         }
     }
+
 </style>
 
 </html>
