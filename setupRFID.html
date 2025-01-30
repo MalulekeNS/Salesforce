@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zebra MC3390R RFID Scanning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            
+        }
+        h1 {
+            color: #3498db;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .button:hover {
+            background-color: #1b4f72;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zebra MC3390R RFID Scanning</h1>
+    <button id="startScan" class="button">Start Scanning</button>
+    <div id="output">
+        <p>Scanned RFID data will appear here.</p>
+    </div>
+
+    <script>
+        document.getElementById('startScan').addEventListener('click', function () {
+            // Establish WebSocket connection to Zebra RFID reader
+            const socket = new WebSocket('ws://192.168.1.100:9090'); // Replace with the correct reader's WebSocket IP/port
+
+            // Show connection status
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '<p>Connecting to the RFID reader...</p>';
+
+            // Handle WebSocket connection open
+            socket.addEventListener('open', function () {
+                outputDiv.innerHTML += '<p>Connection established. Start scanning...</p>';
+            });
+
+            // Handle incoming RFID tag data
+            socket.addEventListener('message', function (event) {
+                const rfidTag = event.data; // RFID Tag received from the reader
+                outputDiv.innerHTML += `<p>Scanned Tag: ${rfidTag}</p>`;
+
+                // Optionally, send the tag to your backend
+                fetch('/rfid-scan', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tag: rfidTag })
+                }).then(response => response.text())
+                  .then(data => {
+                      outputDiv.innerHTML += `<p>Backend Response: ${data}</p>`;
+                  })
+                  .catch(error => {
+                      outputDiv.innerHTML += `<p>Error sending data to backend: ${error.message}</p>`;
+                  });
+            });
+
+            // Handle WebSocket connection errors
+            socket.addEventListener('error', function () {
+                outputDiv.innerHTML += '<p>Error connecting to the RFID reader.</p>';
+            });
+
+            // Handle WebSocket connection close
+            socket.addEventListener('close', function () {
+                outputDiv.innerHTML += '<p>Connection closed.</p>';
+            });
+        });
+    </script>
+</body>
+</html>

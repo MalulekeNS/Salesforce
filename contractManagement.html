@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2980B9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #3498DB;
+            color: white;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .actions .button {
+                margin-bottom: 10px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+                font-size: 1.2em;
+            }
+
+            .navbar a {
+                font-size: 0.8em;
+                padding: 6px 8px;
+            }
+
+            .button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            table, th, td {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Contract Management - TekSA</h1>
+        <p>Manage contracts with suppliers to ensure compliance and track renewal dates.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Active Supplier Contracts</h2>
+        <table>
+            <tr>
+                <th>Contract ID</th>
+                <th>Supplier Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Contract Value (ZAR)</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>CON-001</td>
+                <td>ABC Supplies</td>
+                <td>2023-01-01</td>
+                <td>2025-01-01</td>
+                <td>150,000</td>
+                <td>Active</td>
+                <td>
+                    <a href="viewContractDetails.html?contractID=CON-001" class="button">View</a>
+                    <a href="editContract.html?contractID=CON-001" class="button">Edit</a>
+                </td>
+            </tr>
+            <tr>
+                <td>CON-002</td>
+                <td>XYZ Electronics</td>
+                <td>2022-05-15</td>
+                <td>2024-05-15</td>
+                <td>300,000</td>
+                <td>Active</td>
+                <td>
+                    <a href="viewContractDetails.html?contractID=CON-002" class="button">View</a>
+                    <a href="editContract.html?contractID=CON-002" class="button">Edit</a>
+                </td>
+            </tr>
+            <!-- Additional contract rows as needed -->
+        </table>
+
+        <div class="actions">
+            <a href="createContract.html" class="button">Create New Contract</a>
+        </div>
+    </div>
+
+</body>
+</html>

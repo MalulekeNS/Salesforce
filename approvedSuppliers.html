@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved Suppliers - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px;
+                font-size: 1.2em;
+            }
+           
+            .table-container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            table, th, td {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Mobile Table and Layout Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .table-container {
+                padding: 10px;
+                font-size: 0.8em;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+           
+            .button {
+                font-size: 0.8em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Approved Suppliers - TekSA</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="table-container">
+            <h2>List of Approved Suppliers</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplier Name</th>
+                        <th>Contact Person</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Supplier 1</td>
+                        <td>John Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>+123456789</td>
+                        <td>New York, USA</td>
+                        <td><a href="supplierDetails.html?id=1" class="button">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Supplier 2</td>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>+987654321</td>
+                        <td>London, UK</td>
+                        <td><a href="supplierDetails.html?id=2" class="button">View Details</a></td>
+                    </tr>
+                    <!-- More supplier rows as needed -->
+                </tbody>
+            </table>
+            <a href="supplierDirectory.html" class="button">Back to Supplier Directory</a>
+        </div>
+    </div>
+
+</body>
+</html>

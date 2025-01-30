@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Reports - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Tax Reports - TekSA Finance</h1>
+        <p>Generate and download tax reports for your business records.</p>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Generate Tax Report</h3>
+            <p>Generate a detailed tax report for the selected fiscal year.</p>
+            <button class="button" onclick="generateTaxReport()">Generate Report</button>
+        </div>
+
+        <div class="feature-card">
+            <h3>Download Tax Report</h3>
+            <p>Download the generated tax report for your records.</p>
+            <button class="button" onclick="downloadTaxReport()">Download Report</button>
+        </div>
+    </div>
+
+    <script>
+        function generateTaxReport() {
+            alert("Tax report has been successfully generated.");
+            // Backend logic can be implemented to generate the actual report
+        }
+
+        function downloadTaxReport() {
+            alert("Tax report has been downloaded.");
+            // Implement download logic here
+        }
+    </script>
+
+</body>
+</html>

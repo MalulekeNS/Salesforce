@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .dashboard-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            float: left;
+            box-sizing: border-box;
+        }
+        .dashboard-card h3 {
+            margin-top: 0;
+        }
+        .dashboard-summary {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>CRM Dashboard</h1>
+        <p>Overview of your CRM performance at a glance</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="lead_tracking.html">Leads</a>
+        <a href="customerManagement.html">Customers</a>
+        <a href="sales.html">Sales</a>
+        <a href="taskManagement.html">Tasks</a>
+        <a href="documentManagement.html">Documents</a>
+        <a href="Reports_Analytics.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Cards for Key Metrics -->
+        <div class="dashboard-summary">
+            <div class="dashboard-card">
+                <h3>Total Sales</h3>
+                <p><strong>150</strong> deals closed</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Leads This Month</h3>
+                <p><strong>120</strong> new leads</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Pending Tasks</h3>
+                <p><strong>18</strong> tasks remaining</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Active Customers</h3>
+                <p><strong>45</strong> active customers</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Documents Uploaded</h3>
+                <p><strong>75</strong> documents uploaded</p>
+            </div>
+        </div>
+
+        <!-- Sales Chart -->
+        <div class="chart-container">
+            <h3>Monthly Sales Performance</h3>
+            <canvas id="salesChart"></canvas>
+        </div>
+
+        <!-- Leads Chart -->
+        <div class="chart-container">
+            <h3>Leads Acquired Per Month</h3>
+            <canvas id="leadsChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Sales Performance Chart
+        var salesCtx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Sales Closed',
+                    data: [10, 25, 40, 35, 50, 75, 60, 90, 80, 100],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Leads Acquired Chart
+        var leadsCtx = document.getElementById('leadsChart').getContext('2d');
+        var leadsChart = new Chart(leadsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'New Leads',
+                    data: [5, 15, 20, 30, 40, 35, 45, 60, 55, 70],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                    borderColor: 'rgba(39, 174, 96, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

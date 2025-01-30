@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Supplier - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h2 {
+            color: #2980B9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #2980B9;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+            border: none;
+        }
+        input[type="submit"]:hover, .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Edit Supplier - TekSA</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Edit Supplier Details</h2>
+            <form action="/submitEditSupplier" method="POST">
+                <label for="supplierName">Supplier Name</label>
+                <input type="text" id="supplierName" name="supplierName" placeholder="Enter supplier name" required>
+
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="Enter location" required>
+
+                <label for="contactEmail">Contact Email</label>
+                <input type="email" id="contactEmail" name="contactEmail" placeholder="Enter contact email" required>
+
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter address" required>
+
+                <label for="productsSupplied">Products Supplied</label>
+                <textarea id="productsSupplied" name="productsSupplied" placeholder="Enter products supplied"></textarea>
+
+                <label for="paymentTerms">Payment Terms</label>
+                <input type="text" id="paymentTerms" name="paymentTerms" placeholder="Enter payment terms">
+
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" placeholder="Add any additional notes here"></textarea>
+
+                <input type="submit" value="Save Changes">
+                <a href="supplierDetails.html" class="button">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

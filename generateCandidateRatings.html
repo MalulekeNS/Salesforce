@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA - Generate Candidate Ratings</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #2E86C1;
+            color: white;
+            width: 220px;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            display: block;
+            border-radius: 5px;
+            background-color: #3498DB;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: #1B4F72;
+        }
+        .header {
+            background-color: #2980B9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+        .content {
+            flex: 5;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #2980B9;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #2980B9;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type=submit], .btn {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block; /* Change to block for alignment */
+            width: auto; /* Set width to auto */
+            margin-top: 15px; /* Add margin for spacing */
+        }
+        input[type=submit]:hover, .btn:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="container">
+            <h1>Generate Candidate Ratings</h1>
+            <form action="/submit-ratings" method="POST">
+                <label for="candidateName">Candidate Name</label>
+                <input type="text" id="candidateName" name="candidateName" placeholder="Enter candidate's name" required>
+
+                <label for="position">Position</label>
+                <input type="text" id="position" name="position" placeholder="Enter position applied for" required>
+
+                <label for="communication">Communication Skills (1-10)</label>
+                <select id="communication" name="communication" required>
+                    <option value="" disabled selected>Select rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="technical">Technical Skills (1-10)</label>
+                <select id="technical" name="technical" required>
+                    <option value="" disabled selected>Select rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="teamwork">Teamwork (1-10)</label>
+                <select id="teamwork" name="teamwork" required>
+                    <option value="" disabled selected>Select rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <label for="summary">Overall Summary</label>
+                <textarea id="summary" name="summary" placeholder="Write a brief summary of the candidate's performance" required></textarea>
+
+                <input type="submit" class="btn" value="Generate Ratings">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

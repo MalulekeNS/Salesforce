@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E86C1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .dashboard-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            float: left;
+            box-sizing: border-box;
+        }
+        .dashboard-card h3 {
+            margin-top: 0;
+        }
+        .dashboard-summary {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Inventory Dashboard</h1>
+        <p>Track and manage your inventory levels and performance</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="supplierManagement.html">Suppliers</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="warehouseManagement.html">Warehouse</a>
+        <a href="Reports_Analytics.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Cards for Key Metrics -->
+        <div class="dashboard-summary">
+            <div class="dashboard-card">
+                <h3>Total Stock Value (ZAR)</h3>
+                <p><strong>R500,000</strong></p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Low Stock Items</h3>
+                <p><strong>15</strong> items low in stock</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Items Out of Stock</h3>
+                <p><strong>5</strong> items out of stock</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Restock Orders Pending</h3>
+                <p><strong>8</strong> orders awaiting restock</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Warehouse Capacity</h3>
+                <p><strong>85%</strong> capacity utilized</p>
+            </div>
+        </div>
+
+        <!-- Stock Levels Chart -->
+        <div class="chart-container">
+            <h3>Stock Levels Over Time</h3>
+            <canvas id="stockLevelsChart"></canvas>
+        </div>
+
+        <!-- Restock Orders Chart -->
+        <div class="chart-container">
+            <h3>Restock Orders Per Month</h3>
+            <canvas id="restockOrdersChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Stock Levels Over Time Chart
+        var stockLevelsCtx = document.getElementById('stockLevelsChart').getContext('2d');
+        var stockLevelsChart = new Chart(stockLevelsCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Stock Levels',
+                    data: [1500, 1400, 1350, 1450, 1550, 1600, 1550, 1650, 1700, 1750],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Restock Orders Per Month Chart
+        var restockOrdersCtx = document.getElementById('restockOrdersChart').getContext('2d');
+        var restockOrdersChart = new Chart(restockOrdersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Restock Orders',
+                    data: [10, 8, 12, 15, 13, 18, 10, 16, 14, 12],
+                    backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

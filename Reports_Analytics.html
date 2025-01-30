@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - TekSA CRM</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .report-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .report-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .chart {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .export-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498DB;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Reports & Analytics - TekSA CRM</h1>
+        <p>Track sales, leads, and customer engagement</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Dashboard</a>
+        <a href="lead_tracking.html">Leads</a>
+        <a href="customerManagement.html">Customers</a>
+        <a href="sales.html">Sales Force</a>
+        <a href="Reports_Analytics.html">Reports</a>
+        <a href="taskManagement.html">Tasks</a>
+        <a href="docManagement.html">Documents</a>
+    </div>
+
+    <div class="container">
+        <!-- Sales Report Section -->
+        <div class="report-card">
+            <h3>Sales Performance Report</h3>
+            <p>View the performance of your sales team over the last quarter.</p>
+            <table>
+                <tr>
+                    <th>Salesperson</th>
+                    <th>Total Sales</th>
+                    <th>Deals Closed</th>
+                    <th>Revenue</th>
+                </tr>
+                <tr>
+                    <td>John Mahlangu</td>
+                    <td>50</td>
+                    <td>40</td>
+                    <td>R120,000</td>
+                </tr>
+                <tr>
+                    <td>Jane Simelane</td>
+                    <td>45</td>
+                    <td>38</td>
+                    <td>R110,000</td>
+                </tr>
+                <tr>
+                    <td>Mark Davis</td>
+                    <td>60</td>
+                    <td>50</td>
+                    <td>R150,000</td>
+                </tr>
+            </table>
+            <button class="export-btn" onclick="exportSalesReport()">Export Sales CSV</button>
+        </div>
+
+        <!-- Lead Conversion Section -->
+        <div class="report-card">
+            <h3>Lead Conversion Rate</h3>
+            <p>Analyze your lead conversion over the past 6 months.</p>
+            <table>
+                <tr>
+                    <th>Month</th>
+                    <th>Leads Generated</th>
+                    <th>Leads Converted</th>
+                    <th>Conversion Rate (%)</th>
+                </tr>
+                <tr>
+                    <td>April</td>
+                    <td>120</td>
+                    <td>80</td>
+                    <td>66.7%</td>
+                </tr>
+                <tr>
+                    <td>May</td>
+                    <td>150</td>
+                    <td>100</td>
+                    <td>66.6%</td>
+                </tr>
+                <tr>
+                    <td>June</td>
+                    <td>140</td>
+                    <td>90</td>
+                    <td>64.3%</td>
+                </tr>
+            </table>
+            <button class="export-btn" onclick="exportLeadReport()">Export Lead CSV</button>
+        </div>
+
+        <!-- Customer Engagement Section -->
+        <div class="report-card">
+            <h3>Customer Engagement Analytics</h3>
+            <p>Monitor customer interactions and engagement levels.</p>
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Interactions</th>
+                    <th>Last Contact Date</th>
+                    <th>Engagement Level</th>
+                </tr>
+                <tr>
+                    <td>Acme Inc.</td>
+                    <td>15</td>
+                    <td>2024-10-12</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Beta Co.</td>
+                    <td>10</td>
+                    <td>2024-09-30</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Delta Ltd.</td>
+                    <td>5</td>
+                    <td>2024-09-25</td>
+                    <td>Low</td>
+                </tr>
+            </table>
+            <button class="export-btn" onclick="exportEngagementReport()">Export Engagement CSV</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to export Sales Report CSV
+        function exportSalesReport() {
+            var salesData = [
+                ["Salesperson", "Total Sales", "Deals Closed", "Revenue"],
+                ["John Doe", 50, 40, "R120,000"],
+                ["Jane Smith", 45, 38, "R110,000"],
+                ["Mark Davis", 60, 50, "R150,000"]
+            ];
+            exportToCSV(salesData, 'sales_report.csv');
+        }
+
+        // Function to export Lead Report CSV
+        function exportLeadReport() {
+            var leadData = [
+                ["Month", "Leads Generated", "Leads Converted", "Conversion Rate (%)"],
+                ["April", 120, 80, "66.7%"],
+                ["May", 150, 100, "66.6%"],
+                ["June", 140, 90, "64.3%"]
+            ];
+            exportToCSV(leadData, 'lead_conversion_report.csv');
+        }
+
+        // Function to export Engagement Report CSV
+        function exportEngagementReport() {
+            var engagementData = [
+                ["Customer", "Interactions", "Last Contact Date", "Engagement Level"],
+                ["Acme Inc.", 15, "2024-10-12", "High"],
+                ["Beta Co.", 10, "2024-09-30", "Medium"],
+                ["Delta Ltd.", 5, "2024-09-25", "Low"]
+            ];
+            exportToCSV(engagementData, 'customer_engagement_report.csv');
+        }
+
+        // General function to export any table data to CSV
+        function exportToCSV(data, filename) {
+            let csvContent = "";
+            data.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement("a");
+            if (link.download !== undefined) { 
+                var url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    </script>
+
+</body>
+</html>

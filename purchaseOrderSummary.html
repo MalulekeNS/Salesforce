@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Order Summary - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .summary-section {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .summary-section h2 {
+            color: #2980B9;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            display: block;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            width: fit-content;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 90%;
+            }
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .summary-section h2 {
+                font-size: 18px;
+            }
+            .button {
+                width: 100%;
+                text-align: center;
+                padding: 8px 15px;
+            }
+            table, th, td {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            .navbar a {
+                padding: 8px 8px;
+                font-size: 12px;
+            }
+            .button {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+            .summary-section h2 {
+                font-size: 16px;
+            }
+            table, th, td {
+                font-size: 12px;
+                padding: 6px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Purchase Order Summary - TekSA</h1>
+        <p>Overview and details of purchase orders in progress and completed.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="summary-section">
+            <h2>Recent Purchase Orders</h2>
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Supplier</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total (ZAR)</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>PO12345</td>
+                    <td>ABC Supplies</td>
+                    <td>2024-10-01</td>
+                    <td>Pending</td>
+                    <td>75,000</td>
+                    <td><a href="viewOrderDetails.html" class="button">View</a></td>
+                </tr>
+                <tr>
+                    <td>PO12346</td>
+                    <td>XYZ Equipment</td>
+                    <td>2024-09-29</td>
+                    <td>Completed</td>
+                    <td>150,000</td>
+                    <td><a href="viewOrderDetails.html" class="button">View</a></td>
+                </tr>
+                <tr>
+                    <td>PO12347</td>
+                    <td>Global Logistics</td>
+                    <td>2024-10-02</td>
+                    <td>In Progress</td>
+                    <td>65,000</td>
+                    <td><a href="viewOrderDetails.html" class="button">View</a></td>
+                </tr>
+                <!-- Additional rows as needed -->
+            </table>
+        </div>
+
+        <div class="summary-section">
+            <h2>Order Status Summary</h2>
+            <p>View summary reports of orders by status, suppliers, and dates.</p>
+            <button class="button">Download Summary Report</button>
+        </div>
+    </div>
+
+</body>
+</html>

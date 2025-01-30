@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Reports - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Container styling */
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .report-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .report-card {
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            min-width: 280px;
+            box-sizing: border-box;
+        }
+        .report-card h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+        .report-card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+        
+            .report-card {
+                width: 90%; /* Card width adapts for better fit on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            
+            .report-card {
+                padding: 15px;
+                width: 100%;
+            }
+            .button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Financial Reports</h1>
+        <p>Generate and view financial reports for all sections of TekSA's finance module.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+    
+    <div class="container">
+        <div class="report-section">
+            <div class="report-card">
+                <h3>Invoice Reports</h3>
+                <p>Generate detailed reports for all invoices.</p>
+                <a href="manageInvoices.html" class="button">Generate Invoice Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Expense Reports</h3>
+                <p>View and generate expense tracking reports.</p>
+                <a href="expensesTracking.html" class="button">Generate Expense Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Accounts Payable Reports</h3>
+                <p>Generate reports for accounts payable.</p>
+                <a href="accountsPayable.html" class="button">Generate Accounts Payable Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Accounts Receivable Reports</h3>
+                <p>View and generate reports for accounts receivable.</p>
+                <a href="accountsReceivable.html" class="button">Generate Accounts Receivable Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Payroll Reports</h3>
+                <p>Generate payroll reports for all employees.</p>
+                <a href="generatePayrollReport.html" class="button">Generate Payroll Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Tax Reports</h3>
+                <p>View detailed tax reports.</p>
+                <a href="taxReports.html" class="button">Generate Tax Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Cash Flow Reports</h3>
+                <p>Generate cash flow statements and insights.</p>
+                <a href="cashFlowManagement.html" class="button">Generate Cash Flow Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Profit & Loss Reports</h3>
+                <p>View and generate profit and loss reports.</p>
+                <a href="profitLoss.html" class="button">Generate Profit & Loss Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Bank Reconciliation Reports</h3>
+                <p>Generate bank reconciliation reports for financial management.</p>
+                <a href="bankReconciliation.html" class="button">Generate Bank Reconciliation Report</a>
+            </div>
+            <div class="report-card">
+                <h3>Asset Management Reports</h3>
+                <p>Generate reports on assets and depreciation.</p>
+                <a href="assetManagement.html" class="button">Generate Asset Report</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('website-background-21.jpg') no-repeat center center/cover;
+        background-color: white;
+    }
+
+    .header {
+        background-color: #3498db;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #2980B9;
+        padding: 10px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: #3498DB;
+        border-radius: 4px;
+        margin: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+        background-color: #1B4F72;
+    }
+
+    /* Dashboard Buttons Styling */
+    .dashboard-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .dashboard-buttons button {
+        background-color: #2980B9;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    .dashboard-buttons button:hover {
+        background-color: #1B4F72;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>General Dashboard</h1>
+        <p>Consolidated Data Overview</p>
+    </div>
+
+    <div class="dashboard-buttons">
+        <!-- Buttons for Overview Dashboards -->
+        <button onclick="location.href='dashboardCRM.html'">CRM Data View</button>
+        <button onclick="location.href='dashboardERP.html'">ERP Data View</button>
+        <button onclick="location.href='dashboardINT.html'">Inventory Data View</button>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardCRM.html">CRM Dashboard</a>
+        <a href="dashboardERP.html">ERP Dashboard</a>
+        <a href="dashboardINT.html">Inventory Dashboard</a>
+        <a href="dashboardFIN.html">Finance Dashboard</a>
+    </div>
+
+    <div class="container">
+        <!-- CRM Overview -->
+        <div class="card">
+            <h2>CRM Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>New Leads</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Contacts Made</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Deals Closed</td>
+                    <td>10</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ERP Overview -->
+        <div class="card">
+            <h2>ERP Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Orders Processed</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Products in Stock</td>
+                    <td>320</td>
+                </tr>
+                <tr>
+                    <td>Invoices Generated</td>
+                    <td>45</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Inventory Overview -->
+        <div class="card">
+            <h2>Inventory Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Total Products</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>Low Stock Alerts</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>New Shipments</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sales Performance Chart -->
+        <div class="chart-container">
+            <h2>Sales Performance Over Time</h2>
+            <canvas id="salesChart"></canvas>
+        </div>
+
+        <!-- Top Products Chart -->
+        <div class="chart-container">
+            <h2>Top Products by Sales</h2>
+            <canvas id="topProductsChart"></canvas>
+        </div>
+
+        <!-- Customer Satisfaction Chart -->
+        <div class="chart-container">
+            <h2>Customer Satisfaction</h2>
+            <canvas id="customerSatisfactionChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sales Performance Chart (Line Chart)
+        var ctxSales = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctxSales, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Sales (ZAR)',
+                    data: [50000, 60000, 55000, 70000, 80000, 90000, 95000, 87000, 78000, 82000, 93000, 100000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: '#3498DB',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Sales Performance (Monthly)' }
+                }
+            }
+        });
+
+        // Top Products Chart (Horizontal Bar)
+        var ctxTopProducts = document.getElementById('topProductsChart').getContext('2d');
+        var topProductsChart = new Chart(ctxTopProducts, {
+            type: 'bar',
+            data: {
+                labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+                datasets: [{
+                    label: 'Units Sold',
+                    data: [300, 250, 200, 150, 100],
+                    backgroundColor: '#2ECC71',
+                    borderColor: '#27AE60',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Top Products by Sales' }
+                }
+            }
+        });
+
+        // Customer Satisfaction Chart (Radar Chart)
+        var ctxCustomerSatisfaction = document.getElementById('customerSatisfactionChart').getContext('2d');
+        var customerSatisfactionChart = new Chart(ctxCustomerSatisfaction, {
+            type: 'radar',
+            data: {
+                labels: ['Product Quality', 'Service', 'Delivery', 'Support', 'Value for Money'],
+                datasets: [{
+                    label: 'Customer Satisfaction',
+                    data: [85, 90, 80, 75, 88],
+                    backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                    borderColor: '#E74C3C',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Customer Satisfaction' }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

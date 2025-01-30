@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Reports - TekSA Finance</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #2980B9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type=submit] {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1B4F72;
+        }
+        .download-btn {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background-color: #2980B9;
+        }
+    </style>
+    <script>
+        function downloadCSV() {
+            const data = [
+                ["Expense ID", "Description", "Category", "Date", "Amount (ZAR)"],
+                ["EXP-001", "Office Rent", "Utilities", "2024-10-01", "15000.00"],
+                ["EXP-002", "Client Travel Expenses", "Travel", "2024-09-28", "8500.00"],
+                ["EXP-003", "Team Building Event", "Other", "2024-09-25", "4200.00"]
+                // Add more rows here as needed
+            ];
+            
+            let csvContent = "data:text/csv;charset=utf-8," 
+                + data.map(e => e.join(",")).join("\n");
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "expense_report.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Expense Reports - TekSA Finance</h1>
+        <p>Analyze business expenses by category, date, and total amount.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardFIN.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="manageInvoices.html">Manage Invoices</a>
+        <a href="expensesTracking.html">Expenses Tracking</a>
+        <a href="reportsFIN.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Generate Expense Report</h3>
+            <form action="/generate-expense-report" method="POST">
+                <label for="category">Filter by Category</label>
+                <select id="category" name="category">
+                    <option value="all">All Categories</option>
+                    <option value="office">Office Supplies</option>
+                    <option value="travel">Travel</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="salary">Salaries</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" name="startDate">
+
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate" name="endDate">
+
+                <label for="minAmount">Minimum Amount (ZAR)</label>
+                <input type="number" id="minAmount" name="minAmount" placeholder="0">
+
+                <label for="maxAmount">Maximum Amount (ZAR)</label>
+                <input type="number" id="maxAmount" name="maxAmount" placeholder="100000">
+
+                <input type="submit" value="Generate Report">
+            </form>
+        </div>
+
+        <div class="feature-card">
+            <h3>Expense Report Summary</h3>
+            <table>
+                <tr>
+                    <th>Expense ID</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Amount (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>EXP-001</td>
+                    <td>Office Rent</td>
+                    <td>Utilities</td>
+                    <td>2024-10-01</td>
+                    <td>15,000.00 ZAR</td>
+                </tr>
+                <tr>
+                    <td>EXP-002</td>
+                    <td>Client Travel Expenses</td>
+                    <td>Travel</td>
+                    <td>2024-09-28</td>
+                    <td>8,500.00 ZAR</td>
+                </tr>
+                <tr>
+                    <td>EXP-003</td>
+                    <td>Team Building Event</td>
+                    <td>Other</td>
+                    <td>2024-09-25</td>
+                    <td>4,200.00 ZAR</td>
+                </tr>
+                <!-- More sample data can go here -->
+            </table>
+        </div>
+
+        <!-- Download Report Button -->
+        <button class="download-btn" onclick="downloadCSV()">Download Report</button>
+    </div>
+
+</body>
+</html>

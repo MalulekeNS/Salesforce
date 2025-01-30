@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .status {
+            font-weight: bold;
+            color: #3498DB;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .navbar {
+                
+                align-items: center;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: right;
+                border: none;
+                position: relative;
+            }
+
+            th::before, td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #2980B9;
+                text-align: left;
+            }
+
+            tr {
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            th, td {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Order Tracking - TekSA</h1>
+        <p>Monitor the status of all your orders in real-time.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="table-container">
+            <h2>Order Status Overview</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-label="Order ID">Order ID</th>
+                        <th data-label="Supplier Name">Supplier Name</th>
+                        <th data-label="Order Date">Order Date</th>
+                        <th data-label="Expected Delivery">Expected Delivery</th>
+                        <th data-label="Status">Status</th>
+                        <th data-label="Actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Order ID">ORD12345</td>
+                        <td data-label="Supplier Name">Supplier 1</td>
+                        <td data-label="Order Date">2024-10-10</td>
+                        <td data-label="Expected Delivery">2024-10-30</td>
+                        <td data-label="Status"><span class="status">In Transit</span></td>
+                        <td data-label="Actions"><a href="orderDetails.html?orderId=ORD12345" class="button">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Order ID">ORD12346</td>
+                        <td data-label="Supplier Name">Supplier 2</td>
+                        <td data-label="Order Date">2024-10-12</td>
+                        <td data-label="Expected Delivery">2024-11-01</td>
+                        <td data-label="Status"><span class="status">Delivered</span></td>
+                        <td data-label="Actions"><a href="orderDetails.html?orderId=ORD12346" class="button">View Details</a></td>
+                    </tr>
+                    <!-- More order rows as needed -->
+                </tbody>
+            </table>
+            <a href="procurement.html" class="button">Back to Procurement</a>
+        </div>
+    </div>
+
+</body>
+</html>

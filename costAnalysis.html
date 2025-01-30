@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Analysis - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #2980B9;
+            color: white;
+        }
+        
+        .button {
+            background-color: #3498DB;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        
+        .form-section {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2980B9;
+        }
+        
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table, th, td {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                font-size: 0.8em;
+            }
+
+            tr {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Cost Analysis</h1>
+        <p>Detailed insights into costs associated with production, procurement, and operations.</p>
+    </div>
+
+    <div class="container">
+        <h2>Cost Analysis Summary</h2>
+
+        <table>
+            <tr>
+                <th>Cost Category</th>
+                <th>Amount (ZAR)</th>
+                <th>Percentage of Total</th>
+                <th>Last Updated</th>
+            </tr>
+            <tr>
+                <td>Production Costs</td>
+                <td>R50,000</td>
+                <td>40%</td>
+                <td>2024-11-01</td>
+            </tr>
+            <tr>
+                <td>Procurement Costs</td>
+                <td>R30,000</td>
+                <td>24%</td>
+                <td>2024-11-01</td>
+            </tr>
+            <tr>
+                <td>Operational Expenses</td>
+                <td>R20,000</td>
+                <td>16%</td>
+                <td>2024-11-01</td>
+            </tr>
+            <tr>
+                <td>Miscellaneous</td>
+                <td>R25,000</td>
+                <td>20%</td>
+                <td>2024-11-01</td>
+            </tr>
+        </table>
+
+        <button onclick="downloadReport()" class="button">Download Report</button>
+
+        <div class="form-section">
+            <h2>Add New Cost Entry</h2>
+            <form action="/add-cost" method="POST">
+                <label for="category">Cost Category</label>
+                <input type="text" id="category" name="category" placeholder="Enter cost category" required>
+
+                <label for="amount">Amount (ZAR)</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount in ZAR" required>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <input type="submit" class="button" value="Add Cost">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function downloadReport() {
+            // Code to generate and download the report as a file.
+            alert("Report downloading...");
+        }
+    </script>
+
+</body>
+</html>

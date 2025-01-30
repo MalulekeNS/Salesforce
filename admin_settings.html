@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="mainn.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Admin Settings</title>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Admin Portal</h2>
+        <a href="admin.html">Overview</a>
+        <a href="user_management.html">User Management</a>
+        <a href="admin_reports.html">Reports</a>
+        <a href="admin_settings.html">Settings</a>
+        <a href="admin_analytics.html">Analytics</a>
+        <a href="admin_support.html">Support Center</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <!-- Header -->
+        <div class="header">
+            <h1>Admin Settings</h1>
+            <p>Configure platform settings and update account preferences.</p>
+        </div>
+
+        <!-- Account Settings Section -->
+        <div class="card">
+            <h3>Account Settings</h3>
+            <form action="#" method="post">
+                <label for="admin-name">Admin Name:</label>
+                <input type="text" id="admin-name" name="admin-name" value="Admin Name">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" value="admin@example.com">
+
+                <label for="password">Change Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+                
+                <button type="submit" class="btn">Update Account</button>
+            </form>
+        </div>
+
+        <!-- Platform Settings Section -->
+        <div class="card">
+            <h3>Platform Settings</h3>
+            <form action="#" method="post">
+                <label for="theme">Theme Selection:</label>
+                <select id="theme" name="theme">
+                    <option value="default">Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+
+                <label for="notification-settings">Email Notifications:</label>
+                <select id="notification-settings" name="notification-settings">
+                    <option value="enabled">Enabled</option>
+                    <option value="disabled">Disabled</option>
+                </select>
+
+                <label for="data-backup">Data Backup Frequency:</label>
+                <select id="data-backup" name="data-backup">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

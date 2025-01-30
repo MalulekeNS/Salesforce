@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Management - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .status {
+            font-weight: bold;
+            color: #3498DB;
+        }
+
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 10px;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                background-color: white;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                text-align: left;
+                border: none;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #2980B9;
+            }
+
+            .button {
+                width: 100%;
+                box-sizing: border-box;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Invoice Management - TekSA</h1>
+        <p>Organize, track, and manage all invoices efficiently.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="table-container">
+            <h2>Invoices Overview</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td data-label="Invoice ID">INV001</td>
+                        <td data-label="Supplier Name">Supplier 1</td>
+                        <td data-label="Invoice Date">2024-10-01</td>
+                        <td data-label="Due Date">2024-10-31</td>
+                        <td data-label="Amount">5,000</td>
+                        <td data-label="Status"><span class="status">Pending</span></td>
+                        <td data-label="Actions"><a href="invoiceDetails.html?invoiceId=INV001" class="button">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Invoice ID">INV002</td>
+                        <td data-label="Supplier Name">Supplier 2</td>
+                        <td data-label="Invoice Date">2024-09-15</td>
+                        <td data-label="Due Date">2024-10-15</td>
+                        <td data-label="Amount">3,200</td>
+                        <td data-label="Status"><span class="status">Paid</span></td>
+                        <td data-label="Actions"><a href="invoiceDetails.html?invoiceId=INV002" class="button">View Details</a></td>
+                    </tr>
+                    <!-- Additional invoice rows as needed -->
+                </tbody>
+            </table>
+            <a href="createInvoice.html" class="button">Create New Invoice</a>
+            <a href="procurement.html" class="button">Back to Procurement</a>
+        </div>
+    </div>
+
+</body>
+</html>

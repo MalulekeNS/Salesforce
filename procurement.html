@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background: url('website-background-21.jpg') no-repeat center center;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            box-sizing: border-box;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+         
+
+            .container {
+                padding: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-card {
+                width: 90%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .button {
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Procurement</h1>
+        <p>Tools for efficient management of procurement processes and vendor relationships.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="procurementReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="feature-card">
+            <h3>Create Purchase Order</h3>
+            <p>Generate and manage purchase orders for inventory and supplies.</p>
+            <a href="createPurchaseOrder.html" class="button">Create Order</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Supplier Directory</h3>
+            <p>Access and manage supplier contacts and vendor agreements.</p>
+            <a href="supplierDirectory.html" class="button">View Directory</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Request for Quotation (RFQ)</h3>
+            <p>Submit requests for quotations to suppliers for price comparison.</p>
+            <a href="rfq.html" class="button">Submit RFQ</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Approved Suppliers</h3>
+            <p>Maintain a list of verified suppliers for streamlined ordering.</p>
+            <a href="approvedSuppliers.html" class="button">Manage Suppliers</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Order Tracking</h3>
+            <p>Track purchase order statuses from submission to fulfillment.</p>
+            <a href="orderTracking.html" class="button">Track Orders</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Invoice Management</h3>
+            <p>Record and manage invoices for procurement transactions.</p>
+            <a href="invoiceManagement.html" class="button">Manage Invoices</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Procurement Reports</h3>
+            <p>Generate reports on procurement activities and spending.</p>
+            <a href="procurementReports.html" class="button">View Reports</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Contract Management</h3>
+            <p>Maintain contracts and agreements with suppliers and vendors.</p>
+            <a href="contractManagement.html" class="button">Manage Contracts</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>Spend Analysis</h3>
+            <p>Analyze spending patterns to optimize procurement processes.</p>
+            <a href="spendAnalysis.html" class="button">Analyze Spend</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Startup Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background-color: #2E86C1;
+            color: white;
+            width: 220px;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            display: block;
+            border-radius: 5px;
+            background-color: #3498DB;
+            text-align: center;
+        }
+
+        .sidebar a:hover {
+            background-color: #1B4F72;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        .header {
+            background-color: #2980B9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card h3 {
+            color: #2980B9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 220px;
+                height: 100%;
+                transform: translateX(-100%);
+                z-index: 1000;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .toggle-btn {
+                display: block;
+                background-color: #2E86C1;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 18px;
+                cursor: pointer;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 1001;
+                border-radius: 5px;
+            }
+        }
+
+        /* Hide Toggle Button on Desktop */
+        @media (min-width: 769px) {
+            .toggle-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Startup Portal</h2>
+        <a href="startup_overview.html">Overview</a>
+        <a href="startup_projects.html">Project Management</a>
+        <a href="startup_investors.html">Investor Relations</a>
+        <a href="startup_finances.html">Financial Projections</a>
+        <a href="startup_devtools.html">Development Tracking</a>
+        <a href="startup_reports.html">Reports</a>
+        <a href="startup_settings.html">Settings</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h1>Welcome to the Startup Dashboard</h1>
+            <p>Manage projects, track finances, connect with investors, and more.</p>
+        </div>
+
+        <div class="card">
+            <h3>Project Management</h3>
+            <p>Organize and track all of your projects in one place. Collaborate with your team effectively.</p>
+            <button class="btn">Go to Projects</button>
+        </div>
+
+        <div class="card">
+            <h3>Investor Relations</h3>
+            <p>Manage your investor details, track funding stages, and communicate updates.</p>
+            <button class="btn">View Investors</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

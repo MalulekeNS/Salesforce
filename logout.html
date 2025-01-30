@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .logout-popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .logout-popup h2 {
+            margin: 0 0 10px;
+            color: #2E86C1;
+        }
+        .logout-popup p {
+            margin: 10px 0 20px;
+            color: #555;
+        }
+        .logout-popup .btn {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .logout-popup .btn:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-popup">
+        <h2>Logged Out</h2>
+        <p>You have successfully logged out.</p>
+        <a href="login.html" class="btn">Login Again</a>
+        <a href="index.html" class="btn">Home</a>
+    </div>
+</body>
+</html>

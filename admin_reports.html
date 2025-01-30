@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Admin Reports</title>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Admin Portal</h2>
+        <a href="admin.html">Overview</a>
+        <a href="user_management.html">User Management</a>
+        <a href="admin_reports.html">Reports</a>
+        <a href="admin_settings.html">Settings</a>
+        <a href="admin_analytics.html">Analytics</a>
+        <a href="admin_support.html">Support Center</a>
+        <a href="logout.html">Logout</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <!-- Header -->
+        <div class="header">
+            <h1>Reports</h1>
+            <p>Generate and view detailed reports to analyze platform activity.</p>
+        </div>
+
+        <!-- Generate Report Section -->
+        <div class="card">
+            <h3>Generate Report</h3>
+            <form action="#" method="post">
+                <label for="report-type">Select Report Type:</label>
+                <select id="report-type" name="report-type">
+                    <option value="user-activity">User Activity</option>
+                    <option value="financial">Financial</option>
+                    <option value="system-performance">System Performance</option>
+                </select>
+
+                <label for="date-range">Date Range:</label>
+                <input type="date" id="start-date" name="start-date">
+                <span>to</span>
+                <input type="date" id="end-date" name="end-date">
+
+                <button type="submit" class="btn">Generate Report</button>
+            </form>
+        </div>
+
+        <!-- Recent Reports Section -->
+        <div class="card">
+            <h3>Recent Reports</h3>
+            <table>
+                <tr>
+                    <th>Report ID</th>
+                    <th>Type</th>
+                    <th>Date Generated</th>
+                    <th>Actions</th>
+                </tr>
+                <!-- Sample report row -->
+                <tr>
+                    <td>001</td>
+                    <td>User Activity</td>
+                    <td>2024-10-15</td>
+                    <td>
+                        <button class="btn">View</button>
+                        <button class="btn">Download</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Financial</td>
+                    <td>2024-10-14</td>
+                    <td>
+                        <button class="btn">View</button>
+                        <button class="btn">Download</button>
+                    </td>
+                </tr>
+                <!-- Additional rows as needed -->
+            </table>
+        </div>
+    </div>
+</body>
+</html>

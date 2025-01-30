@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Details - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #2980B9;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #3498DB;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.navbar a:hover {
+    background-color: #1B4F72;
+}
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .details-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .details-container h2 {
+            margin-top: 0;
+            color: #2980B9;
+        }
+        .details-container p, .details-container ul, .details-container h3 {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #2980B9;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            margin: 5px 0;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .details-container {
+                padding: 15px;
+            }
+            .details-container h2, .details-container h3 {
+                font-size: 1.2em;
+            }
+            .navbar a {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .button {
+                padding: 8px 15px;
+                font-size: 14px;
+                width: 100%; /* Make buttons full-width */
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Invoice Details - TekSA</h1>
+        <p>Review all details for the selected invoice.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <div class="details-container">
+            <h2>Invoice #INV001</h2>
+
+            <p><span class="info-label">Supplier Name:</span> Supplier 1</p>
+            <p><span class="info-label">Invoice Date:</span> 2024-10-01</p>
+            <p><span class="info-label">Due Date:</span> 2024-10-31</p>
+            <p><span class="info-label">Amount (ZAR):</span> 5,000</p>
+            <p><span class="info-label">Status:</span> Pending</p>
+            
+            <h3>Itemized List</h3>
+            <ul>
+                <li><span class="info-label">Product A:</span> 10 units - ZAR 2,000</li>
+                <li><span class="info-label">Product B:</span> 5 units - ZAR 1,500</li>
+                <li><span class="info-label">Product C:</span> 8 units - ZAR 1,500</li>
+            </ul>
+
+            <h3>Payment Information</h3>
+            <p><span class="info-label">Payment Method:</span> Bank Transfer</p>
+            <p><span class="info-label">Bank Details:</span> Account No. 123456789, Branch: Cape Town</p>
+            
+            <a href="invoiceManagement.html" class="button">Back to Invoice Management</a>
+            <a href="editInvoice.html?invoiceId=INV001" class="button">Edit Invoice</a>
+        </div>
+    </div>
+
+</body>
+</html>

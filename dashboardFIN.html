@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TekSA Finance Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .card, .chart-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin: 10px;
+            width: 45%;
+        }
+        .card h2, .chart-container h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3498DB;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Local Village Finance Dashboard</h1>
+        <p>Financial Overview and Insights</p>
+    </div>
+
+  <div class="navbar">
+        <a href="dashboardFIN.html">Finance Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="reportsERP.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <!-- Revenue Overview -->
+        <div class="card">
+            <h2>Revenue Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>Total Revenue</td>
+                    <td>1,200,000</td>
+                </tr>
+                <tr>
+                    <td>Monthly Revenue</td>
+                    <td>100,000</td>
+                </tr>
+                <tr>
+                    <td>Yearly Revenue</td>
+                    <td>1,200,000</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Expense Overview -->
+        <div class="card">
+            <h2>Expense Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>Total Expenses</td>
+                    <td>800,000</td>
+                </tr>
+                <tr>
+                    <td>Monthly Expenses</td>
+                    <td>66,000</td>
+                </tr>
+                <tr>
+                    <td>Yearly Expenses</td>
+                    <td>800,000</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Profit/Loss Overview -->
+        <div class="card">
+            <h2>Profit/Loss Overview</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value (ZAR)</th>
+                </tr>
+                <tr>
+                    <td>Gross Profit</td>
+                    <td>400,000</td>
+                </tr>
+                <tr>
+                    <td>Net Profit</td>
+                    <td>300,000</td>
+                </tr>
+                <tr>
+                    <td>Profit Margin</td>
+                    <td>25%</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Revenue Growth Chart -->
+        <div class="chart-container">
+            <h2>Revenue Growth Over Time</h2>
+            <canvas id="revenueChart"></canvas>
+        </div>
+
+        <!-- Expense Breakdown Chart -->
+        <div class="chart-container">
+            <h2>Expense Breakdown</h2>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Revenue Growth Chart (Line Chart)
+        var ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        var revenueChart = new Chart(ctxRevenue, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Revenue (ZAR)',
+                    data: [100000, 120000, 115000, 130000, 150000, 160000, 170000, 160000, 155000, 165000, 175000, 180000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: '#3498DB',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Revenue Growth (Monthly)' }
+                }
+            }
+        });
+
+        // Expense Breakdown Chart (Pie Chart)
+        var ctxExpense = document.getElementById('expenseChart').getContext('2d');
+        var expenseChart = new Chart(ctxExpense, {
+            type: 'pie',
+            data: {
+                labels: ['Salaries', 'Rent', 'Utilities', 'Marketing', 'Miscellaneous'],
+                datasets: [{
+                    label: 'Expenses (ZAR)',
+                    data: [300000, 100000, 50000, 200000, 150000],
+                    backgroundColor: ['#E74C3C', '#F39C12', '#3498DB', '#2ECC71', '#9B59B6'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Expense Breakdown' }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #3498DB;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+        }
+        .dashboard-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 30%;
+            float: left;
+            box-sizing: border-box;
+        }
+        .dashboard-card h3 {
+            margin-top: 0;
+        }
+        .dashboard-summary {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ERP Dashboard</h1>
+        <p>Overview of your enterprise operations at a glance</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardERP.html">Dashboard</a>
+        <a href="inventoryManagement.html">Inventory</a>
+        <a href="supplierManagement.html">Suppliers</a>
+        <a href="purchaseOrders.html">Purchase Orders</a>
+        <a href="finance.html">Financials</a>
+        <a href="Reports_Analytics.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Cards for Key Metrics -->
+        <div class="dashboard-summary">
+            <div class="dashboard-card">
+                <h3>Total Inventory Value (ZAR)</h3>
+                <p><strong>R800,000</strong></p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Suppliers</h3>
+                <p><strong>35</strong> active suppliers</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Pending Purchase Orders</h3>
+                <p><strong>7</strong> open orders</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Yearly Expenses</h3>
+                <p><strong>R1,200,000</strong> spent this year</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Revenue This Year</h3>
+                <p><strong>R5,000,000</strong> total revenue</p>
+            </div>
+        </div>
+
+        <!-- Financial Chart -->
+        <div class="chart-container">
+            <h3>Monthly Revenue & Expenses</h3>
+            <canvas id="financialChart"></canvas>
+        </div>
+
+        <!-- Inventory Levels Chart -->
+        <div class="chart-container">
+            <h3>Inventory Levels Over Time</h3>
+            <canvas id="inventoryChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Financial Performance Chart
+        var financialCtx = document.getElementById('financialChart').getContext('2d');
+        var financialChart = new Chart(financialCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [
+                    {
+                        label: 'Revenue',
+                        data: [400000, 450000, 500000, 600000, 700000, 750000, 800000, 850000, 900000, 950000],
+                        backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        borderWidth: 2,
+                        fill: true
+                    },
+                    {
+                        label: 'Expenses',
+                        data: [150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 550000, 600000],
+                        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 2,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Inventory Levels Chart
+        var inventoryCtx = document.getElementById('inventoryChart').getContext('2d');
+        var inventoryChart = new Chart(inventoryCtx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+                datasets: [{
+                    label: 'Inventory Levels',
+                    data: [1200, 1150, 1100, 1300, 1250, 1400, 1500, 1600, 1550, 1700],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

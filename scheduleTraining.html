@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Training - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2980B9;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            background-color: #3498DB;
+            border-radius: 4px;
+        }
+        .navbar a:hover {
+            background-color: #1B4F72;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #3498DB;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Schedule Training</h1>
+        <p>Organize and schedule training sessions for employees.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="dashboardINT.html">Dashboard</a>
+        <a href="finance.html">Finance</a>
+        <a href="hr.html">HR</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="production.html">Production</a>
+        <a href="financialReports.html">Reports</a>
+    </div>
+
+    <div class="container">
+        <h2>Training Details</h2>
+        <form id="trainingForm">
+            <label for="trainingType">Training Type:</label>
+            <select id="trainingType" name="trainingType" required>
+                <option value="">Select a training type</option>
+                <option value="Compliance">Compliance Training</option>
+                <option value="SkillDevelopment">Skill Development</option>
+                <option value="Safety">Safety Training</option>
+                <option value="Leadership">Leadership Training</option>
+            </select>
+
+            <label for="trainingDate">Date:</label>
+            <input type="date" id="trainingDate" name="trainingDate" required>
+
+            <label for="trainingTime">Time:</label>
+            <input type="time" id="trainingTime" name="trainingTime" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter location" required>
+
+            <label for="trainer">Trainer:</label>
+            <input type="text" id="trainer" name="trainer" placeholder="Enter trainer's name" required>
+
+            <button type="button" class="button" onclick="scheduleTraining()">Save Schedule</button>
+            <button type="button" class="button" onclick="sendNotification()">Send Notification</button>
+        </form>
+    </div>
+
+    <script>
+        function scheduleTraining() {
+            const trainingType = document.getElementById("trainingType").value;
+            const trainingDate = document.getElementById("trainingDate").value;
+            const trainingTime = document.getElementById("trainingTime").value;
+            const location = document.getElementById("location").value;
+            const trainer = document.getElementById("trainer").value;
+
+            if (trainingType && trainingDate && trainingTime && location && trainer) {
+                alert(`Training scheduled:\n\nType: ${trainingType}\nDate: ${trainingDate}\nTime: ${trainingTime}\nLocation: ${location}\nTrainer: ${trainer}`);
+            } else {
+                alert("Please fill in all fields to schedule the training.");
+            }
+        }
+
+        function sendNotification() {
+            alert("Training notification sent to all relevant employees.");
+        }
+    </script>
+
+</body>
+</html>

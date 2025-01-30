@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Reports - TekSA</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2980B9;
+            margin-bottom: 10px;
+        }
+        .report-card {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .report-card h3 {
+            margin: 0;
+            color: #2980B9;
+        }
+        .button {
+            background-color: #3498DB;
+            padding: 10px 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .button:hover {
+            background-color: #1B4F72;
+        }
+        .download-button {
+            background-color: #27ae60;
+        }
+        .download-button:hover {
+            background-color: #1e8449;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .report-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .report-card div {
+                margin-bottom: 10px;
+            }
+            .button {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Production Reports</h1>
+        <p>Generate, view, and download various production reports.</p>
+    </div>
+
+    <div class="container">
+        <h2>Available Reports</h2>
+
+        <div class="report-card">
+            <div>
+                <h3>Monthly Production Summary</h3>
+                <p>Overview of production metrics for the current month.</p>
+            </div>
+            <a href="monthlyProductionSummary.html" class="button">View Report</a>
+            <a href="download/monthlyProductionSummary.pdf" class="button download-button">Download</a>
+        </div>
+
+        <div class="report-card">
+            <div>
+                <h3>Resource Utilization Report</h3>
+                <p>Details on the usage of resources during production cycles.</p>
+            </div>
+            <a href="resourceUtilizationReport.html" class="button">View Report</a>
+            <a href="download/resourceUtilizationReport.pdf" class="button download-button">Download</a>
+        </div>
+
+        <div class="report-card">
+            <div>
+                <h3>Quality Control Report</h3>
+                <p>Quality assurance metrics and issues identified during production.</p>
+            </div>
+            <a href="qualityControlReport.html" class="button">View Report</a>
+            <a href="download/qualityControlReport.pdf" class="button download-button">Download</a>
+        </div>
+
+        <div class="report-card">
+            <div>
+                <h3>Production Efficiency Report</h3>
+                <p>Evaluation of production efficiency and productivity levels.</p>
+            </div>
+            <a href="productionEfficiency.html" class="button">View Report</a>
+            <a href="download/productionEfficiency.pdf" class="button download-button">Download</a>
+        </div>
+
+        <div class="report-card">
+            <div>
+                <h3>Inventory Usage Overview</h3>
+                <p>Summary of inventory usage and material consumption in production.</p>
+            </div>
+            <a href="inventoryUsageOverview.html" class="button">View Report</a>
+            <a href="download/inventoryUsageOverview.pdf" class="button download-button">Download</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
