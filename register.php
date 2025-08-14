@@ -6,43 +6,38 @@ $popupMessage = '';
 $showPopup = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    if (!$email || !$password) {
-        $popupMessage = "Email and password are required.";
+    if (!$name || !$email || !$password) {
+        $popupMessage = "All fields are required.";
         $showPopup = true;
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
+        $check = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+        $check->execute([$email]);
 
-        if (!$user || $user['password'] !== $password) {
-            $popupMessage = "Invalid login credentials.";
-            $showPopup = true;
-        } elseif ($user['approved'] != 1) {
-            $popupMessage = "Your account is pending admin approval.";
+        if ($check->fetch()) {
+            $popupMessage = "Email already exists. Please use a different one.";
             $showPopup = true;
         } else {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['role'] = $user['role'];
-            header("Location: index.php");
-            exit;
+            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, role, approved) VALUES (?, ?, ?, 'user', 0)");
+            $stmt->execute([$name, $email, $password]);
+            $popupMessage = "Registration successful. Waiting for admin approval.";
+            $showPopup = true;
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Register</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url('des.png') no-repeat center center fixed;
+      background: url('wp3519537.webp') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
@@ -64,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       box-shadow: 0 4px 30px rgba(0,0,0,0.2);
     }
 
-    input[type="email"], input[type="password"] {
+    input[type="text"], input[type="email"], input[type="password"] {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -80,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     button {
       padding: 10px 20px;
-      background-color: #06101f;
+      background-color: #164018;
       border: none;
       color: white;
       border-radius: 8px;
@@ -89,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     button:hover {
-      background-color: #11ad02;
+      background-color: #071408;
     }
 
     .links {
@@ -99,8 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .links a {
       color: #d4af37;
       text-decoration: none;
-      display: block;
-      margin: 5px 0;
     }
 
     .links a:hover {
@@ -155,15 +148,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <div class="login-container">
-  <h2>User Login</h2>
+  <h2>Register</h2>
   <form method="post">
+    <input type="text" name="name" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
   </form>
   <div class="links">
-    <a href="register.php">Register</a>
-    <a href="reset_password.php">Forgot Password?</a>
+    <a href="login.php">Back to Login</a>
   </div>
 </div>
 

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'db.php';
 
 $popupMessage = '';
@@ -7,42 +6,37 @@ $showPopup = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
+    $newPassword = $_POST['new_password'] ?? '';
 
-    if (!$email || !$password) {
-        $popupMessage = "Email and password are required.";
+    if (!$email || !$newPassword) {
+        $popupMessage = "Email and new password are required.";
         $showPopup = true;
     } else {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
-        if (!$user || $user['password'] !== $password) {
-            $popupMessage = "Invalid login credentials.";
-            $showPopup = true;
-        } elseif ($user['approved'] != 1) {
-            $popupMessage = "Your account is pending admin approval.";
+        if (!$user) {
+            $popupMessage = "No user found with that email.";
             $showPopup = true;
         } else {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['role'] = $user['role'];
-            header("Location: index.php");
-            exit;
+            $update = $pdo->prepare("UPDATE users SET password = ? WHERE email = ?");
+            $update->execute([$newPassword, $email]);
+            $popupMessage = "Password updated successfully.";
+            $showPopup = true;
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Reset Password</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url('des.png') no-repeat center center fixed;
+      background: url('wp3519537.webp') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
@@ -80,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     button {
       padding: 10px 20px;
-      background-color: #06101f;
+      background-color: #164018;
       border: none;
       color: white;
       border-radius: 8px;
@@ -89,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     button:hover {
-      background-color: #11ad02;
+      background-color: #071408;
     }
 
     .links {
@@ -99,8 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .links a {
       color: #d4af37;
       text-decoration: none;
-      display: block;
-      margin: 5px 0;
     }
 
     .links a:hover {
@@ -155,15 +147,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <div class="login-container">
-  <h2>User Login</h2>
+  <h2>Reset Password</h2>
   <form method="post">
     <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
+    <input type="password" name="new_password" placeholder="New Password" required>
+    <button type="submit">Reset</button>
   </form>
   <div class="links">
-    <a href="register.php">Register</a>
-    <a href="reset_password.php">Forgot Password?</a>
+    <a href="login.php">Back to Login</a>
   </div>
 </div>
 
